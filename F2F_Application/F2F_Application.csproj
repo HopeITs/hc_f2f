@@ -1,0 +1,748 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC2C88DB-6275-473C-8CEE-D5EC72FEFB89}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>F2F_Application</RootNamespace>
+    <AssemblyName>F2F2023_Application</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdvancedDataGridView, Version=1.2.29301.14, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DG.AdvancedDataGridView.1.2.29301.14\lib\net40\AdvancedDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="AlphaBlendTextBox, Version=1.0.4296.30907, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Alphablendtextbox\AlphaBlendTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="CheckComboBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.CheckComboBox.1.0.0\lib\CheckComboBox.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.104.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.104.2\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML.Parser, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1d5f7376574c51ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.Parser.1.3.0\lib\netstandard2.0\ClosedXML.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.3.1.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml.Framework, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.Framework.3.1.1\lib\net46\DocumentFormat.OpenXml.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=7.4.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.7.4.2\lib\net35\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net35\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net35\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Presentation.1.7.5\lib\net40\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Presentation.1.7.5\lib\net40\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="JacksiroKe.MdiTabCtrl, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MdiTabCtrl.1.0.0.1\lib\net40\JacksiroKe.MdiTabCtrl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.6.0.0\lib\netstandard2.0\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Users\chris\OneDrive\Desktop\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.12\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlBackup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySqlBackup.1.0.1\lib\MySqlBackup.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.5.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\chris\OneDrive\Desktop\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>C:\Users\chris\OneDrive\Desktop\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PreviewHandlers">
+      <HintPath>..\..\..\PreviewHandlers3\PreviewHandlers\bin\Debug\PreviewHandlers.exe</HintPath>
+    </Reference>
+    <Reference Include="RBush, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RBush.4.0.0\lib\netstandard2.0\RBush.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.9.0\lib\netstandard2.0\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\lib\net46\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.118.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.118.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddVisits_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddVisits_Form.Designer.cs">
+      <DependentUpon>AddVisits_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Categories_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categories_Form.Designer.cs">
+      <DependentUpon>Categories_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Report.cs" />
+    <Compile Include="Classes\Distribution.cs" />
+    <Compile Include="Classes\Family.cs" />
+    <Compile Include="Classes\Categories.cs" />
+    <Compile Include="Classes\Financial.cs" />
+    <Compile Include="Classes\Log.cs" />
+    <Compile Include="Classes\OpenedForms.cs" />
+    <Compile Include="Classes\Partner.cs" />
+    <Compile Include="Classes\Person.cs" />
+    <Compile Include="Classes\PreviewHandlerHost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\Search.cs" />
+    <Compile Include="Classes\Statistics.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\Visitor.cs" />
+    <Compile Include="Classes\Visits.cs" />
+    <Compile Include="Discrimination_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Discrimination_Form.Designer.cs">
+      <DependentUpon>Discrimination_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DistribtionAgeGender_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DistribtionAgeGender_Form.Designer.cs">
+      <DependentUpon>DistribtionAgeGender_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DistributionDiffer_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DistributionDiffer_Form.Designer.cs">
+      <DependentUpon>DistributionDiffer_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Distribution_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Distribution_Form.Designer.cs">
+      <DependentUpon>Distribution_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Family_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Family_Form.Designer.cs">
+      <DependentUpon>Family_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Family_Map.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Family_Map.Designer.cs">
+      <DependentUpon>Family_Map.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Family_Marks_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Family_Marks_Form.Designer.cs">
+      <DependentUpon>Family_Marks_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="History_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="History_Form.Designer.cs">
+      <DependentUpon>History_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login_Form.Designer.cs">
+      <DependentUpon>Login_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Log_Form.Designer.cs">
+      <DependentUpon>Log_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Form.Designer.cs">
+      <DependentUpon>Main_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarksChart_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarksChart_Form.Designer.cs">
+      <DependentUpon>MarksChart_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Move_Person_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Move_Person_Form.Designer.cs">
+      <DependentUpon>Move_Person_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeedBack_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedBack_Form.Designer.cs">
+      <DependentUpon>FeedBack_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MySQLQueryExecutor.cs" />
+    <Compile Include="News_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="News_Form.Designer.cs">
+      <DependentUpon>News_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Partner_Distribution_Edit_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Partner_Distribution_Edit_Form.Designer.cs">
+      <DependentUpon>Partner_Distribution_Edit_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Partner_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Partner_Form.Designer.cs">
+      <DependentUpon>Partner_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Partner_Distribution_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Partner_Distribution_Form.Designer.cs">
+      <DependentUpon>Partner_Distribution_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Partner_Distribution_Date_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Partner_Distribution_Date_Form.Designer.cs">
+      <DependentUpon>Partner_Distribution_Date_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Person_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Person_Form.Designer.cs">
+      <DependentUpon>Person_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_Form.Designer.cs">
+      <DependentUpon>Report_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schedule_Form.Designer.cs">
+      <DependentUpon>Schedule_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search_Form.Designer.cs">
+      <DependentUpon>Search_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search_Visit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search_Visit.Designer.cs">
+      <DependentUpon>Search_Visit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SegmentsGroup_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SegmentsGroup_Form.Designer.cs">
+      <DependentUpon>SegmentsGroup_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Signitaure_List_Edit_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Signitaure_List_Edit_Form.Designer.cs">
+      <DependentUpon>Signitaure_List_Edit_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Signitaure_List_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Signitaure_List_Form.Designer.cs">
+      <DependentUpon>Signitaure_List_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Statistics_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistics_Form.Designer.cs">
+      <DependentUpon>Statistics_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users_Statistic_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users_Statistic_Form.Designer.cs">
+      <DependentUpon>Users_Statistic_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User_Form.Designer.cs">
+      <DependentUpon>User_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visitor_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visitor_Form.Designer.cs">
+      <DependentUpon>Visitor_Form.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddVisits_Form.resx">
+      <DependentUpon>AddVisits_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Categories_Form.resx">
+      <DependentUpon>Categories_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Discrimination_Form.resx">
+      <DependentUpon>Discrimination_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DistribtionAgeGender_Form.resx">
+      <DependentUpon>DistribtionAgeGender_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DistributionDiffer_Form.resx">
+      <DependentUpon>DistributionDiffer_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Distribution_Form.resx">
+      <DependentUpon>Distribution_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Family_Form.resx">
+      <DependentUpon>Family_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Family_Map.resx">
+      <DependentUpon>Family_Map.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Family_Marks_Form.resx">
+      <DependentUpon>Family_Marks_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="History_Form.resx">
+      <DependentUpon>History_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login_Form.resx">
+      <DependentUpon>Login_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Log_Form.resx">
+      <DependentUpon>Log_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Form.resx">
+      <DependentUpon>Main_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarksChart_Form.resx">
+      <DependentUpon>MarksChart_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Move_Person_Form.resx">
+      <DependentUpon>Move_Person_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedBack_Form.resx">
+      <DependentUpon>FeedBack_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="News_Form.resx">
+      <DependentUpon>News_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Partner_Distribution_Edit_Form.resx">
+      <DependentUpon>Partner_Distribution_Edit_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Partner_Form.resx">
+      <DependentUpon>Partner_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Form.resx">
+      <DependentUpon>Report_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search_Visit.resx">
+      <DependentUpon>Search_Visit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SegmentsGroup_Form.resx">
+      <DependentUpon>SegmentsGroup_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Partner_Distribution_Form.resx">
+      <DependentUpon>Partner_Distribution_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Partner_Distribution_Date_Form.resx">
+      <DependentUpon>Partner_Distribution_Date_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Person_Form.resx">
+      <DependentUpon>Person_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Schedule_Form.resx">
+      <DependentUpon>Schedule_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search_Form.resx">
+      <DependentUpon>Search_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Signitaure_List_Edit_Form.resx">
+      <DependentUpon>Signitaure_List_Edit_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Signitaure_List_Form.resx">
+      <DependentUpon>Signitaure_List_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistics_Form.resx">
+      <DependentUpon>Statistics_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users_Statistic_Form.resx">
+      <DependentUpon>Users_Statistic_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Form.resx">
+      <DependentUpon>User_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visitor_Form.resx">
+      <DependentUpon>Visitor_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Updates.rtf" />
+    <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_J.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled %2850x50%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list %2820x20%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list %2830x30%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-refresh-512-01.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-refresh-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\981563 %28100x100%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\981563.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1345470 %28100x100%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7894584.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exporrt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6296676_excel_microsoft_office_office365_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App Logo.ico" />
+    <None Include="Resources\statistics.png" />
+    <None Include="Resources\Group 22 %282%29.png" />
+    <None Include="Resources\X icon .png" />
+    <None Include="Resources\X icon.png" />
+    <None Include="Resources\family icon.png" />
+    <None Include="Resources\location icon.png" />
+    <None Include="Resources\Main2.jpg" />
+    <None Include="Resources\Main1.jpg" />
+    <None Include="Resources\X %2850%29 %2850%29.png" />
+    <None Include="Resources\Minus1.png" />
+    <None Include="Resources\Reset1.png" />
+    <None Include="Resources\Reset2.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\maximize_1.png" />
+    <None Include="Resources\maximize.png" />
+    <None Include="Resources\close_1.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\minimize_1.png" />
+    <None Include="Resources\Move.png" />
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\Add_1.png" />
+    <None Include="Resources\minimize.jpg" />
+    <None Include="Resources\close.jpg" />
+    <None Include="Resources\maximize.jpg" />
+    <None Include="Resources\5025245.png" />
+    <None Include="Resources\8179597.png" />
+    <None Include="Resources\5025236.png" />
+    <None Include="Resources\NewIdea1.png" />
+    <None Include="Resources\NewIdea2.png" />
+    <None Include="Resources\Default Profile.png" />
+    <None Include="Resources\Unknown_User.png" />
+    <None Include="Resources\Banner.png" />
+    <None Include="Resources\exit_1.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\Main2.png" />
+    <None Include="Resources\Main1.png" />
+    <None Include="Resources\Required .png" />
+    <None Include="Resources\Export_2.png" />
+    <None Include="Resources\Export_1.png" />
+    <None Include="Resources\Export_3.png" />
+    <None Include="Resources\list.png" />
+    <None Include="Resources\button2.png" />
+    <None Include="Resources\button1.png" />
+    <None Include="Resources\button3.png" />
+    <None Include="Resources\001Artboard-13.png" />
+    <None Include="Resources\001Artboard-13-copy-3.png" />
+    <None Include="Resources\Trash_Ls.png" />
+    <None Include="Resources\Trash_Small_L.png" />
+    <None Include="Resources\Trash_Small_LTrash_Small_L.png" />
+    <None Include="Resources\Reset_Filters_S.png" />
+    <None Include="Resources\Reset_Filters.png" />
+    <None Include="Resources\Plus_Sq_DB_S.png" />
+    <None Include="Resources\Plus_Sq_DB.png" />
+    <None Include="Resources\Lock_S.png" />
+    <None Include="Resources\Lock.png" />
+    <None Include="Resources\Exit_D_S.png" />
+    <None Include="Resources\Exit_D.png" />
+    <None Include="Resources\offline.png" />
+    <None Include="Resources\online.png" />
+    <None Include="Resources\Excel_S.png" />
+    <None Include="Resources\F2F Logo.png" />
+    <None Include="Resources\button3.1.png" />
+    <None Include="Resources\button2.1.png" />
+    <None Include="Resources\button1.1.png" />
+    <None Include="Resources\BackGround.png" />
+    <None Include="Resources\Login2.png" />
+    <None Include="Resources\Login1.png" />
+    <None Include="Resources\Login3.png" />
+    <None Include="Resources\Default_Profile.png" />
+    <None Include="Resources\HidePassword.png" />
+    <None Include="Resources\ShowPassword.png" />
+    <None Include="Resources\remember_me1.png" />
+    <None Include="Resources\remember_me2.png" />
+    <None Include="Resources\Log In 2.png" />
+    <None Include="Resources\Vector Smart Object copy 3.png" />
+    <None Include="Resources\LOGIN.png" />
+    <None Include="Resources\show_password_true.png" />
+    <None Include="Resources\show_password_false.png" />
+    <None Include="Resources\remember_me_false.png" />
+    <None Include="Resources\remember_me_true.png" />
+    <None Include="Resources\Log In 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Files\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
