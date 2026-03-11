@@ -1,4 +1,18 @@
+# User-specific files
 .vs/
-bin/
-bin/Debug
+.idea/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Dd]ebug*.*(x64|x86)/
+[Dd]ebug*/AssemblyInfo.cs
+[Dd]ebug*/DesignTime/
 obj/
+bin/
+packages/
