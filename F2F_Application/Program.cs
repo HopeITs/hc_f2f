@@ -150,5 +150,11 @@ namespace F2F_Application
             return Opened;
         }
 
+        // Helper method to clean strings
+        public static string CleanString(string input)
+        { 
+            // Trim and replace multiple spaces with single space
+            return System.Text.RegularExpressions.Regex.Replace(input.Trim(), @"\s+", " ");
+        }
     }
 }

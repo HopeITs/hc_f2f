@@ -1402,12 +1402,12 @@ namespace F2F_Application
                      || NationalityNumber != "" || Note != ""        || DOB != "" 
                      || Sex_ID != 0             || Nationality_ID != 0)
                     {
-                        General_Query += "UPDATE person set first_name = '" + FirstName 
-                            + "', father_name = '" + FatherName 
-                            + "', last_name = '" + LastName 
-                            + "', first_name_e = '" + EName
-                            + "', last_name_e = '" + ELastName 
-                            + "', father_name_e = '" + EFatherName 
+                        General_Query += "UPDATE person set first_name = '" + Program.CleanString(FirstName) 
+                            + "', father_name = '"   + Program.CleanString(FatherName) 
+                            + "', last_name = '"     + Program.CleanString(LastName)
+                            + "', first_name_e = '"  + Program.CleanString(EName)
+                            + "', last_name_e = '"   + Program.CleanString(ELastName) 
+                            + "', father_name_e = '" + Program.CleanString(EFatherName) 
                             + "', national_Number = '" + NationalityNumber 
                             + "', Note = '" + Note
                             + "', DOB = '" + DOB 
@@ -2966,8 +2966,6 @@ namespace F2F_Application
                             Get_Data();
                             p.Update_Person(Person_ID, FirstName_TextBox.Text, Family_ID
                                 , General_Query, Education_Query, Receiver_Query, Form_Name);
-                                //, Expenses_Query, Aid_Query, Military_Query, Visit_ID
-                                //, WorkExp_Query, MP_Query, Disease_Query, Needs_Query
                                 
                             MessageBox.Show("تم تعديل المعلومات بنجاح", "Confirmation");
                         }
@@ -3000,8 +2998,8 @@ namespace F2F_Application
                     if (!UpdateMode)
                     {
                         Person_ID = p.Insert_Person(Family_ID, Visit_ID
-                            , FirstName, FatherName, LastName
-                            , EName, EFatherName, ELastName
+                            , Program.CleanString(FirstName), Program.CleanString(FatherName) , Program.CleanString(LastName)
+                            , Program.CleanString(EName)    , Program.CleanString(EFatherName), Program.CleanString(ELastName)
                             , IsReciever, Relation_ID
                             , DOB, Sex_ID, Nationality_ID
                             , MaritalStatus_ID, NationalityNumber
@@ -3043,38 +3041,6 @@ namespace F2F_Application
                 }
                 if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
             }
-        }
-
-        private void test_Click(object sender, EventArgs e)
-        {
-            //Family f;
-            //Program.buildConnection();
-            //MySqlCommand sc = new MySqlCommand();
-            //string q = "Select id from family";
-            //sc.CommandText = q;
-            //sc.Connection = Program.MyConn;
-            //MySqlDataAdapter da = new MySqlDataAdapter(sc);
-            //DataSet ds = new DataSet();
-
-            //da.Fill(ds);
-            //Program.MyFirstConn.Close();
-            //foreach (DataRow dr in ds.Tables[0].Rows)
-            //{
-            //    int family_id = dr.Field<int>("id");
-            //    string Insert_Query = " INSERT INTO familymembersnumber (family_id, NumberOfBeneficiaries, NumberOfAllMembers, Note, date)"
-            //                           + " VALUES(" + family_id + ", " +
-            //                           "(SELECT COUNT(person.id) AS 'NumberOfBeneficiaries' FROM person left join personstate on personstate.id = person.personstate_id WHERE person.family_id = " + family_id + " and LOWER(personstate.type) = LOWER('Active')),"
-            //                           + "(SELECT COUNT(person.id) AS 'NumberOfAllMembers' FROM person WHERE person.family_id = " + family_id + "),"
-            //                           + "CONCAT('Person updated after Kobo '),DATE(NOW()));";
-            //    sc.CommandText = Insert_Query;
-            //    sc.Connection = Program.MyConn;
-            //    Program.MyConn.Close();
-            //    MySqlDataAdapter d = new MySqlDataAdapter(sc);
-            //    DataTable dt = new DataTable();
-
-            //    d.Fill(dt);
-            //    Program.MyFirstConn.Close();
-            //}
         }
 
         private void haswork_Yes_RadioButton_CheckedChanged(object sender, EventArgs e)
