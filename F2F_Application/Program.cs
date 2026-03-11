@@ -34,8 +34,7 @@ namespace F2F_Application
 
         public static string OnlineDataSource = "mysql.s807.sureserver.com";
         //public static string OfflineDataSource = "PC-ADMIN";
-        public static string OfflineDataSource = "PC-ADMIN";
-        //public static string OfflineDataSource = "localhost";
+        public static string OfflineDataSource = "localhost";
 
         public static string ConnectionString;
         public static MySqlConnection MyConn;
@@ -67,8 +66,8 @@ namespace F2F_Application
 
 
             //database = "hcsyria_f2f_test";
-            ConnectionString_Online = @"Server=" + OnlineDataSource + ";Port=3306;Database=" + database + ";Uid=hcfamily2family;Password=F2F2018Center;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;  Allow User Variables=True";
-            ConnectionString_Offline = @"server=" + OfflineDataSource + ";port=3306;username=jj;password=pp;database=" + database + ";Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600; Allow User Variables=True";
+            ConnectionString_Online  = @"Server="     + OnlineDataSource  + ";Port=3306;Database=" + database + ";Uid=hcfamily2family;Password=F2F2018Center;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;sslmode=disabled;";
+            ConnectionString_Offline = @"datasource=" + OfflineDataSource + ";port=3306;database=" + database + ";username=jj;password=pp                   ;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;sslmode=disabled;";
             if (Properties.Settings.Default.Online)  //online
                 ConnectionString = ConnectionString_Online;
             else         //offline
@@ -91,16 +90,7 @@ namespace F2F_Application
         }
 
         public static bool buildConnection()
-        {
-            /*
-            string host = "";
-            if (Properties.Settings.Default.Online)  //online
-                host = OnlineDataSource + ":3306";
-            else         //offline
-                host = OfflineDataSource;
-            */
-
-            //if (PingHost(host))
+        { 
             {
                 MyConn = new MySqlConnection(ConnectionString);
                 if (MyConn.State == System.Data.ConnectionState.Closed)
@@ -109,25 +99,11 @@ namespace F2F_Application
                     return true;
                 }
                 else return false;
-            }
-            //else
-            //{
-            //    throw new Exception("NoPing");
-            //}
+            } 
         }
 
         public static bool firstbuildConnection()
         {
-            /*
-            string host = "";
-            if (Properties.Settings.Default.Online)  //online
-                host = OnlineDataSource;
-            else         //offline
-                host = OfflineDataSource;
-            */
-
-            //if (PingHost(host))
-            //{
             try
             {
                 MyFirstConn = new MySqlConnection(ConnectionString);
@@ -143,34 +119,6 @@ namespace F2F_Application
                 return false;
             }
         }
-
-        /*
-        public static bool PingHost(string nameOrAddress)
-        {
-            bool pingable = false;
-            Ping pinger = null;
-
-            try
-            {
-                pinger = new Ping();
-                PingReply reply = pinger.Send(nameOrAddress, 1000);
-                pingable = reply.Status == IPStatus.Success;
-            }
-            catch (PingException)
-            {
-                // Discard PingExceptions and return false;
-            }
-            finally
-            {
-                if (pinger != null)
-                {
-                    pinger.Dispose();
-                }
-            }
-
-            return pingable;
-        }
-        */
 
         public static void DoubleBuffered(this DataGridView dgv, bool setting)
         {

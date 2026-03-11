@@ -1,0 +1,393 @@
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Data;
+using System.Text.RegularExpressions;
+
+namespace F2F_Application.Classes
+{
+    class Person
+    {
+        string query, log_query;
+        //MySqlCommand sc;
+
+        public int Insert_Person(int Family_ID, string Name, string FatherName, string LastName, string EName, string EFatherName, string ELastName, string NationalityNumber, string Note, string DOB,
+            int IsEducated, int IsStudent, int Sex_ID, int Nationality_ID, int MaritalStatus_ID, int Relation_ID, int State_ID, int IsReciever,
+            string WorkExp_Query, string Education_Query, string Disease_Query, string Form_Name)
+        {
+
+            //check connection//
+            Program.buildConnection();
+
+            MySqlCommand sc = new MySqlCommand();
+            sc.Parameters.AddWithValue("@Family_ID", Family_ID);
+            sc.Parameters.AddWithValue("@Name", Name);
+            sc.Parameters.AddWithValue("@FatherName", FatherName);
+            sc.Parameters.AddWithValue("@LastName", LastName);
+            sc.Parameters.AddWithValue("@EName", EName);
+            sc.Parameters.AddWithValue("@EFatherName", EFatherName);
+            sc.Parameters.AddWithValue("@ELastName", ELastName);
+            sc.Parameters.AddWithValue("@NationalityNumber", NationalityNumber);
+            sc.Parameters.AddWithValue("@Note", Note);
+            sc.Parameters.AddWithValue("@DOB", DOB);
+            sc.Parameters.AddWithValue("@IsEducated", IsEducated);
+            sc.Parameters.AddWithValue("@IsStudent", IsStudent);
+            sc.Parameters.AddWithValue("@Sex_ID", Sex_ID);
+            sc.Parameters.AddWithValue("@Nationality_ID", Nationality_ID);
+            sc.Parameters.AddWithValue("@MaritalStatus_ID", MaritalStatus_ID);
+            sc.Parameters.AddWithValue("@Relation_ID", Relation_ID);
+            sc.Parameters.AddWithValue("@State_ID", State_ID);
+            sc.Parameters.AddWithValue("@IsReciever", IsReciever);
+            sc.Parameters.AddWithValue("@Form_Name", Form_Name);
+
+            int Person_ID;
+
+            query = " START TRANSACTION;"
+                + " INSERT INTO person (first_Name, father_name, last_name, first_e_name, father_e_name, last_e_name,"
+                + "  national_Number, nationality_id, note, DOB_id, maritalstatus_id, sex_id, iseducated, isstudent)"
+                + " VALUES (trim(@Name), trim(@FatherName), trim(@LastName), trim(@EName), trim(@EFatherName), trim(@ELastName),"
+                + " trim(@NationalityNumber), @Nationality_ID, @Note,"
+                + " (SELECT id FROM calendar WHERE calendar.date = STR_TO_DATE(@DOB, '%d/%m/%Y')),"
+                + " @MaritalStatus_ID, @Sex_ID, @IsEducated, @IsStudent);"
+                + " SET @person_id = Last_Insert_ID();";
+
+            query += " INSERT INTO person_family (family_id, person_id, relation_id, isReceiver) VALUES (@Family_ID, @person_id, @Relation_ID, @IsReciever);";
+
+            query += " INSERT INTO person_state (person_id, personstate_id, current_state, date_id) VALUES (@person_id, @State_ID, '1', (SELECT id FROM calendar WHERE calendar.date = DATE(NOW())));";
+
+            if (WorkExp_Query != "")
+                query += " INSERT INTO person_workexp (person_id, workExp_id, amount, workposition_id, workplace_id,  workfor_id, experience_id, Note) VALUES " + WorkExp_Query + ";";
+
+            if (Education_Query != "")
+                query += Education_Query;
+
+            if (Disease_Query != "")
+                query += " INSERT INTO person_disease (person_id, disease_id, Note) VALUES " + Disease_Query + ";";
+
+            query += " INSERT INTO familymembersnumber (family_id, NumberOfBeneficiaries, NumberOfAllMembers, Note, date_id) VALUES "
+                + " (@Family_ID, "
+                + " (SELECT COUNT(person_family.id) AS 'NumberOfBeneficiaries' FROM person_family JOIN person_state JOIN personstate on person_family.person_id = person_state.person_id and person_state.personstate_id = personstate.id WHERE person_family.family_id = @Family_ID and person_state.current_state = '1' and LOWER(personstate.type) = LOWER('Active')),"
+                + " (SELECT COUNT(person_family.id) AS 'NumberOfAllMembers' FROM person_family WHERE person_family.family_id = @Family_ID),"
+                + " CONCAT('New person added Name:', @Name, ' ', @LastName, 'ID: ', @person_id),"
+                + " (SELECT id FROM calendar WHERE calendar.date = DATE(NOW())));";
+
+            log_query = Regex.Replace(query, "'", "''");
+            foreach (MySqlParameter p in sc.Parameters)
+            {
+                log_query = Regex.Replace(log_query, p.ParameterName, p.Value == null ? "" : Regex.Replace(p.Value.ToString(), "'", "''"));
+            }
+
+            query += " INSERT INTO log (form_name, title, affected_id, details, additionaldetails, query, date, user) VALUES (@Form_Name, 'INSERT',  CONCAT('Person ID = ', @person_id), CONCAT('Person Name = ', @Name), CONCAT('Family ID = ', @Family_ID), '" + log_query + "', DATE(NOW()), '" + Properties.Settings.Default.Username + "');";
+
+            query += " SELECT @person_id;"
+                + " COMMIT;";
+
+            sc.CommandText = query;
+            sc.Connection = Program.MyConn;
+            Person_ID = Convert.ToInt32(sc.ExecuteScalar());
+            Program.MyConn.Close();
+
+            return Person_ID;
+        }
+
+        public void Update_Person(int Person_ID, string Person_Name, int Family_ID, string Name, string FatherName, string LastName, string EName, string EFatherName, string ELastName, string NationalityNumber, string Note, string DOB,
+            int IsEducated, int IsStudent, int Sex_ID, int Nationality_ID, int MaritalStatus_ID, int Relation_ID, int State_ID, int IsReciever, string State_Note,
+            string WorkExp_Query, string Education_Query, string Disease_Query, string Form_Name)
+        {
+            //check connection//
+            Program.buildConnection();
+
+            MySqlCommand sc = new MySqlCommand();
+            sc.Parameters.AddWithValue("@Person_ID", Person_ID);
+            sc.Parameters.AddWithValue("@Person_Name", Person_Name); //To be used in log
+            sc.Parameters.AddWithValue("@Family_ID", Family_ID);
+            sc.Parameters.AddWithValue("@Name", Name);
+            sc.Parameters.AddWithValue("@FatherName", FatherName);
+            sc.Parameters.AddWithValue("@LastName", LastName);
+            sc.Parameters.AddWithValue("@EName", EName);
+            sc.Parameters.AddWithValue("@EFatherName", EFatherName);
+            sc.Parameters.AddWithValue("@ELastName", ELastName);
+            sc.Parameters.AddWithValue("@NationalityNumber", NationalityNumber);
+            sc.Parameters.AddWithValue("@Note", Note);
+            sc.Parameters.AddWithValue("@DOB", DOB);
+            sc.Parameters.AddWithValue("@IsEducated", IsEducated);
+            sc.Parameters.AddWithValue("@IsStudent", IsStudent);
+            sc.Parameters.AddWithValue("@Sex_ID", Sex_ID);
+            sc.Parameters.AddWithValue("@Nationality_ID", Nationality_ID);
+            sc.Parameters.AddWithValue("@MaritalStatus_ID", MaritalStatus_ID);
+            sc.Parameters.AddWithValue("@Relation_ID", Relation_ID);
+            sc.Parameters.AddWithValue("@State_ID", State_ID);
+            sc.Parameters.AddWithValue("@IsReciever", IsReciever);
+            sc.Parameters.AddWithValue("@State_Note", State_Note);
+            sc.Parameters.AddWithValue("@Form_Name", Form_Name);
+
+            query = " START TRANSACTION;";
+
+            if (Name != "" || FatherName != "" || LastName != "" || EName != "" || EFatherName != "" || ELastName != ""
+                || NationalityNumber != "" || Note != "" || DOB != ""
+                || Sex_ID != -1 || Nationality_ID != -1 || MaritalStatus_ID != -1)
+            {
+                query += "UPDATE person SET first_Name = @Name, father_name = @FatherName, last_name = @LastName,"
+                    + " first_e_name = @EName, father_e_name = @EFatherName, last_e_name = @ELastName,"
+                    + " national_Number = @NationalityNumber, note = @Note, nationality_id = @Nationality_ID,"
+                    + " DOB_id = (SELECT id FROM calendar WHERE date = STR_TO_DATE(@DOB, '%d/%m/%Y')),"
+                    + " maritalstatus_id = @MaritalStatus_ID, sex_id = @Sex_ID"
+                    + " WHERE id = @Person_ID;";
+            }
+            if (IsEducated != -1)
+            {
+                query += "UPDATE person SET iseducated = @IsEducated WHERE id = @Person_ID;";
+            }
+            if (IsStudent != -1)
+            {
+                query += "UPDATE person SET isstudent = @IsStudent WHERE id = @Person_ID;";
+            }
+            if (IsReciever != -1 || State_ID != -1 || Relation_ID != -1)
+            {
+                query += "UPDATE person_family SET IsReceiver = @IsReciever WHERE person_id = @Person_ID;";
+                query += "UPDATE person_family SET relation_id = @Relation_ID WHERE person_id = @Person_ID;";
+                query += "UPDATE person_state SET current_state = '0' WHERE person_id = @Person_ID;";
+                query += "INSERT INTO person_state (person_id, personstate_id, State_Note, current_state, date_id) VALUES (@Person_ID, @State_ID, @State_Note, '1', (SELECT id FROM calendar WHERE calendar.date = DATE(NOW())));";
+                query += " INSERT INTO familymembersnumber (family_id, NumberOfBeneficiaries, NumberOfAllMembers, Note, date_id) VALUES "
+                    + " (@Family_ID, "
+                    + " (SELECT COUNT(person_family.id) AS 'NumberOfBeneficiaries' FROM person_family JOIN person_state JOIN personstate on person_family.person_id = person_state.person_id and person_state.personstate_id = personstate.id WHERE person_family.family_id = @Family_ID and person_state.current_state = '1' and LOWER(personstate.type) = LOWER('Active')),"
+                    + " (SELECT COUNT(person_family.id) AS 'NumberOfAllMembers' FROM person_family WHERE person_family.family_id = @Family_ID),"
+                    + " CONCAT('Person state updated Person_ID: ', @Person_ID),"
+                    + " (SELECT id FROM calendar WHERE calendar.date = DATE(NOW())));";
+
+            }
+            if (WorkExp_Query != "")
+            {
+                query += WorkExp_Query;
+            }
+            if (Education_Query != "")
+            {
+                query += Education_Query;
+            }
+            if (Disease_Query != "")
+            {
+                query += Disease_Query;
+            }
+
+            log_query = Regex.Replace(query, "'", "''");
+            foreach (MySqlParameter p in sc.Parameters)
+            {
+                log_query = Regex.Replace(log_query, p.ParameterName, p.Value == null ? "" : Regex.Replace(p.Value.ToString(), "'", "''"));
+            }
+
+            query += " INSERT INTO log (form_name, title, affected_id, details, additionaldetails, query, date, user) VALUES (@Form_Name, 'UPDATE', CONCAT('Person ID = ', @Person_ID), CONCAT('Person Name = ', @Person_Name), CONCAT('Family ID = ', @Family_ID) , '" + log_query + "', DATE(NOW()), '" + Properties.Settings.Default.Username + "');";
+
+            query += " COMMIT;";
+
+            sc.CommandText = query;
+            sc.Connection = Program.MyConn;
+            sc.ExecuteNonQuery();
+            Program.MyConn.Close();
+        }
+
+        public void Delete_Person(int Person_ID, string Person_Name, int Family_ID, string Form_Name)
+        {
+            //check connection//
+            Program.buildConnection();
+
+            MySqlCommand sc = new MySqlCommand();
+            sc.Parameters.AddWithValue("@Person_ID", Person_ID);
+            sc.Parameters.AddWithValue("@Person_Name", Person_Name);
+            sc.Parameters.AddWithValue("@Family_ID", Family_ID);
+            sc.Parameters.AddWithValue("@Form_Name", Form_Name);
+
+
+            query = " START TRANSACTION;";
+            query += "DELETE FROM person WHERE id = @Person_ID;";
+            query += " INSERT INTO familymembersnumber (family_id, NumberOfBeneficiaries, NumberOfAllMembers, Note, date_id) VALUES "
+                    + " (@Family_ID, "
+                    + " (SELECT COUNT(person_family.id) AS 'NumberOfBeneficiaries' FROM person_family JOIN person_state JOIN personstate on person_family.person_id = person_state.person_id and person_state.personstate_id = personstate.id WHERE person_family.family_id = @Family_ID and person_state.current_state = '1' and LOWER(personstate.type) = LOWER('Active')),"
+                    + " (SELECT COUNT(person_family.id) AS 'NumberOfAllMembers' FROM person_family WHERE person_family.family_id = @Family_ID),"
+                    + " CONCAT('Person Deleted Person_ID: ', @Person_ID),"
+                    + " (SELECT id FROM calendar WHERE calendar.date = DATE(NOW())));";
+
+            log_query = Regex.Replace(query, "'", "''");
+            foreach (MySqlParameter p in sc.Parameters)
+            {
+                log_query = Regex.Replace(log_query, p.ParameterName, p.Value == null ? "" : Regex.Replace(p.Value.ToString(), "'", "''"));
+            }
+
+            query += " INSERT INTO log (form_name, title, affected_id, details, additionaldetails, query, date, user) VALUES (@Form_Name, 'DELETE', CONCAT('Person ID = ', @Person_ID), CONCAT('Person Name = ', @Person_Name), CONCAT('Family ID = ', @Family_ID) , '" + log_query + "', DATE(NOW()), '" + Properties.Settings.Default.Username + "');";
+            query += " COMMIT;";
+
+            sc.CommandText = query;
+            sc.Connection = Program.MyConn;
+            sc.ExecuteNonQuery();
+            Program.MyConn.Close();
+        }
+
+        public DataSet Get_Person(int Person_ID)
+        {
+            //check connection//
+            Program.buildConnection();
+
+            MySqlCommand sc = new MySqlCommand();
+            sc.Parameters.AddWithValue("@Person_ID", Person_ID);
+
+            query = "SELECT person.*, family.code as 'code', calendar.date as 'DOB',"
+                + " person_family.relation_id as 'relation_id', person_family.IsReceiver as 'IsReceiver', person_state.personstate_id as 'personstate_id', person_state.State_Note as 'State_Note', personstate.Name as 'personstate'"
+                + " FROM person LEFT JOIN person_family on person.id = person_family.person_id"
+                + " LEFT JOIN family on person_family.family_id = family.id"
+                + " LEFT JOIN calendar on calendar.id = person.DOB_id"
+                + " LEFT JOIN person_state on person.id = person_state.person_id"
+                + " LEFT JOIN personstate ON person_state.personstate_id = personstate.id"
+                + " WHERE person.id = @Person_ID and person_state.current_state = '1';";
+
+            query += "SELECT * FROM person_workexp WHERE person_id = @Person_ID;";
+
+            query += "SELECT * FROM person_education WHERE person_id = @Person_ID;";
+
+            query += "SELECT person_disease.*, diseasecategory.id as 'diseasecategory_id' FROM person_disease LEFT JOIN disease  ON person_disease.disease_id = disease.id LEFT JOIN diseasecategory ON disease.diseasecategory_id = diseasecategory.id WHERE person_id = @Person_ID;";
+
+
+            sc.CommandText = query;
+            sc.Connection = Program.MyConn;
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sc);
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+            Program.MyFirstConn.Close();
+
+            return ds;
+        }
+
+        public DataTable Get_PersonState_History(int Person_ID)
+        {
+            //check connection//
+            Program.buildConnection();
+
+            MySqlCommand sc = new MySqlCommand();
+            sc.Parameters.AddWithValue("@Person_ID", Person_ID);
+
+            query = "SELECT CONCAT(person.first_Name , ' ' , person.last_name) as 'الاسم', personstate.name as 'الحالة', person_state.State_Note as 'ملاحظات', calendar.date as 'تاريخ التعديل'"
+                + " FROM person_state LEFT JOIN person ON person_state.person_id = person.id"
+                + " LEFT JOIN personstate ON person_state.personstate_id = personstate.id"
+                + " LEFT JOIN calendar ON person_state.date_id = calendar.id "
+                + " WHERE person.id = @Person_ID ORDER by person_state.date_id;";
+
+            sc.CommandText = query;
+            sc.Connection = Program.MyConn;
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sc);
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+            Program.MyFirstConn.Close();
+
+            return dt;
+        }
+
+        public DataTable Check_Nationality_Number(string NationalityNumber, int Person_ID)
+        {
+            //check connection//
+            Program.buildConnection();
+
+            MySqlCommand sc = new MySqlCommand();
+            sc.Parameters.AddWithValue("@NationalityNumber", NationalityNumber);
+            sc.Parameters.AddWithValue("@NationalityNumberNoZeros", NationalityNumber.TrimStart(new Char[] { '0' }));
+            sc.Parameters.AddWithValue("@Person_ID", Person_ID);
+
+
+            query = "SELECT Concat(first_Name ,' ', father_name, ' ', last_name) as 'Name', person_family.family_id as 'Family_ID' FROM person join person_family on person.id = person_family.person_id WHERE (national_Number = @NationalityNumber or national_Number = @NationalityNumberNoZeros)";
+
+            if (Person_ID != -1)
+            {
+                query += " and person.id <> @Person_ID";
+            }
+
+            sc.CommandText = query;
+            sc.Connection = Program.MyConn;
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sc);
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+            if (dt.Rows.Count < 1)
+                dt = null;
+
+            Program.MyConn.Close();
+            return dt;
+        }
+
+        public DataTable Check_Receiver(int Family_ID, int Person_ID)
+        {
+            //check connection//
+            Program.buildConnection();
+
+            MySqlCommand sc = new MySqlCommand();
+            sc.Parameters.AddWithValue("@Family_ID", Family_ID);
+            sc.Parameters.AddWithValue("@Person_ID", Person_ID);
+
+            query = "SELECT Concat(first_Name ,' ', father_name, ' ', father_name) as 'Name' FROM person JOIN person_family ON person_family.person_id = person.id WHERE person_family.family_id = @Family_ID and person_family.IsReceiver = '1'";
+
+            if (Person_ID != -1)
+            {
+                query += " and person.id <> @Person_ID";
+            }
+            sc.CommandText = query;
+            sc.Connection = Program.MyConn;
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sc);
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+            if (dt.Rows.Count < 1)
+                dt = null;
+
+            Program.MyConn.Close();
+            return dt;
+        }
+
+        public void Move_Person(int PersonID, string PersonName, int OldFamilyID, string OldFamilyCode, int NewFamilyID, string NewFamilyCode, string Form_Name)
+        {
+            //check connection//
+            Program.buildConnection();
+
+            MySqlCommand sc = new MySqlCommand();
+            sc.Parameters.AddWithValue("@PersonID", PersonID);
+            sc.Parameters.AddWithValue("@PersonName", PersonName);
+            sc.Parameters.AddWithValue("@OldFamilyID", OldFamilyID);
+            sc.Parameters.AddWithValue("@OldFamilyCode", OldFamilyCode);
+            sc.Parameters.AddWithValue("@NewFamilyID", NewFamilyID);
+            sc.Parameters.AddWithValue("@NewFamilyCode", NewFamilyCode);
+            sc.Parameters.AddWithValue("@Form_Name", Form_Name);
+
+
+            query = " START TRANSACTION;";
+            query += "UPDATE person_family SET person_family.family_id = @NewFamilyID WHERE person_family.person_id = @PersonID AND person_family.family_id = @OldFamilyID;";
+
+            query += " INSERT INTO familymembersnumber (family_id, NumberOfBeneficiaries, NumberOfAllMembers, Note, date_id) VALUES "
+                + " (@OldFamilyID, "
+                + " (SELECT COUNT(person_family.id) AS 'NumberOfBeneficiaries' FROM person_family JOIN person_state JOIN personstate on person_family.person_id = person_state.person_id and person_state.personstate_id = personstate.id WHERE person_family.family_id = @OldFamilyID and person_state.current_state = '1' and LOWER(personstate.type) = LOWER('Active')),"
+                + " (SELECT COUNT(person_family.id) AS 'NumberOfAllMembers' FROM person_family WHERE person_family.family_id = @OldFamilyID),"
+                + " CONCAT('Person Moved Name:', @PersonName,' to family ', @NewFamilyCode),"
+                + " (SELECT id FROM calendar WHERE calendar.date = DATE(NOW())));";
+
+            query += " INSERT INTO familymembersnumber (family_id, NumberOfBeneficiaries, NumberOfAllMembers, Note, date_id) VALUES "
+                + " (@NewFamilyID, "
+                + " (SELECT COUNT(person_family.id) AS 'NumberOfBeneficiaries' FROM person_family JOIN person_state JOIN personstate on person_family.person_id = person_state.person_id and person_state.personstate_id = personstate.id WHERE person_family.family_id = @NewFamilyID and person_state.current_state = '1' and LOWER(personstate.type) = LOWER('Active')),"
+                + " (SELECT COUNT(person_family.id) AS 'NumberOfAllMembers' FROM person_family WHERE person_family.family_id = @NewFamilyID),"
+                + " CONCAT('Person Moved Name:', @PersonName, ' from family ', @OldFamilyCode),"
+                + " (SELECT id FROM calendar WHERE calendar.date = DATE(NOW())));";
+
+            log_query = Regex.Replace(query, "'", "''");
+            foreach (MySqlParameter p in sc.Parameters)
+            {
+                log_query = Regex.Replace(log_query, p.ParameterName, p.Value == null ? "" : Regex.Replace(p.Value.ToString(), "'", "''"));
+            }
+
+            query += " INSERT INTO log (form_name, title, affected_id, details, additionaldetails, query, date, user) VALUES (@Form_Name, 'MOVE', CONCAT('Person ID = ', @PersonID), CONCAT('Person Name = ', @PersonName), CONCAT('Moved From Family ID = ', @OldFamilyID, ' - To Family ID = ', @NewFamilyID) , '" + log_query + "', DATE(NOW()), '" + Properties.Settings.Default.Username + "');";
+            query += " COMMIT;";
+
+            sc.CommandText = query;
+            sc.Connection = Program.MyConn;
+            sc.ExecuteNonQuery();
+            Program.MyConn.Close();
+        }
+    }
+}
