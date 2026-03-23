@@ -81,10 +81,10 @@ namespace F2F_Application
             , LivingWithNote2, home_description, Expenses_10,
              ElectricityNote, NoteAid_11, NoteAid_19, NoteAid_20, NoteAid_12, NoteAid_17_home, NoteAid_16_home,
             income_address_12;
-        decimal LocationLatitude, LocationLongtitude;
+        decimal LocationLatitude, LocationLongtitude, AmperNumber_7_Home, AmperNumber_17_Home;
         int Visit_ID, EntredBy, EntredBy2, Visitor1, Visitor2, RoomsNumber, PDM, PVM, Complaint, Approved, Parish_ID, Street_ID, IsDisplaced_ID, HomeType_ID, ExpensesAmount_10, aidamount_11, aidamount_20, aidamount_19, NumberOfAllMembers, Floor, BuildingNumber, expenses_amount_6_12_home, ExpensesAmount_2_Home, ExpensesAmount_3, ExpensesAmount_21, ExpensesAmount_19, ExpensesAmount_22,
-            ExpensesAmount_20, ExpensesAmount_11, HeirsNumber, aidamount_5_3_home, expenses_amount_7_Home, AmperNumber_7_Home,
-            aidamount_4, aidsource_4, aidperiod_4, aidsource_16, aidperiod_16, SellingFurniture_type_1, SellingFurniture_type_2, AmperNumber_17_Home, aidamount_16, aidamount_14, aidamount_12, aidamount_17_Home, aidamount_16_Home,
+            ExpensesAmount_20, ExpensesAmount_11, HeirsNumber, aidamount_5_3_home, expenses_amount_7_Home, 
+            aidamount_4, aidsource_4, aidperiod_4, aidsource_16, aidperiod_16, SellingFurniture_type_1, SellingFurniture_type_2, aidamount_16, aidamount_14, aidamount_12, aidamount_17_Home, aidamount_16_Home,
             Expenses_1, expensestype_6_12_home_ID, ParishHomeID, aidsource_5_3_home_ID, aidperiod_5_3_home_ID, Beds_ID, LivingRoom_ID, LivingWithFamily, InEvaluation, HeatingCooling_1, HeatingCooling_2, HeatingCooling_3, HeatingCooling_4;
         int? Income_11, Expenses_7_Home, Expenses_17_Home, Expenses_16_Home, Electricity, LivingWithCode, LivingWithCode2, SellingFurniture, ElectricalDevices_1, ElectricalDevices_2, ElectricalDevices_3, BuildingCond_1, BuildingCond_2, BuildingCond_3, BuildingCond_5, BuildingCond_8,
             aidsource_11, aidsource_20, aidsource_19, aidsource_14, aidsource_12, aidsource_16_Home, aidsource_17_Home,
@@ -519,9 +519,11 @@ namespace F2F_Application
             ApprovalDate = PDMBy = PDMDate = PVMBy = PVMDate = LivingWithNote2 = home_description = ElectricityNote = NoteAid_11 = NoteAid_19 = NoteAid_20 = NoteAid_12 = NoteAid_17_home = NoteAid_16_home =
             income_address_12 = Expenses_10 = "";
 
+            AmperNumber_7_Home = AmperNumber_17_Home = -1;
+            
             Visitor1 = Visitor2 = EntredBy = EntredBy2 = RoomsNumber = PDM = PVM = Complaint = Approved = Parish_ID = Street_ID = IsDisplaced_ID = HomeType_ID = ExpensesAmount_10 = aidamount_11 = aidamount_20 = aidamount_19 = NumberOfAllMembers = Floor = BuildingNumber = expenses_amount_6_12_home = ExpensesAmount_2_Home = ExpensesAmount_3 = ExpensesAmount_21 = ExpensesAmount_19 = ExpensesAmount_22 =
-            ExpensesAmount_20 = ExpensesAmount_11 = HeirsNumber = aidamount_5_3_home = expenses_amount_7_Home = AmperNumber_7_Home =
-            aidamount_4 = aidsource_4 = aidperiod_4 = aidsource_16 = aidperiod_16 = SellingFurniture_type_1 = SellingFurniture_type_2 = AmperNumber_17_Home = aidamount_16 = aidamount_14 = aidamount_12 = aidamount_17_Home = aidamount_16_Home =
+            ExpensesAmount_20 = ExpensesAmount_11 = HeirsNumber = aidamount_5_3_home = expenses_amount_7_Home = 
+            aidamount_4 = aidsource_4 = aidperiod_4 = aidsource_16 = aidperiod_16 = SellingFurniture_type_1 = SellingFurniture_type_2 =  aidamount_16 = aidamount_14 = aidamount_12 = aidamount_17_Home = aidamount_16_Home =
             Expenses_1 = expensestype_6_12_home_ID = ParishHomeID = aidsource_5_3_home_ID = aidperiod_5_3_home_ID = Beds_ID = LivingRoom_ID = LivingWithFamily = InEvaluation = HeatingCooling_1 = HeatingCooling_2 = HeatingCooling_3 = HeatingCooling_4;
             Income_11 = Expenses_7_Home = Expenses_17_Home = Expenses_16_Home = Electricity = LivingWithCode = LivingWithCode2 = SellingFurniture = ElectricalDevices_1 = ElectricalDevices_2 = ElectricalDevices_3 = BuildingCond_1 = BuildingCond_2 = BuildingCond_3 = BuildingCond_5 = BuildingCond_8 =
             aidsource_11 = aidsource_20 = aidsource_19 = aidsource_14 = aidsource_12 = aidsource_16_Home = aidsource_17_Home =
@@ -1465,7 +1467,7 @@ namespace F2F_Application
                 {
                     Expenses_7_Home = 1;
                     expenses_amount_7_Home = expenses_amount_7_Home_TextBox.Text == "" ? 0 : int.Parse(expenses_amount_7_Home_TextBox.Text);
-                    AmperNumber_7_Home = AmperNumber_7_Home_TextBox.Text == "" ? 0 : int.Parse(AmperNumber_7_Home_TextBox.Text);
+                    AmperNumber_7_Home = AmperNumber_7_Home_TextBox.Text == "" ? 0 : decimal.Parse(AmperNumber_7_Home_TextBox.Text);
                     if (int.Parse(aidsource_4_ComboBox.SelectedValue.ToString()) == null)
                         aidsource_4 = 0;
                     else aidsource_4 = int.Parse(aidsource_4_ComboBox.SelectedValue.ToString());
@@ -1490,7 +1492,7 @@ namespace F2F_Application
                     Expenses_17_Home = 1;
                     if (AmperNumber_17_Home_TextBox.Text == "")
                         AmperNumber_17_Home = 0;
-                    else AmperNumber_17_Home = int.Parse(AmperNumber_17_Home_TextBox.Text.ToString());
+                    else AmperNumber_17_Home = decimal.Parse(AmperNumber_17_Home_TextBox.Text.ToString());
                     if (aidsource_16_ComboBox.SelectedValue == null)
                         aidsource_16 = 0;
                     else aidsource_16 = int.Parse(aidsource_16_ComboBox.SelectedValue.ToString());
@@ -2306,7 +2308,7 @@ namespace F2F_Application
                     {
                         Expenses_7_Home = 1;
                         expenses_amount_7_Home = expenses_amount_7_Home_TextBox.Text == "" ? 0 : int.Parse(expenses_amount_7_Home_TextBox.Text);
-                        AmperNumber_7_Home = AmperNumber_7_Home_TextBox.Text == "" ? 0 : int.Parse(AmperNumber_7_Home_TextBox.Text);
+                        AmperNumber_7_Home = AmperNumber_7_Home_TextBox.Text == "" ? 0 : decimal.Parse(AmperNumber_7_Home_TextBox.Text);
                         if (int.Parse(aidsource_4_ComboBox.SelectedValue.ToString()) == null)
                             aidsource_4 = 0;
                         else aidsource_4 = int.Parse(aidsource_4_ComboBox.SelectedValue.ToString());
@@ -2330,7 +2332,7 @@ namespace F2F_Application
                         Expenses_17_Home = 1;
                         if (AmperNumber_17_Home_TextBox.Text == "")
                             AmperNumber_17_Home = 0;
-                        else AmperNumber_17_Home = int.Parse(AmperNumber_17_Home_TextBox.Text.ToString());
+                        else AmperNumber_17_Home = decimal.Parse(AmperNumber_17_Home_TextBox.Text.ToString());
                         if (aidsource_16_ComboBox.SelectedValue == null)
                             aidsource_16 = 0;
                         else aidsource_16 = int.Parse(aidsource_16_ComboBox.SelectedValue.ToString());
@@ -4349,9 +4351,9 @@ namespace F2F_Application
                 if (ds.Tables[9].Rows[0]["expenses_amount_7_home"] != DBNull.Value)
                     expenses_amount_7_Home_TextBox.Text = ds.Tables[9].Rows[0].Field<int>("expenses_amount_7_home").ToString();
                 if (ds.Tables[9].Rows[0]["amper_number_7_home"] != DBNull.Value)
-                    AmperNumber_7_Home_TextBox.Text = ds.Tables[9].Rows[0].Field<int>("amper_number_7_home").ToString();
+                    AmperNumber_7_Home_TextBox.Text = ds.Tables[9].Rows[0].Field<decimal>("amper_number_7_home").ToString();
                 if (ds.Tables[9].Rows[0]["amper_number_17_home"] != DBNull.Value)
-                    AmperNumber_17_Home_TextBox.Text = ds.Tables[9].Rows[0].Field<int>("amper_number_17_home").ToString();
+                    AmperNumber_17_Home_TextBox.Text = ds.Tables[9].Rows[0].Field<decimal>("amper_number_17_home").ToString();
                 if (ds.Tables[9].Rows[0]["aid_amount_4"] != DBNull.Value)
                     aidamount_4_TextBox.Text = ds.Tables[9].Rows[0].Field<int>("aid_amount_4").ToString();
                 if (ds.Tables[9].Rows[0]["aid_amount_16"] != DBNull.Value)
@@ -6295,20 +6297,30 @@ namespace F2F_Application
 
         private void AmperNumber_7_Home_TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
-                && (e.KeyChar != '/') && (e.KeyChar != '-') && (e.KeyChar != '+'))
-            {
-                e.Handled = true;
-            }
+            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+            //    && (e.KeyChar != '/') && (e.KeyChar != '-') && (e.KeyChar != '+'))
+            //{
+            //    e.Handled = true;
+            //}
+
+            // Allow decimal point (both . and , depending on culture) & Prevent multiple decimal points in the text
+            var c = e.KeyChar;
+            var t = (sender as TextBox).Text;
+            e.Handled = !char.IsControl(c) && !char.IsDigit(c) && !" -+/".Contains(c) && (c != '.' || t.Contains("."));
         }
 
         private void AmperNumber_17_Home_TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
-                && (e.KeyChar != '/') && (e.KeyChar != '-') && (e.KeyChar != '+'))
-            {
-                e.Handled = true;
-            }
+            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)
+            //    && (e.KeyChar != '/') && (e.KeyChar != '-') && (e.KeyChar != '+'))
+            //{
+            //    e.Handled = true;
+            //}
+
+            // Allow decimal point (both . and , depending on culture) & Prevent multiple decimal points in the text
+            var c = e.KeyChar;
+            var t = (sender as TextBox).Text;
+            e.Handled = !char.IsControl(c) && !char.IsDigit(c) && !" -+/".Contains(c) && (c != '.' || t.Contains("."));
         }
 
         private void aidamount_4_TextBox_KeyPress(object sender, KeyPressEventArgs e)
