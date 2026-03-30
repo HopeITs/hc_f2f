@@ -4716,8 +4716,10 @@ namespace F2F_Application
                     LivingWith_DataGridView.Rows.Add();
                     if (ds.Tables[11].Rows[i]["id"] != DBNull.Value)
                         LivingWith_DataGridView.Rows[i].Cells["Family_LivingWith_ID"].Value = ds.Tables[11].Rows[i].Field<int>("id");
-                    //if (ds.Tables[11].Rows[0]["code"] != DBNull.Value)
-                    //    LivingWith_DataGridView.Rows[i].Cells["Family_LivingWith_Code"].Value = ds.Tables[11].Rows[i].Field<string>("code");
+                    
+                    if (ds.Tables[11].Rows[0]["المستلم"] != DBNull.Value)
+                        LivingWith_DataGridView.Rows[i].Cells["family_Headofhousehold"].Value = ds.Tables[11].Rows[i].Field<string>("المستلم");
+                    
                     if (ds.Tables[11].Rows[i]["note"] != DBNull.Value)
                         LivingWith_DataGridView.Rows[i].Cells["Family_livingWith_Note"].Value = ds.Tables[11].Rows[i].Field<string>("note");
                     if (ds.Tables[11].Rows[i]["family_id"] != DBNull.Value)
