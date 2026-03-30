@@ -117,6 +117,8 @@ namespace F2F_Application
                 Search_DataGridView.DataSource = bs;
                 Search_DataGridView.ColumnHeadersVisible = true;
 
+                Search_DataGridView.Columns["رمز العائلة"].Frozen = true;
+                
                 Search_DataGridView.Columns["Family ID"].Visible = false;
                 Search_DataGridView.Columns["Family_Visit_ID"].Visible = false;
                 Search_DataGridView.Columns["عدد الأسرّة"].Visible = false;
@@ -978,7 +980,7 @@ namespace F2F_Application
 
         public void Set_Additional_Filters()
         {
-            Search_DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            Search_DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             splitContainer1.Panel1Collapsed = true;
             Add_Filters_PictureBox.Visible = false;
 

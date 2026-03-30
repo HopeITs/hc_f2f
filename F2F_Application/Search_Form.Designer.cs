@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Search_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.materialContextMenuStrip1 = new MaterialSkinPlus.Controls.MaterialContextMenuStrip();
             this.refreshToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,13 +46,18 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.NumOfSelected1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.Export_Exel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.Show_Hide_ToolStrip = new System.Windows.Forms.ToolStripSplitButton();
+            this.Hide_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Show_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.Family_RadioButton = new MaterialSkinPlus.Controls.MaterialRadioButton();
             this.Person_RadioButton = new MaterialSkinPlus.Controls.MaterialRadioButton();
             this.Partner_RadioButton = new MaterialSkinPlus.Controls.MaterialRadioButton();
+            this.Add_Filters_PictureBox = new System.Windows.Forms.PictureBox();
             this.Distribution_RadioButton = new MaterialSkinPlus.Controls.MaterialRadioButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NumOfSelected_ = new System.Windows.Forms.ToolStripLabel();
@@ -61,6 +66,8 @@
             this.Filter_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.AdditionalFiltersID_CheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.Clear_Filters_Button = new System.Windows.Forms.Button();
+            this.Apply_Filters_Button = new System.Windows.Forms.Button();
             this.AdditionalFilters_CheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.Filter2_ComboBox = new System.Windows.Forms.ComboBox();
             this.Filter1_ComboBox = new System.Windows.Forms.ComboBox();
@@ -71,19 +78,13 @@
             this.Filter_label = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.Top_Panel = new System.Windows.Forms.Panel();
-            this.Clear_Filters_Button = new System.Windows.Forms.Button();
-            this.Apply_Filters_Button = new System.Windows.Forms.Button();
-            this.Export_Exel = new System.Windows.Forms.ToolStripButton();
-            this.Show_Hide_ToolStrip = new System.Windows.Forms.ToolStripSplitButton();
-            this.Hide_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Show_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Add_Filters_PictureBox = new System.Windows.Forms.PictureBox();
             this.Search_TableLayoutPanel.SuspendLayout();
             this.materialContextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Search_DataGridView)).BeginInit();
             this.panel3.SuspendLayout();
             this.SearchToolBar.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Add_Filters_PictureBox)).BeginInit();
             this.Filter_TableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -91,7 +92,6 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.Top_Panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Add_Filters_PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Search_TableLayoutPanel
@@ -125,6 +125,8 @@
             this.Search_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
             this.Search_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
             this.Search_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.Search_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.Search_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.Search_TableLayoutPanel.Size = new System.Drawing.Size(812, 776);
             this.Search_TableLayoutPanel.TabIndex = 0;
             // 
@@ -158,56 +160,59 @@
             // 
             this.Search_DataGridView.AllowUserToAddRows = false;
             this.Search_DataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.Search_DataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.Search_DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.Search_DataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Search_DataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Search_DataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Search_DataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Search_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Search_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Search_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Search_TableLayoutPanel.SetColumnSpan(this.Search_DataGridView, 6);
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Search_DataGridView.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Search_DataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.Search_DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Search_DataGridView.EnableHeadersVisualStyles = false;
             this.Search_DataGridView.FilterAndSortEnabled = true;
+            this.Search_DataGridView.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
             this.Search_DataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.Search_DataGridView.Location = new System.Drawing.Point(4, 55);
             this.Search_DataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Search_DataGridView.MaxFilterButtonImageHeight = 23;
             this.Search_DataGridView.Name = "Search_DataGridView";
             this.Search_DataGridView.ReadOnly = true;
             this.Search_DataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Search_DataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Search_DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Search_DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.Search_DataGridView.RowHeadersWidth = 51;
             this.Search_DataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Search_TableLayoutPanel.SetRowSpan(this.Search_DataGridView, 13);
             this.Search_DataGridView.RowTemplate.Height = 27;
             this.Search_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Search_DataGridView.Size = new System.Drawing.Size(804, 716);
+            this.Search_DataGridView.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             this.Search_DataGridView.TabIndex = 6;
             this.Search_DataGridView.SortStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.SortEventArgs>(this.Search_DataGridView_SortStringChanged);
             this.Search_DataGridView.FilterStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.FilterEventArgs>(this.Search_DataGridView_FilterStringChanged);
@@ -302,12 +307,53 @@
             this.toolStripSeparator4.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.toolStripSeparator4.Size = new System.Drawing.Size(10, 35);
             // 
+            // Export_Exel
+            // 
+            this.Export_Exel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Export_Exel.Image = global::F2F_Application.Properties.Resources.Export_3;
+            this.Export_Exel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Export_Exel.Name = "Export_Exel";
+            this.Export_Exel.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.Export_Exel.Size = new System.Drawing.Size(29, 41);
+            this.Export_Exel.Text = "toolStripButton1";
+            this.Export_Exel.ToolTipText = "Exporrt as Excel file";
+            this.Export_Exel.Click += new System.EventHandler(this.Export_Exel_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.AutoSize = false;
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.toolStripSeparator3.Size = new System.Drawing.Size(10, 35);
+            // 
+            // Show_Hide_ToolStrip
+            // 
+            this.Show_Hide_ToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Show_Hide_ToolStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Hide_MenuItem,
+            this.Show_MenuItem});
+            this.Show_Hide_ToolStrip.Image = global::F2F_Application.Properties.Resources.Password_Hide;
+            this.Show_Hide_ToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Show_Hide_ToolStrip.Name = "Show_Hide_ToolStrip";
+            this.Show_Hide_ToolStrip.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.Show_Hide_ToolStrip.Size = new System.Drawing.Size(37, 41);
+            this.Show_Hide_ToolStrip.Text = "toolStripSplitButton1";
+            this.Show_Hide_ToolStrip.ToolTipText = "إخفاء و إظهار الأعمدة";
+            this.Show_Hide_ToolStrip.ButtonClick += new System.EventHandler(this.Show_Hide_ToolStrip_ButtonClick);
+            // 
+            // Hide_MenuItem
+            // 
+            this.Hide_MenuItem.Name = "Hide_MenuItem";
+            this.Hide_MenuItem.Size = new System.Drawing.Size(142, 28);
+            this.Hide_MenuItem.Text = "Hide";
+            this.Hide_MenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem2_DropDownItemClicked);
+            // 
+            // Show_MenuItem
+            // 
+            this.Show_MenuItem.Name = "Show_MenuItem";
+            this.Show_MenuItem.Size = new System.Drawing.Size(142, 28);
+            this.Show_MenuItem.Text = "Show";
+            this.Show_MenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem3_DropDownItemClicked);
             // 
             // toolStripSeparator5
             // 
@@ -360,7 +406,7 @@
             this.Family_RadioButton.AutoSize = true;
             this.Family_RadioButton.Checked = true;
             this.Family_RadioButton.Depth = 0;
-            this.Family_RadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.Family_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
             this.Family_RadioButton.Location = new System.Drawing.Point(953, 10);
             this.Family_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Family_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -380,7 +426,7 @@
             this.Person_RadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Person_RadioButton.AutoSize = true;
             this.Person_RadioButton.Depth = 0;
-            this.Person_RadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.Person_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
             this.Person_RadioButton.Location = new System.Drawing.Point(778, 10);
             this.Person_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Person_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -399,7 +445,7 @@
             this.Partner_RadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Partner_RadioButton.AutoSize = true;
             this.Partner_RadioButton.Depth = 0;
-            this.Partner_RadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.Partner_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
             this.Partner_RadioButton.Location = new System.Drawing.Point(626, 10);
             this.Partner_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Partner_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -413,12 +459,28 @@
             this.Partner_RadioButton.UseVisualStyleBackColor = true;
             this.Partner_RadioButton.CheckedChanged += new System.EventHandler(this.Partner_RadioButton_CheckedChanged);
             // 
+            // Add_Filters_PictureBox
+            // 
+            this.Add_Filters_PictureBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Add_Filters_PictureBox.BackgroundImage = global::F2F_Application.Properties.Resources.Plus_1;
+            this.Add_Filters_PictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Add_Filters_PictureBox.Location = new System.Drawing.Point(401, 12);
+            this.Add_Filters_PictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Add_Filters_PictureBox.Name = "Add_Filters_PictureBox";
+            this.Add_Filters_PictureBox.Size = new System.Drawing.Size(25, 25);
+            this.Add_Filters_PictureBox.TabIndex = 8;
+            this.Add_Filters_PictureBox.TabStop = false;
+            this.toolTip1.SetToolTip(this.Add_Filters_PictureBox, "إضافة فلتر");
+            this.Add_Filters_PictureBox.Click += new System.EventHandler(this.Add_Filters_PictureBox_Click);
+            this.Add_Filters_PictureBox.MouseEnter += new System.EventHandler(this.Add_Filters_PictureBox_MouseEnter);
+            this.Add_Filters_PictureBox.MouseLeave += new System.EventHandler(this.Add_Filters_PictureBox_MouseLeave);
+            // 
             // Distribution_RadioButton
             // 
             this.Distribution_RadioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Distribution_RadioButton.AutoSize = true;
             this.Distribution_RadioButton.Depth = 0;
-            this.Distribution_RadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.Distribution_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
             this.Distribution_RadioButton.Location = new System.Drawing.Point(458, 10);
             this.Distribution_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Distribution_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -541,6 +603,50 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(153, 44);
             this.tableLayoutPanel2.TabIndex = 45;
+            // 
+            // Clear_Filters_Button
+            // 
+            this.Clear_Filters_Button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Clear_Filters_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Clear_Filters_Button.BackgroundImage = global::F2F_Application.Properties.Resources.button1;
+            this.Clear_Filters_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Clear_Filters_Button.FlatAppearance.BorderSize = 0;
+            this.Clear_Filters_Button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Clear_Filters_Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Clear_Filters_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Clear_Filters_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clear_Filters_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.Clear_Filters_Button.Location = new System.Drawing.Point(3, 6);
+            this.Clear_Filters_Button.Name = "Clear_Filters_Button";
+            this.Clear_Filters_Button.Size = new System.Drawing.Size(70, 32);
+            this.Clear_Filters_Button.TabIndex = 105;
+            this.Clear_Filters_Button.Text = "Clear";
+            this.Clear_Filters_Button.UseVisualStyleBackColor = false;
+            this.Clear_Filters_Button.Click += new System.EventHandler(this.Clear_Filters_Button_Click);
+            this.Clear_Filters_Button.MouseEnter += new System.EventHandler(this.Clear_Filters_Button_MouseEnter);
+            this.Clear_Filters_Button.MouseLeave += new System.EventHandler(this.Clear_Filters_Button_MouseLeave);
+            // 
+            // Apply_Filters_Button
+            // 
+            this.Apply_Filters_Button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Apply_Filters_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Apply_Filters_Button.BackgroundImage = global::F2F_Application.Properties.Resources.button1;
+            this.Apply_Filters_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Apply_Filters_Button.FlatAppearance.BorderSize = 0;
+            this.Apply_Filters_Button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Apply_Filters_Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Apply_Filters_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Apply_Filters_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Apply_Filters_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.Apply_Filters_Button.Location = new System.Drawing.Point(79, 6);
+            this.Apply_Filters_Button.Name = "Apply_Filters_Button";
+            this.Apply_Filters_Button.Size = new System.Drawing.Size(71, 32);
+            this.Apply_Filters_Button.TabIndex = 104;
+            this.Apply_Filters_Button.Text = "Apply";
+            this.Apply_Filters_Button.UseVisualStyleBackColor = false;
+            this.Apply_Filters_Button.Click += new System.EventHandler(this.Apply_Filters_Button_Click);
+            this.Apply_Filters_Button.MouseEnter += new System.EventHandler(this.Apply_Filters_Button_MouseEnter);
+            this.Apply_Filters_Button.MouseLeave += new System.EventHandler(this.Apply_Filters_Button_MouseLeave);
             // 
             // AdditionalFilters_CheckedListBox
             // 
@@ -706,107 +812,6 @@
             this.Top_Panel.Size = new System.Drawing.Size(1280, 50);
             this.Top_Panel.TabIndex = 12;
             // 
-            // Clear_Filters_Button
-            // 
-            this.Clear_Filters_Button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Clear_Filters_Button.BackColor = System.Drawing.Color.Transparent;
-            this.Clear_Filters_Button.BackgroundImage = global::F2F_Application.Properties.Resources.button1;
-            this.Clear_Filters_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Clear_Filters_Button.FlatAppearance.BorderSize = 0;
-            this.Clear_Filters_Button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Clear_Filters_Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Clear_Filters_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Clear_Filters_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clear_Filters_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Clear_Filters_Button.Location = new System.Drawing.Point(3, 6);
-            this.Clear_Filters_Button.Name = "Clear_Filters_Button";
-            this.Clear_Filters_Button.Size = new System.Drawing.Size(70, 32);
-            this.Clear_Filters_Button.TabIndex = 105;
-            this.Clear_Filters_Button.Text = "Clear";
-            this.Clear_Filters_Button.UseVisualStyleBackColor = false;
-            this.Clear_Filters_Button.Click += new System.EventHandler(this.Clear_Filters_Button_Click);
-            this.Clear_Filters_Button.MouseEnter += new System.EventHandler(this.Clear_Filters_Button_MouseEnter);
-            this.Clear_Filters_Button.MouseLeave += new System.EventHandler(this.Clear_Filters_Button_MouseLeave);
-            // 
-            // Apply_Filters_Button
-            // 
-            this.Apply_Filters_Button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Apply_Filters_Button.BackColor = System.Drawing.Color.Transparent;
-            this.Apply_Filters_Button.BackgroundImage = global::F2F_Application.Properties.Resources.button1;
-            this.Apply_Filters_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Apply_Filters_Button.FlatAppearance.BorderSize = 0;
-            this.Apply_Filters_Button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Apply_Filters_Button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Apply_Filters_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Apply_Filters_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Apply_Filters_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Apply_Filters_Button.Location = new System.Drawing.Point(79, 6);
-            this.Apply_Filters_Button.Name = "Apply_Filters_Button";
-            this.Apply_Filters_Button.Size = new System.Drawing.Size(71, 32);
-            this.Apply_Filters_Button.TabIndex = 104;
-            this.Apply_Filters_Button.Text = "Apply";
-            this.Apply_Filters_Button.UseVisualStyleBackColor = false;
-            this.Apply_Filters_Button.Click += new System.EventHandler(this.Apply_Filters_Button_Click);
-            this.Apply_Filters_Button.MouseEnter += new System.EventHandler(this.Apply_Filters_Button_MouseEnter);
-            this.Apply_Filters_Button.MouseLeave += new System.EventHandler(this.Apply_Filters_Button_MouseLeave);
-            // 
-            // Export_Exel
-            // 
-            this.Export_Exel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Export_Exel.Image = global::F2F_Application.Properties.Resources.Export_3;
-            this.Export_Exel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Export_Exel.Name = "Export_Exel";
-            this.Export_Exel.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.Export_Exel.Size = new System.Drawing.Size(23, 41);
-            this.Export_Exel.Text = "toolStripButton1";
-            this.Export_Exel.ToolTipText = "Exporrt as Excel file";
-            this.Export_Exel.Click += new System.EventHandler(this.Export_Exel_Click);
-            // 
-            // Show_Hide_ToolStrip
-            // 
-            this.Show_Hide_ToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Show_Hide_ToolStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Hide_MenuItem,
-            this.Show_MenuItem});
-            this.Show_Hide_ToolStrip.Image = global::F2F_Application.Properties.Resources.Password_Hide;
-            this.Show_Hide_ToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Show_Hide_ToolStrip.Name = "Show_Hide_ToolStrip";
-            this.Show_Hide_ToolStrip.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.Show_Hide_ToolStrip.Size = new System.Drawing.Size(37, 41);
-            this.Show_Hide_ToolStrip.Text = "toolStripSplitButton1";
-            this.Show_Hide_ToolStrip.ToolTipText = "إخفاء و إظهار الأعمدة";
-            this.Show_Hide_ToolStrip.ButtonClick += new System.EventHandler(this.Show_Hide_ToolStrip_ButtonClick);
-            // 
-            // Hide_MenuItem
-            // 
-            this.Hide_MenuItem.Name = "Hide_MenuItem";
-            this.Hide_MenuItem.Size = new System.Drawing.Size(134, 28);
-            this.Hide_MenuItem.Text = "Hide";
-            this.Hide_MenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem2_DropDownItemClicked);
-            // 
-            // Show_MenuItem
-            // 
-            this.Show_MenuItem.Name = "Show_MenuItem";
-            this.Show_MenuItem.Size = new System.Drawing.Size(134, 28);
-            this.Show_MenuItem.Text = "Show";
-            this.Show_MenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem3_DropDownItemClicked);
-            // 
-            // Add_Filters_PictureBox
-            // 
-            this.Add_Filters_PictureBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Add_Filters_PictureBox.BackgroundImage = global::F2F_Application.Properties.Resources.Plus_1;
-            this.Add_Filters_PictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Add_Filters_PictureBox.Location = new System.Drawing.Point(401, 12);
-            this.Add_Filters_PictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Add_Filters_PictureBox.Name = "Add_Filters_PictureBox";
-            this.Add_Filters_PictureBox.Size = new System.Drawing.Size(25, 25);
-            this.Add_Filters_PictureBox.TabIndex = 8;
-            this.Add_Filters_PictureBox.TabStop = false;
-            this.toolTip1.SetToolTip(this.Add_Filters_PictureBox, "إضافة فلتر");
-            this.Add_Filters_PictureBox.Click += new System.EventHandler(this.Add_Filters_PictureBox_Click);
-            this.Add_Filters_PictureBox.MouseEnter += new System.EventHandler(this.Add_Filters_PictureBox_MouseEnter);
-            this.Add_Filters_PictureBox.MouseLeave += new System.EventHandler(this.Add_Filters_PictureBox_MouseLeave);
-            // 
             // Search_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -833,6 +838,7 @@
             this.SearchToolBar.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Add_Filters_PictureBox)).EndInit();
             this.Filter_TableLayoutPanel.ResumeLayout(false);
             this.Filter_TableLayoutPanel.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -841,7 +847,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.Top_Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Add_Filters_PictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }

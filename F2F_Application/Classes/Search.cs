@@ -19,15 +19,15 @@ namespace F2F_Application.Classes
             string GroupQuery = "";
             bool aidAmountAdded = false;
             string SelectQuery = "SELECT family_visit.id as 'Family_Visit_ID'" +
-                ", family.id as 'Family ID'"+
+                ", family.id as 'Family ID'" +
                 ", IFNULL(family.code, ' ') as 'رمز العائلة'" +
                 ", family_visit.visit_name as 'الزيارة'" +
-                ", `visitstate`.`name` as 'حالة الزيارة'" + 
+                ", `visitstate`.`name` as 'حالة الزيارة'" +
 
                 ", (SELECT CONCAT(person.first_Name, ' ', person.father_name, ' ', person.last_name) " +
                             "FROM person LEFT JOIN person_family ON person_family.person_id = person.id " +
                             "WHERE person_family.isReceiver = '1' AND person_family.family_id = `Family ID`) as 'المستلم'" +
-                
+
                 ",GROUP_CONCAT(DISTINCT(partner.name)) as 'الشريك'" +
                 ",MAX(case WHEN donor.name like 'F2F' THEN (case WHEN family_partner.IsActive = 1 and donor.name like 'F2F' Then 'فعالة' else 'غير فعالة' END) ELSE '' END) as 'الممول  F2F '" +
                 ",MAX(case WHEN donor.name like 'MPC' THEN (case WHEN family_partner.IsActive = 1 and donor.name like 'MPC' Then 'فعالة' else 'غير فعالة' END) ELSE '' END) as 'الممول MPC '" +
@@ -40,8 +40,8 @@ namespace F2F_Application.Classes
                 ",(case family.Complaint WHEN 0 then 'لا' WHEN 1 then 'نعم' ELSE '' END) as 'هل يوجد شكوى؟'" +
                 ",IFNULL(family.family_number, ' ') as 'رقم دفتر العائلة'" +
                 ",(select familymembersnumber.NumberOfAllMembers from familymembersnumber where familymembersnumber.family_id = family.id order by familymembersnumber.date DESC, familymembersnumber.id DESC limit 1) as 'عدد أفراد الأسرة'" +
-                ",(select familymembersnumber.NumberOfBeneficiaries from familymembersnumber where familymembersnumber.family_id = family.id order by familymembersnumber.date DESC, familymembersnumber.id DESC limit 1) as 'عدد المستفيدين'" + 
-                        
+                ",(select familymembersnumber.NumberOfBeneficiaries from familymembersnumber where familymembersnumber.family_id = family.id order by familymembersnumber.date DESC, familymembersnumber.id DESC limit 1) as 'عدد المستفيدين'" +
+
                 ",IFNULL(family.landline, ' ') as 'الهاتف الأرضي'" +
                 ",IFNULL(family.mobile, ' ') as 'رقم الموبايل'" +
                 ",IFNULL(street.name, ' ') as 'المنطقة'" +
@@ -54,16 +54,20 @@ namespace F2F_Application.Classes
                                 ",(case family_visitdetails.SellingFurniture WHEN 1 then 'نعم' WHEN 0 then 'لا' ELSE '' END) as 'هل تبيع أغراض المنزل؟'" +
 
                 ",(case family_visitdetails.asset_3 WHEN 0 then 'لا' WHEN 1 then 'نعم' ELSE '' END) as 'هل يوجد سيارة؟'" +
-                ",(case family_visitdetails.isAsset WHEN 0 then 'لا' WHEN 1 then 'نعم' ELSE '' END) as 'هل يوجد ممتلكات إضافية؟'" +  
+                ",(case family_visitdetails.isAsset WHEN 0 then 'لا' WHEN 1 then 'نعم' ELSE '' END) as 'هل يوجد ممتلكات إضافية؟'" +
                 ",(case family_visitdetails.hasincome WHEN 0 then 'لا' WHEN 1 then 'نعم' ELSE ' ' END) as 'هل يوجد دخل ثابت؟'" +
-                 
+
                 ",IFNULL(family.PDM, ' ') as 'PDM'" +
                 ",IFNULL(family.pdmby, ' ') as 'PDM By'" +
                 ",IFNULL(family.pdmdate, ' ') as 'PDM Date'" +
                 ",IFNULL(family.PVM, ' ') as 'PVM'" +
                 ",IFNULL(family.pvmby, ' ') as 'PVM By'" +
                 ",IFNULL(family.pvmdate, ' ') as 'PVM Date'" +
-                ",IFNULL(`family_visitdetails`.`family_note`, ' ') as 'ملاحظة العائلة'";
+                ",IFNULL(`family_visitdetails`.`family_note`, ' ') as 'ملاحظة الزيارة'" +
+                ",IFNULL(`family`.`Note`, ' ')  as 'ملاحظات العائلة'" +
+                ",IFNULL(`family`.`partnernote`, ' ') as 'ملاحظات الشريك'" +
+                ",IFNULL(`family`.`complaintnote`, ' ') as 'ملاحظات الشكوى'" +
+                ",IFNULL(`family`.`evaluationnote`, ' ') as 'ملاحظات التقييم'";
 
             //string FromQuery = " FROM family_visitdetails"
             //     + " LEFT JOIN family_visit on family_visit.id = family_visitdetails.family_visit_id"
