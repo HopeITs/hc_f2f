@@ -66,7 +66,7 @@ namespace F2F_Application
 
 
             //database = "hcsyria_f2f_test";
-            ConnectionString_Online  = @"Server="     + OnlineDataSource  + ";Port=3306;Database=" + database + ";Uid=hcfamily2family;Password=F2F2018Center;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;sslmode=disabled;";
+            ConnectionString_Online  = @"Server="     + OnlineDataSource  + ";Port=3308;Database=" + database + ";Uid=hcfamily2family;Password=F2F2018Center;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;sslmode=disabled;";
             ConnectionString_Offline = @"datasource=" + OfflineDataSource + ";port=3306;database=" + database + ";username=jj;password=pp                   ;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;sslmode=disabled;";
             if (Properties.Settings.Default.Online)  //online
                 ConnectionString = ConnectionString_Online;
