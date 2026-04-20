@@ -31,6 +31,7 @@ namespace F2F_Application
         Financial f;
         Categories c;
         Report r;
+        Distribution d;
         bool UserMode;
 
         private void DistribtionAgeGender_Load(object sender, EventArgs e)
@@ -40,6 +41,7 @@ namespace F2F_Application
                 f = new Financial();
                 c = new Categories();
                 r = new Report();
+                d = new Distribution() ;
                 Bind_Partner_ComboBox();
                 Bind_Donor_ComoBox();
                 materialLabel13.ForeColor = Color.White;
@@ -61,6 +63,43 @@ namespace F2F_Application
             tableLayoutPanel1.Size = new Size(this.Width - 10, 1050);
 
         }
+        //private void Bind_Donor_ComoBox()
+        //{
+        //    int SelectedDonorValue = 0;
+        //    if (Donor_ComboBox.SelectedValue != null)
+        //        SelectedDonorValue = int.Parse(Donor_ComboBox.SelectedValue.ToString());
+
+        //    DataTable dt = c.Select_Table("donor", "", true, false);
+        //    UserMode = false;
+        //    Donor_ComboBox.DisplayMember = "name";
+        //    Donor_ComboBox.ValueMember = "id";
+        //    Donor_ComboBox.DataSource = dt;
+
+        //    if (SelectedDonorValue != 0)
+        //        Donor_ComboBox.SelectedValue = SelectedDonorValue;
+        //    else
+        //        Donor_ComboBox.SelectedIndex = 0;
+        //    UserMode = true;
+        //}
+
+
+        private void Bind_Partner_ComboBox()
+        {
+            int SelectedValue = -1;
+            if (Partner_ComboBox.SelectedValue != null)
+                SelectedValue = int.Parse(Partner_ComboBox.SelectedValue.ToString());
+
+            DataTable dt = c.Select_Table("partner", "", true, false);
+            UserMode = false;
+            Partner_ComboBox.DataSource = dt;
+            Partner_ComboBox.DisplayMember = "name";
+            Partner_ComboBox.ValueMember = "id";
+            if (SelectedValue != -1)
+                Partner_ComboBox.SelectedValue = SelectedValue;
+            else
+                Partner_ComboBox.SelectedIndex = -1;
+            UserMode = true;
+        }
         private void Bind_Donor_ComoBox()
         {
             int SelectedDonorValue = 0;
@@ -80,30 +119,6 @@ namespace F2F_Application
             UserMode = true;
         }
 
-        private void Bind_Partner_ComboBox()
-        {
-            int SelectedDonorValue = 0;
-            if (Partner_ComboBox.SelectedValue != null)
-                SelectedDonorValue = int.Parse(Partner_ComboBox.SelectedValue.ToString());
-
-            DataTable dt = c.Select_Table("partner", "", true, false);
-            UserMode = false;
-            Partner_ComboBox.DisplayMember = "name";
-            Partner_ComboBox.ValueMember = "id";
-            Partner_ComboBox.DataSource = dt;
-
-            if (SelectedDonorValue != 0)
-                Partner_ComboBox.SelectedValue = SelectedDonorValue;
-            else
-                Partner_ComboBox.SelectedIndex = 0;
-            UserMode = true;
-        }
-
-        private void Donor_ComboBox_Leave(object sender, EventArgs e)
-        {
-
-        }
-
         private void Bind_Distribution_ComboBox()
         {
             int SelectedValue = -1;
@@ -112,23 +127,13 @@ namespace F2F_Application
 
             UserMode = false;
             string Date = dateTimePicker1.Value.ToString("dd/MM/yyyy", new CultureInfo("en-GB"));
-            int Donor = int.Parse(Donor_ComboBox.SelectedValue.ToString());
-            int Partner = int.Parse(Partner_ComboBox.SelectedValue.ToString());
 
-            DataTable dt = r.Get_Distributions(Date, Donor, Partner);
+            DataTable dt = d.Get_All_Distributions(Date);
 
             if (dt.Rows.Count <= 0)
             {
-                MessageBox.Show("لا يوجد توزيعات لعرضها ", "Error");
+                MessageBox.Show("لا يوجد توزيعات لعرضها في هذا العام", "Error");
                 Distribution_ComboBox.DataSource = null;
-                toddlersMale.Text = nottoddlersMale.Text = toddlersFemale.Text = nottoddlersFemale.Text = totalToddlers.Text = nottotalToddlers.Text =
-                youthMale.Text = notyouthfemale.Text = youthFemale.Text = notYouthMale.Text = totalyouth.Text = nottotal.Text =
-                    youthmale60.Text = notyouthfemale60.Text = youthfemale60.Text = notyouthmale60.Text = totalyouth60.Text = nottotalyouth60.Text =
-                    elderliesMale.Text = notelderliesMale.Text = elderliesFemale.Text = notelderliesFemale.Text = elderliesTotal.Text = notelderliestotal.Text =
-                    elderliesMale60.Text = notelderliesMale60.Text = elderliesFemale60.Text = notelderliesFemale60.Text = totalelderlies60.Text = nottotalelderlies60.Text
-                = childrenMale.Text = notchildrenMale.Text = childrenFemale.Text = notchildrenFemale.Text = totalChildren.Text = nottotalChildren.Text = below18Male.Text =
-                notbelow18Male.Text = below18Female.Text = notbelow18Female.Text = totalBelow18.Text = nottotalBelow18.Text = below19Male.Text = notbelow19Male.Text = below19Female.Text =
-                notbelow19Female.Text = totalBelow19.Text = nottotalBelow19.Text = totalMale.Text = nottotalMale.Text = totalFemale.Text = nottotalFemale.Text = total.Text = nottotal.Text = "";
                 UserMode = true;
             }
             else
@@ -142,9 +147,74 @@ namespace F2F_Application
                 else
                     Distribution_ComboBox.SelectedIndex = -1;
             }
-            Distribution_ComboBox.MouseWheel += new MouseEventHandler(ComboBox_MouseWheel);
             UserMode = true;
         }
+
+        //private void Bind_Partner_ComboBox()
+        //{
+        //    int SelectedDonorValue = 0;
+        //    if (Partner_ComboBox.SelectedValue != null)
+        //        SelectedDonorValue = int.Parse(Partner_ComboBox.SelectedValue.ToString());
+
+        //    DataTable dt = c.Select_Table("partner", "", true, false);
+        //    UserMode = false;
+        //    Partner_ComboBox.DisplayMember = "name";
+        //    Partner_ComboBox.ValueMember = "id";
+        //    Partner_ComboBox.DataSource = dt;
+
+        //    if (SelectedDonorValue != 0)
+        //        Partner_ComboBox.SelectedValue = SelectedDonorValue;
+        //    else
+        //        Partner_ComboBox.SelectedIndex = 0;
+        //    UserMode = true;
+        //}
+
+        private void Donor_ComboBox_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void Bind_Distribution_ComboBox()
+        //{
+        //    int SelectedValue = -1;
+        //    if (Distribution_ComboBox.SelectedValue != null)
+        //        SelectedValue = int.Parse(Distribution_ComboBox.SelectedValue.ToString());
+
+        //    UserMode = false;
+        //    string Date = dateTimePicker1.Value.ToString("dd/MM/yyyy", new CultureInfo("en-GB"));
+        //    int Donor = int.Parse(Donor_ComboBox.SelectedValue.ToString());
+        //    int Partner = int.Parse(Partner_ComboBox.SelectedValue.ToString());
+
+        //    DataTable dt = r.Get_Distributions(Date, Donor, Partner);
+
+        //    if (dt.Rows.Count <= 0)
+        //    {
+        //        MessageBox.Show("لا يوجد توزيعات لعرضها ", "Error");
+        //        Distribution_ComboBox.DataSource = null;
+        //        toddlersMale.Text = nottoddlersMale.Text = toddlersFemale.Text = nottoddlersFemale.Text = totalToddlers.Text = nottotalToddlers.Text =
+        //        youthMale.Text = notyouthfemale.Text = youthFemale.Text = notYouthMale.Text = totalyouth.Text = nottotal.Text =
+        //            youthmale60.Text = notyouthfemale60.Text = youthfemale60.Text = notyouthmale60.Text = totalyouth60.Text = nottotalyouth60.Text =
+        //            elderliesMale.Text = notelderliesMale.Text = elderliesFemale.Text = notelderliesFemale.Text = elderliesTotal.Text = notelderliestotal.Text =
+        //            elderliesMale60.Text = notelderliesMale60.Text = elderliesFemale60.Text = notelderliesFemale60.Text = totalelderlies60.Text = nottotalelderlies60.Text
+        //        = childrenMale.Text = notchildrenMale.Text = childrenFemale.Text = notchildrenFemale.Text = totalChildren.Text = nottotalChildren.Text = below18Male.Text =
+        //        notbelow18Male.Text = below18Female.Text = notbelow18Female.Text = totalBelow18.Text = nottotalBelow18.Text = below19Male.Text = notbelow19Male.Text = below19Female.Text =
+        //        notbelow19Female.Text = totalBelow19.Text = nottotalBelow19.Text = totalMale.Text = nottotalMale.Text = totalFemale.Text = nottotalFemale.Text = total.Text = nottotal.Text = "";
+        //        UserMode = true;
+        //    }
+        //    else
+        //    {
+        //        Distribution_ComboBox.DataSource = null;
+        //        Distribution_ComboBox.DataSource = dt;
+        //        Distribution_ComboBox.DisplayMember = "name";
+        //        Distribution_ComboBox.ValueMember = "id";
+        //        if (SelectedValue != -1)
+        //            Distribution_ComboBox.SelectedValue = SelectedValue;
+        //        else
+        //            Distribution_ComboBox.SelectedIndex = -1;
+        //    }
+        //    Distribution_ComboBox.MouseWheel += new MouseEventHandler(ComboBox_MouseWheel);
+        //    UserMode = true;
+        //}
 
         private void Distribution_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -213,10 +283,56 @@ namespace F2F_Application
 
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void dateTimePicker1_Leave(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (UserMode)
+                {
+                    //Bind_Partner_Distribution();
+                    Bind_Distribution_ComboBox();
+                    Bind_Donor_ComoBox();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
         }
+
+        //private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        // Temporarily suspend user-mode to avoid auto-fill side-effects
+        //        UserMode = false;
+
+        //        // Clear current distribution selection and datasource so the combo resets
+        //        Distribution_ComboBox.DataSource = null;
+        //        Distribution_ComboBox.SelectedIndex = -1;
+        //        // SelectedValue = 0 may be useful where code expects numeric 0 for "N/A"
+        //        try { Distribution_ComboBox.SelectedValue = 0; } catch { /* ignore if not applicable */ }
+
+        //        UserMode = true;
+
+        //        // Re-bind list for the new date (will leave selection empty)
+        //        Bind_Distribution_ComboBox();
+
+        //        // If you added an Apply button, keep it disabled until user chooses a distribution
+        //        //if (this.Controls.ContainsKey("Apply_Button"))
+        //        //    Apply_Button.Enabled = false;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL"))
+        //            MessageBox.Show("please check your network and try again", "Error");
+        //        else if (ex.Message.Contains("host"))
+        //            MessageBox.Show("please check the server or your network connection and try again", "Error");
+        //        else
+        //            MessageBox.Show(ex.Message, "Error");
+        //    }
+        //}
+
 
         private void Fill_Data()
         {
@@ -618,7 +734,7 @@ namespace F2F_Application
             {
                 if (UserMode)
                 {
-                    Fill_Data();
+                   // Fill_Data();
                     //Excel_Button.Visible = true;
 
                 }
@@ -627,6 +743,16 @@ namespace F2F_Application
             {
                 if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
             }
+        }
+
+        private void Donor_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateFamily_Button_Click(object sender, EventArgs e)
+        {
+            Fill_Data();
         }
     }
 }
