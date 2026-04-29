@@ -340,6 +340,9 @@ namespace F2F_Application
                 if (e.RowIndex == NotFinishedDistribution_DataGridView.NewRowIndex || e.RowIndex < 0)
                     return;
 
+                if (NotFinishedDistribution_DataGridView.Columns["Done_Delete"] == null ||
+                    NotFinishedDistribution_DataGridView.Columns["Done_Signature_List"] == null) return;
+
                 if (e.ColumnIndex == NotFinishedDistribution_DataGridView.Columns["Done_Delete"].Index)
                 {
                     Image image = null;
