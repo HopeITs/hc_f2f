@@ -496,6 +496,14 @@ namespace F2F_Application
             this.SaveFamily_Button = new System.Windows.Forms.Button();
             this.DistributionHistory_Button = new System.Windows.Forms.Button();
             this.LivingWith_DataGridView = new System.Windows.Forms.DataGridView();
+            this.Family_LivingWith_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.F_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Family_LivingWith_Code = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Family_livingWith_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.family_HeadOfHousehold = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Family_GoToFamily = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Family_LivingWith_Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.LivingWith_isDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialLabel9 = new MaterialSkinPlus.Controls.MaterialLabel();
             this.LivingWithFamily_LayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Yes_RadioButton = new MaterialSkinPlus.Controls.MaterialRadioButton();
@@ -747,14 +755,6 @@ namespace F2F_Application
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.MainPanel = new System.Windows.Forms.Panel();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.Family_LivingWith_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.F_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Family_LivingWith_Code = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Family_livingWith_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.family_HeadOfHousehold = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Family_GoToFamily = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Family_LivingWith_Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.LivingWith_isDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             materialLabel134 = new MaterialSkinPlus.Controls.MaterialLabel();
             materialLabel155 = new MaterialSkinPlus.Controls.MaterialLabel();
             materialLabel154 = new MaterialSkinPlus.Controls.MaterialLabel();
@@ -880,7 +880,7 @@ namespace F2F_Application
             materialLabel134.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel134.Name = "materialLabel134";
             materialLabel134.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel134.Size = new System.Drawing.Size(779, 27);
+            materialLabel134.Size = new System.Drawing.Size(833, 27);
             materialLabel134.TabIndex = 218;
             materialLabel134.Text = "المصاريف";
             materialLabel134.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -895,12 +895,12 @@ namespace F2F_Application
             materialLabel155.Depth = 0;
             materialLabel155.Font = new System.Drawing.Font("Tajawal", 11F);
             materialLabel155.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialLabel155.Location = new System.Drawing.Point(196, 141);
+            materialLabel155.Location = new System.Drawing.Point(209, 141);
             materialLabel155.Margin = new System.Windows.Forms.Padding(0);
             materialLabel155.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel155.Name = "materialLabel155";
             materialLabel155.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel155.Size = new System.Drawing.Size(194, 28);
+            materialLabel155.Size = new System.Drawing.Size(207, 28);
             materialLabel155.TabIndex = 225;
             materialLabel155.Text = "دين";
             materialLabel155.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -915,12 +915,12 @@ namespace F2F_Application
             materialLabel154.Depth = 0;
             materialLabel154.Font = new System.Drawing.Font("Tajawal", 11F);
             materialLabel154.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialLabel154.Location = new System.Drawing.Point(196, 113);
+            materialLabel154.Location = new System.Drawing.Point(209, 113);
             materialLabel154.Margin = new System.Windows.Forms.Padding(0);
             materialLabel154.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel154.Name = "materialLabel154";
             materialLabel154.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel154.Size = new System.Drawing.Size(194, 27);
+            materialLabel154.Size = new System.Drawing.Size(207, 27);
             materialLabel154.TabIndex = 224;
             materialLabel154.Text = "حيوانات أليفة";
             materialLabel154.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -935,12 +935,12 @@ namespace F2F_Application
             materialLabel153.Depth = 0;
             materialLabel153.Font = new System.Drawing.Font("Tajawal", 11F);
             materialLabel153.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialLabel153.Location = new System.Drawing.Point(196, 85);
+            materialLabel153.Location = new System.Drawing.Point(209, 85);
             materialLabel153.Margin = new System.Windows.Forms.Padding(0);
             materialLabel153.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel153.Name = "materialLabel153";
             materialLabel153.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel153.Size = new System.Drawing.Size(194, 27);
+            materialLabel153.Size = new System.Drawing.Size(207, 27);
             materialLabel153.TabIndex = 223;
             materialLabel153.Text = "دخان";
             materialLabel153.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -961,7 +961,7 @@ namespace F2F_Application
             materialLabel152.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel152.Name = "materialLabel152";
             materialLabel152.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel152.Size = new System.Drawing.Size(194, 27);
+            materialLabel152.Size = new System.Drawing.Size(207, 27);
             materialLabel152.TabIndex = 220;
             materialLabel152.Text = "القيمة";
             materialLabel152.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -977,12 +977,12 @@ namespace F2F_Application
             materialLabel151.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             materialLabel151.Font = new System.Drawing.Font("Tajawal", 11F);
             materialLabel151.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialLabel151.Location = new System.Drawing.Point(196, 29);
+            materialLabel151.Location = new System.Drawing.Point(209, 29);
             materialLabel151.Margin = new System.Windows.Forms.Padding(0);
             materialLabel151.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel151.Name = "materialLabel151";
             materialLabel151.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel151.Size = new System.Drawing.Size(194, 27);
+            materialLabel151.Size = new System.Drawing.Size(207, 27);
             materialLabel151.TabIndex = 219;
             materialLabel151.Text = "نوع المصروف";
             materialLabel151.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -998,12 +998,12 @@ namespace F2F_Application
             materialLabel135.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             materialLabel135.Font = new System.Drawing.Font("Tajawal", 11F);
             materialLabel135.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialLabel135.Location = new System.Drawing.Point(586, 29);
+            materialLabel135.Location = new System.Drawing.Point(625, 29);
             materialLabel135.Margin = new System.Windows.Forms.Padding(0);
             materialLabel135.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel135.Name = "materialLabel135";
             materialLabel135.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel135.Size = new System.Drawing.Size(194, 27);
+            materialLabel135.Size = new System.Drawing.Size(209, 27);
             materialLabel135.TabIndex = 219;
             materialLabel135.Text = "نوع المصروف";
             materialLabel135.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1019,12 +1019,12 @@ namespace F2F_Application
             materialLabel136.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             materialLabel136.Font = new System.Drawing.Font("Tajawal", 11F);
             materialLabel136.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialLabel136.Location = new System.Drawing.Point(391, 29);
+            materialLabel136.Location = new System.Drawing.Point(417, 29);
             materialLabel136.Margin = new System.Windows.Forms.Padding(0);
             materialLabel136.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel136.Name = "materialLabel136";
             materialLabel136.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel136.Size = new System.Drawing.Size(194, 27);
+            materialLabel136.Size = new System.Drawing.Size(207, 27);
             materialLabel136.TabIndex = 220;
             materialLabel136.Text = "القيمة";
             materialLabel136.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1039,12 +1039,12 @@ namespace F2F_Application
             materialLabel157.Depth = 0;
             materialLabel157.Font = new System.Drawing.Font("Tajawal", 11F);
             materialLabel157.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialLabel157.Location = new System.Drawing.Point(586, 57);
+            materialLabel157.Location = new System.Drawing.Point(625, 57);
             materialLabel157.Margin = new System.Windows.Forms.Padding(0);
             materialLabel157.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel157.Name = "materialLabel157";
             materialLabel157.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel157.Size = new System.Drawing.Size(194, 27);
+            materialLabel157.Size = new System.Drawing.Size(209, 27);
             materialLabel157.TabIndex = 231;
             materialLabel157.Text = "مصروف الطعام";
             materialLabel157.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1059,12 +1059,12 @@ namespace F2F_Application
             materialLabel138.Depth = 0;
             materialLabel138.Font = new System.Drawing.Font("Tajawal", 11F);
             materialLabel138.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialLabel138.Location = new System.Drawing.Point(586, 113);
+            materialLabel138.Location = new System.Drawing.Point(625, 113);
             materialLabel138.Margin = new System.Windows.Forms.Padding(0);
             materialLabel138.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel138.Name = "materialLabel138";
             materialLabel138.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel138.Size = new System.Drawing.Size(194, 27);
+            materialLabel138.Size = new System.Drawing.Size(209, 27);
             materialLabel138.TabIndex = 224;
             materialLabel138.Text = "فواتير المياه";
             materialLabel138.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1079,12 +1079,12 @@ namespace F2F_Application
             materialLabel137.Depth = 0;
             materialLabel137.Font = new System.Drawing.Font("Tajawal", 11F);
             materialLabel137.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialLabel137.Location = new System.Drawing.Point(586, 85);
+            materialLabel137.Location = new System.Drawing.Point(625, 85);
             materialLabel137.Margin = new System.Windows.Forms.Padding(0);
             materialLabel137.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel137.Name = "materialLabel137";
             materialLabel137.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel137.Size = new System.Drawing.Size(194, 27);
+            materialLabel137.Size = new System.Drawing.Size(209, 27);
             materialLabel137.TabIndex = 223;
             materialLabel137.Text = "فواتير الهاتف";
             materialLabel137.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1099,12 +1099,12 @@ namespace F2F_Application
             materialLabel141.Depth = 0;
             materialLabel141.Font = new System.Drawing.Font("Tajawal", 11F);
             materialLabel141.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialLabel141.Location = new System.Drawing.Point(586, 141);
+            materialLabel141.Location = new System.Drawing.Point(625, 141);
             materialLabel141.Margin = new System.Windows.Forms.Padding(0);
             materialLabel141.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel141.Name = "materialLabel141";
             materialLabel141.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel141.Size = new System.Drawing.Size(194, 28);
+            materialLabel141.Size = new System.Drawing.Size(209, 28);
             materialLabel141.TabIndex = 225;
             materialLabel141.Text = "المنظفات";
             materialLabel141.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1119,12 +1119,12 @@ namespace F2F_Application
             materialLabel149.Depth = 0;
             materialLabel149.Font = new System.Drawing.Font("Tajawal", 11F);
             materialLabel149.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialLabel149.Location = new System.Drawing.Point(196, 57);
+            materialLabel149.Location = new System.Drawing.Point(209, 57);
             materialLabel149.Margin = new System.Windows.Forms.Padding(0);
             materialLabel149.MouseState = MaterialSkinPlus.MouseState.HOVER;
             materialLabel149.Name = "materialLabel149";
             materialLabel149.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            materialLabel149.Size = new System.Drawing.Size(194, 27);
+            materialLabel149.Size = new System.Drawing.Size(207, 27);
             materialLabel149.TabIndex = 226;
             materialLabel149.Text = "المواصلات";
             materialLabel149.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1234,7 +1234,7 @@ namespace F2F_Application
             this.secondtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.52587F));
             this.secondtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.020231F));
             this.secondtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.73466F));
-            this.secondtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.secondtableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.secondtableLayoutPanel.ContextMenuStrip = this.materialContextMenuStrip1;
             this.secondtableLayoutPanel.Controls.Add(this.asset_3_tableLayoutPanel, 8, 44);
             this.secondtableLayoutPanel.Controls.Add(this.isAsset_tableLayoutPanel, 8, 37);
@@ -1419,11 +1419,11 @@ namespace F2F_Application
             this.asset_3_tableLayoutPanel.Controls.Add(this.asset_3_yes_RadioButton, 1, 0);
             this.asset_3_tableLayoutPanel.Controls.Add(this.asset_3_no_RadioButton, 0, 0);
             this.asset_3_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.asset_3_tableLayoutPanel.Location = new System.Drawing.Point(797, 1939);
+            this.asset_3_tableLayoutPanel.Location = new System.Drawing.Point(848, 1939);
             this.asset_3_tableLayoutPanel.Name = "asset_3_tableLayoutPanel";
             this.asset_3_tableLayoutPanel.RowCount = 1;
             this.asset_3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.asset_3_tableLayoutPanel.Size = new System.Drawing.Size(363, 38);
+            this.asset_3_tableLayoutPanel.Size = new System.Drawing.Size(389, 38);
             this.asset_3_tableLayoutPanel.TabIndex = 227;
             // 
             // materialLabel25
@@ -1433,7 +1433,7 @@ namespace F2F_Application
             this.materialLabel25.Depth = 0;
             this.materialLabel25.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel25.Location = new System.Drawing.Point(221, 6);
+            this.materialLabel25.Location = new System.Drawing.Point(247, 6);
             this.materialLabel25.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel25.Name = "materialLabel25";
             this.materialLabel25.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1492,11 +1492,11 @@ namespace F2F_Application
             this.isAsset_tableLayoutPanel.Controls.Add(this.isAsset_yes_RadioButton, 1, 0);
             this.isAsset_tableLayoutPanel.Controls.Add(this.isAsset_no_RadioButton, 0, 0);
             this.isAsset_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.isAsset_tableLayoutPanel.Location = new System.Drawing.Point(797, 1631);
+            this.isAsset_tableLayoutPanel.Location = new System.Drawing.Point(848, 1631);
             this.isAsset_tableLayoutPanel.Name = "isAsset_tableLayoutPanel";
             this.isAsset_tableLayoutPanel.RowCount = 1;
             this.isAsset_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.isAsset_tableLayoutPanel.Size = new System.Drawing.Size(363, 38);
+            this.isAsset_tableLayoutPanel.Size = new System.Drawing.Size(389, 38);
             this.isAsset_tableLayoutPanel.TabIndex = 226;
             // 
             // materialLabel24
@@ -1506,7 +1506,7 @@ namespace F2F_Application
             this.materialLabel24.Depth = 0;
             this.materialLabel24.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel24.Location = new System.Drawing.Point(199, 6);
+            this.materialLabel24.Location = new System.Drawing.Point(225, 6);
             this.materialLabel24.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel24.Name = "materialLabel24";
             this.materialLabel24.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1565,11 +1565,11 @@ namespace F2F_Application
             this.hasincome_tableLayoutPanel.Controls.Add(this.hasincome_yes_RadioButton, 1, 0);
             this.hasincome_tableLayoutPanel.Controls.Add(this.hasincome_no_RadioButton, 0, 0);
             this.hasincome_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hasincome_tableLayoutPanel.Location = new System.Drawing.Point(797, 2467);
+            this.hasincome_tableLayoutPanel.Location = new System.Drawing.Point(848, 2467);
             this.hasincome_tableLayoutPanel.Name = "hasincome_tableLayoutPanel";
             this.hasincome_tableLayoutPanel.RowCount = 1;
             this.hasincome_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.hasincome_tableLayoutPanel.Size = new System.Drawing.Size(363, 38);
+            this.hasincome_tableLayoutPanel.Size = new System.Drawing.Size(389, 38);
             this.hasincome_tableLayoutPanel.TabIndex = 225;
             // 
             // materialLabel19
@@ -1579,11 +1579,11 @@ namespace F2F_Application
             this.materialLabel19.Depth = 0;
             this.materialLabel19.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel19.Location = new System.Drawing.Point(201, 0);
+            this.materialLabel19.Location = new System.Drawing.Point(172, 0);
             this.materialLabel19.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel19.Name = "materialLabel19";
             this.materialLabel19.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel19.Size = new System.Drawing.Size(159, 38);
+            this.materialLabel19.Size = new System.Drawing.Size(214, 38);
             this.materialLabel19.TabIndex = 204;
             this.materialLabel19.Text = "هل يوجد دخل ثابت شهرياً ؟";
             // 
@@ -1652,7 +1652,7 @@ namespace F2F_Application
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(1137, 82);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(1214, 82);
             this.tableLayoutPanel23.TabIndex = 120;
             // 
             // aidperiod_30_comboBox
@@ -1666,7 +1666,7 @@ namespace F2F_Application
             this.aidperiod_30_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidperiod_30_comboBox.Name = "aidperiod_30_comboBox";
             this.aidperiod_30_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidperiod_30_comboBox.Size = new System.Drawing.Size(283, 33);
+            this.aidperiod_30_comboBox.Size = new System.Drawing.Size(302, 33);
             this.aidperiod_30_comboBox.TabIndex = 124;
             this.aidperiod_30_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidperiod_30_comboBox_SelectionChangeCommitted);
             // 
@@ -1680,12 +1680,12 @@ namespace F2F_Application
             this.materialLabel161.Depth = 0;
             this.materialLabel161.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel161.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel161.Location = new System.Drawing.Point(853, 1);
+            this.materialLabel161.Location = new System.Drawing.Point(910, 1);
             this.materialLabel161.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel161.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel161.Name = "materialLabel161";
             this.materialLabel161.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel161.Size = new System.Drawing.Size(283, 39);
+            this.materialLabel161.Size = new System.Drawing.Size(303, 39);
             this.materialLabel161.TabIndex = 220;
             this.materialLabel161.Text = "الصفة الأسرية";
             this.materialLabel161.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1700,12 +1700,12 @@ namespace F2F_Application
             this.materialLabel171.Depth = 0;
             this.materialLabel171.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel171.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel171.Location = new System.Drawing.Point(569, 1);
+            this.materialLabel171.Location = new System.Drawing.Point(607, 1);
             this.materialLabel171.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel171.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel171.Name = "materialLabel171";
             this.materialLabel171.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel171.Size = new System.Drawing.Size(283, 39);
+            this.materialLabel171.Size = new System.Drawing.Size(302, 39);
             this.materialLabel171.TabIndex = 221;
             this.materialLabel171.Text = "مكان الإقامة";
             this.materialLabel171.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1720,12 +1720,12 @@ namespace F2F_Application
             this.materialLabel172.Depth = 0;
             this.materialLabel172.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel172.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel172.Location = new System.Drawing.Point(285, 1);
+            this.materialLabel172.Location = new System.Drawing.Point(304, 1);
             this.materialLabel172.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel172.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel172.Name = "materialLabel172";
             this.materialLabel172.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel172.Size = new System.Drawing.Size(283, 39);
+            this.materialLabel172.Size = new System.Drawing.Size(302, 39);
             this.materialLabel172.TabIndex = 222;
             this.materialLabel172.Text = "قيمة المساعدة";
             this.materialLabel172.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1735,7 +1735,7 @@ namespace F2F_Application
             this.income_address_12_TextBox.Depth = 0;
             this.income_address_12_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.income_address_12_TextBox.Hint = "";
-            this.income_address_12_TextBox.Location = new System.Drawing.Point(569, 50);
+            this.income_address_12_TextBox.Location = new System.Drawing.Point(607, 50);
             this.income_address_12_TextBox.Margin = new System.Windows.Forms.Padding(0);
             this.income_address_12_TextBox.MaxLength = 32767;
             this.income_address_12_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -1745,7 +1745,7 @@ namespace F2F_Application
             this.income_address_12_TextBox.SelectedText = "";
             this.income_address_12_TextBox.SelectionLength = 0;
             this.income_address_12_TextBox.SelectionStart = 0;
-            this.income_address_12_TextBox.Size = new System.Drawing.Size(283, 31);
+            this.income_address_12_TextBox.Size = new System.Drawing.Size(302, 31);
             this.income_address_12_TextBox.TabIndex = 122;
             this.income_address_12_TextBox.TabStop = false;
             this.income_address_12_TextBox.UseSystemPasswordChar = false;
@@ -1757,7 +1757,7 @@ namespace F2F_Application
             this.aidamount_30_TextBox.Depth = 0;
             this.aidamount_30_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.aidamount_30_TextBox.Hint = "";
-            this.aidamount_30_TextBox.Location = new System.Drawing.Point(285, 50);
+            this.aidamount_30_TextBox.Location = new System.Drawing.Point(304, 50);
             this.aidamount_30_TextBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidamount_30_TextBox.MaxLength = 32767;
             this.aidamount_30_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -1767,7 +1767,7 @@ namespace F2F_Application
             this.aidamount_30_TextBox.SelectedText = "";
             this.aidamount_30_TextBox.SelectionLength = 0;
             this.aidamount_30_TextBox.SelectionStart = 0;
-            this.aidamount_30_TextBox.Size = new System.Drawing.Size(283, 31);
+            this.aidamount_30_TextBox.Size = new System.Drawing.Size(302, 31);
             this.aidamount_30_TextBox.TabIndex = 123;
             this.aidamount_30_TextBox.TabStop = false;
             this.aidamount_30_TextBox.UseSystemPasswordChar = false;
@@ -1782,11 +1782,11 @@ namespace F2F_Application
             this.IncomeRelation_12_comboBox.BackColor = System.Drawing.Color.White;
             this.IncomeRelation_12_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.IncomeRelation_12_comboBox.FormattingEnabled = true;
-            this.IncomeRelation_12_comboBox.Location = new System.Drawing.Point(853, 41);
+            this.IncomeRelation_12_comboBox.Location = new System.Drawing.Point(910, 41);
             this.IncomeRelation_12_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.IncomeRelation_12_comboBox.Name = "IncomeRelation_12_comboBox";
             this.IncomeRelation_12_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.IncomeRelation_12_comboBox.Size = new System.Drawing.Size(283, 33);
+            this.IncomeRelation_12_comboBox.Size = new System.Drawing.Size(303, 33);
             this.IncomeRelation_12_comboBox.TabIndex = 121;
             this.IncomeRelation_12_comboBox.SelectionChangeCommitted += new System.EventHandler(this.IncomeRelation_12_comboBox_SelectionChangeCommitted);
             // 
@@ -1805,7 +1805,7 @@ namespace F2F_Application
             this.materialLabel173.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel173.Name = "materialLabel173";
             this.materialLabel173.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel173.Size = new System.Drawing.Size(283, 39);
+            this.materialLabel173.Size = new System.Drawing.Size(302, 39);
             this.materialLabel173.TabIndex = 223;
             this.materialLabel173.Text = "عدد مرات المساعدة";
             this.materialLabel173.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1823,7 +1823,7 @@ namespace F2F_Application
             this.RelativeAidLable.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.RelativeAidLable.Name = "RelativeAidLable";
             this.RelativeAidLable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RelativeAidLable.Size = new System.Drawing.Size(1143, 44);
+            this.RelativeAidLable.Size = new System.Drawing.Size(1220, 44);
             this.RelativeAidLable.TabIndex = 224;
             this.RelativeAidLable.Text = "مساعدة أصدقاء/أقارب";
             this.RelativeAidLable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1893,7 +1893,7 @@ namespace F2F_Application
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(1143, 220);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(1220, 220);
             this.tableLayoutPanel19.TabIndex = 92;
             // 
             // NoteAid_16_home_TextBox
@@ -1911,7 +1911,7 @@ namespace F2F_Application
             this.NoteAid_16_home_TextBox.SelectedText = "";
             this.NoteAid_16_home_TextBox.SelectionLength = 0;
             this.NoteAid_16_home_TextBox.SelectionStart = 0;
-            this.NoteAid_16_home_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.NoteAid_16_home_TextBox.Size = new System.Drawing.Size(242, 31);
             this.NoteAid_16_home_TextBox.TabIndex = 119;
             this.NoteAid_16_home_TextBox.TabStop = false;
             this.NoteAid_16_home_TextBox.UseSystemPasswordChar = false;
@@ -1928,12 +1928,12 @@ namespace F2F_Application
             this.materialLabel164.Depth = 0;
             this.materialLabel164.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel164.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel164.Location = new System.Drawing.Point(913, 1);
+            this.materialLabel164.Location = new System.Drawing.Point(973, 1);
             this.materialLabel164.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel164.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel164.Name = "materialLabel164";
             this.materialLabel164.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel164.Size = new System.Drawing.Size(229, 26);
+            this.materialLabel164.Size = new System.Drawing.Size(246, 26);
             this.materialLabel164.TabIndex = 219;
             this.materialLabel164.Text = "نوع المساعدة";
             this.materialLabel164.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1948,12 +1948,12 @@ namespace F2F_Application
             this.materialLabel166.Depth = 0;
             this.materialLabel166.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel166.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel166.Location = new System.Drawing.Point(913, 28);
+            this.materialLabel166.Location = new System.Drawing.Point(973, 28);
             this.materialLabel166.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel166.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel166.Name = "materialLabel166";
             this.materialLabel166.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel166.Size = new System.Drawing.Size(229, 26);
+            this.materialLabel166.Size = new System.Drawing.Size(246, 26);
             this.materialLabel166.TabIndex = 231;
             this.materialLabel166.Text = "سلة غذائية";
             this.materialLabel166.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1968,12 +1968,12 @@ namespace F2F_Application
             this.materialLabel168.Depth = 0;
             this.materialLabel168.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel168.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel168.Location = new System.Drawing.Point(913, 55);
+            this.materialLabel168.Location = new System.Drawing.Point(973, 55);
             this.materialLabel168.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel168.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel168.Name = "materialLabel168";
             this.materialLabel168.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel168.Size = new System.Drawing.Size(229, 26);
+            this.materialLabel168.Size = new System.Drawing.Size(246, 26);
             this.materialLabel168.TabIndex = 223;
             this.materialLabel168.Text = "طعام";
             this.materialLabel168.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1988,12 +1988,12 @@ namespace F2F_Application
             this.materialLabel167.Depth = 0;
             this.materialLabel167.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel167.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel167.Location = new System.Drawing.Point(913, 82);
+            this.materialLabel167.Location = new System.Drawing.Point(973, 82);
             this.materialLabel167.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel167.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel167.Name = "materialLabel167";
             this.materialLabel167.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel167.Size = new System.Drawing.Size(229, 26);
+            this.materialLabel167.Size = new System.Drawing.Size(246, 26);
             this.materialLabel167.TabIndex = 224;
             this.materialLabel167.Text = "رواتب مسنين";
             this.materialLabel167.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2008,12 +2008,12 @@ namespace F2F_Application
             this.materialLabel169.Depth = 0;
             this.materialLabel169.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel169.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel169.Location = new System.Drawing.Point(913, 109);
+            this.materialLabel169.Location = new System.Drawing.Point(973, 109);
             this.materialLabel169.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel169.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel169.Name = "materialLabel169";
             this.materialLabel169.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel169.Size = new System.Drawing.Size(229, 26);
+            this.materialLabel169.Size = new System.Drawing.Size(246, 26);
             this.materialLabel169.TabIndex = 225;
             this.materialLabel169.Text = "بدل محروقات";
             this.materialLabel169.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2028,12 +2028,12 @@ namespace F2F_Application
             this.materialLabel170.Depth = 0;
             this.materialLabel170.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel170.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel170.Location = new System.Drawing.Point(913, 136);
+            this.materialLabel170.Location = new System.Drawing.Point(973, 136);
             this.materialLabel170.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel170.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel170.Name = "materialLabel170";
             this.materialLabel170.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel170.Size = new System.Drawing.Size(229, 26);
+            this.materialLabel170.Size = new System.Drawing.Size(246, 26);
             this.materialLabel170.TabIndex = 226;
             this.materialLabel170.Text = "سلة منظفات";
             this.materialLabel170.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2048,12 +2048,12 @@ namespace F2F_Application
             this.materialLabel163.Depth = 0;
             this.materialLabel163.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel163.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel163.Location = new System.Drawing.Point(685, 1);
+            this.materialLabel163.Location = new System.Drawing.Point(730, 1);
             this.materialLabel163.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel163.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel163.Name = "materialLabel163";
             this.materialLabel163.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel163.Size = new System.Drawing.Size(227, 26);
+            this.materialLabel163.Size = new System.Drawing.Size(242, 26);
             this.materialLabel163.TabIndex = 219;
             this.materialLabel163.Text = "الجهة الداعمة";
             this.materialLabel163.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2068,12 +2068,12 @@ namespace F2F_Application
             this.materialLabel165.Depth = 0;
             this.materialLabel165.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel165.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel165.Location = new System.Drawing.Point(457, 1);
+            this.materialLabel165.Location = new System.Drawing.Point(487, 1);
             this.materialLabel165.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel165.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel165.Name = "materialLabel165";
             this.materialLabel165.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel165.Size = new System.Drawing.Size(227, 26);
+            this.materialLabel165.Size = new System.Drawing.Size(242, 26);
             this.materialLabel165.TabIndex = 220;
             this.materialLabel165.Text = "قيمة المساعدة";
             this.materialLabel165.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2088,12 +2088,12 @@ namespace F2F_Application
             this.materialLabel162.Depth = 0;
             this.materialLabel162.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel162.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel162.Location = new System.Drawing.Point(229, 1);
+            this.materialLabel162.Location = new System.Drawing.Point(244, 1);
             this.materialLabel162.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel162.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel162.Name = "materialLabel162";
             this.materialLabel162.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel162.Size = new System.Drawing.Size(227, 26);
+            this.materialLabel162.Size = new System.Drawing.Size(242, 26);
             this.materialLabel162.TabIndex = 220;
             this.materialLabel162.Text = "عدد مرات المساعدة";
             this.materialLabel162.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2113,7 +2113,7 @@ namespace F2F_Application
             this.materialLabel156.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel156.Name = "materialLabel156";
             this.materialLabel156.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel156.Size = new System.Drawing.Size(227, 26);
+            this.materialLabel156.Size = new System.Drawing.Size(242, 26);
             this.materialLabel156.TabIndex = 232;
             this.materialLabel156.Text = "ملاحظة";
             this.materialLabel156.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2125,11 +2125,11 @@ namespace F2F_Application
             this.aidsource_11_comboBox.BackColor = System.Drawing.Color.White;
             this.aidsource_11_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidsource_11_comboBox.FormattingEnabled = true;
-            this.aidsource_11_comboBox.Location = new System.Drawing.Point(685, 28);
+            this.aidsource_11_comboBox.Location = new System.Drawing.Point(730, 28);
             this.aidsource_11_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidsource_11_comboBox.Name = "aidsource_11_comboBox";
             this.aidsource_11_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidsource_11_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidsource_11_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidsource_11_comboBox.TabIndex = 93;
             this.aidsource_11_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidsource_11_comboBox_SelectionChangeCommitted);
             // 
@@ -2140,11 +2140,11 @@ namespace F2F_Application
             this.aidsource_20_comboBox.BackColor = System.Drawing.Color.White;
             this.aidsource_20_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidsource_20_comboBox.FormattingEnabled = true;
-            this.aidsource_20_comboBox.Location = new System.Drawing.Point(685, 55);
+            this.aidsource_20_comboBox.Location = new System.Drawing.Point(730, 55);
             this.aidsource_20_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidsource_20_comboBox.Name = "aidsource_20_comboBox";
             this.aidsource_20_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidsource_20_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidsource_20_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidsource_20_comboBox.TabIndex = 97;
             this.aidsource_20_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidsource_20_comboBox_SelectionChangeCommitted);
             // 
@@ -2155,11 +2155,11 @@ namespace F2F_Application
             this.aidsource_19_comboBox.BackColor = System.Drawing.Color.White;
             this.aidsource_19_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidsource_19_comboBox.FormattingEnabled = true;
-            this.aidsource_19_comboBox.Location = new System.Drawing.Point(685, 82);
+            this.aidsource_19_comboBox.Location = new System.Drawing.Point(730, 82);
             this.aidsource_19_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidsource_19_comboBox.Name = "aidsource_19_comboBox";
             this.aidsource_19_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidsource_19_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidsource_19_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidsource_19_comboBox.TabIndex = 101;
             this.aidsource_19_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidsource_19_comboBox_SelectionChangeCommitted);
             // 
@@ -2170,11 +2170,11 @@ namespace F2F_Application
             this.aidsource_12_comboBox.BackColor = System.Drawing.Color.White;
             this.aidsource_12_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidsource_12_comboBox.FormattingEnabled = true;
-            this.aidsource_12_comboBox.Location = new System.Drawing.Point(685, 136);
+            this.aidsource_12_comboBox.Location = new System.Drawing.Point(730, 136);
             this.aidsource_12_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidsource_12_comboBox.Name = "aidsource_12_comboBox";
             this.aidsource_12_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidsource_12_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidsource_12_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidsource_12_comboBox.TabIndex = 108;
             this.aidsource_12_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidsource_12_comboBox_SelectionChangeCommitted);
             // 
@@ -2185,11 +2185,11 @@ namespace F2F_Application
             this.aidsource_14_comboBox.BackColor = System.Drawing.Color.White;
             this.aidsource_14_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidsource_14_comboBox.FormattingEnabled = true;
-            this.aidsource_14_comboBox.Location = new System.Drawing.Point(685, 109);
+            this.aidsource_14_comboBox.Location = new System.Drawing.Point(730, 109);
             this.aidsource_14_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidsource_14_comboBox.Name = "aidsource_14_comboBox";
             this.aidsource_14_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidsource_14_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidsource_14_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidsource_14_comboBox.TabIndex = 105;
             this.aidsource_14_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidsource_14_comboBox_SelectionChangeCommitted);
             // 
@@ -2203,12 +2203,12 @@ namespace F2F_Application
             this.materialLabel160.Depth = 0;
             this.materialLabel160.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel160.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel160.Location = new System.Drawing.Point(913, 163);
+            this.materialLabel160.Location = new System.Drawing.Point(973, 163);
             this.materialLabel160.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel160.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel160.Name = "materialLabel160";
             this.materialLabel160.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel160.Size = new System.Drawing.Size(229, 26);
+            this.materialLabel160.Size = new System.Drawing.Size(246, 26);
             this.materialLabel160.TabIndex = 224;
             this.materialLabel160.Text = "ترميم";
             this.materialLabel160.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2223,12 +2223,12 @@ namespace F2F_Application
             this.materialLabel159.Depth = 0;
             this.materialLabel159.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel159.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel159.Location = new System.Drawing.Point(913, 190);
+            this.materialLabel159.Location = new System.Drawing.Point(973, 190);
             this.materialLabel159.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel159.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel159.Name = "materialLabel159";
             this.materialLabel159.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel159.Size = new System.Drawing.Size(229, 29);
+            this.materialLabel159.Size = new System.Drawing.Size(246, 29);
             this.materialLabel159.TabIndex = 235;
             this.materialLabel159.Text = "أخرى";
             this.materialLabel159.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2240,11 +2240,11 @@ namespace F2F_Application
             this.aidsource_17_home_comboBox.BackColor = System.Drawing.Color.White;
             this.aidsource_17_home_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidsource_17_home_comboBox.FormattingEnabled = true;
-            this.aidsource_17_home_comboBox.Location = new System.Drawing.Point(685, 163);
+            this.aidsource_17_home_comboBox.Location = new System.Drawing.Point(730, 163);
             this.aidsource_17_home_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidsource_17_home_comboBox.Name = "aidsource_17_home_comboBox";
             this.aidsource_17_home_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidsource_17_home_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidsource_17_home_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidsource_17_home_comboBox.TabIndex = 112;
             this.aidsource_17_home_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidsource_17_home_comboBox_SelectionChangeCommitted);
             // 
@@ -2255,11 +2255,11 @@ namespace F2F_Application
             this.aidsource_16_home_comboBox.BackColor = System.Drawing.Color.White;
             this.aidsource_16_home_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidsource_16_home_comboBox.FormattingEnabled = true;
-            this.aidsource_16_home_comboBox.Location = new System.Drawing.Point(685, 190);
+            this.aidsource_16_home_comboBox.Location = new System.Drawing.Point(730, 190);
             this.aidsource_16_home_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidsource_16_home_comboBox.Name = "aidsource_16_home_comboBox";
             this.aidsource_16_home_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidsource_16_home_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidsource_16_home_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidsource_16_home_comboBox.TabIndex = 116;
             this.aidsource_16_home_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidsource_16_home_comboBox_SelectionChangeCommitted);
             // 
@@ -2268,7 +2268,7 @@ namespace F2F_Application
             this.aidamount_11_TextBox.Depth = 0;
             this.aidamount_11_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.aidamount_11_TextBox.Hint = "";
-            this.aidamount_11_TextBox.Location = new System.Drawing.Point(457, 28);
+            this.aidamount_11_TextBox.Location = new System.Drawing.Point(487, 28);
             this.aidamount_11_TextBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidamount_11_TextBox.MaxLength = 32767;
             this.aidamount_11_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -2278,7 +2278,7 @@ namespace F2F_Application
             this.aidamount_11_TextBox.SelectedText = "";
             this.aidamount_11_TextBox.SelectionLength = 0;
             this.aidamount_11_TextBox.SelectionStart = 0;
-            this.aidamount_11_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.aidamount_11_TextBox.Size = new System.Drawing.Size(242, 31);
             this.aidamount_11_TextBox.TabIndex = 94;
             this.aidamount_11_TextBox.TabStop = false;
             this.aidamount_11_TextBox.UseSystemPasswordChar = false;
@@ -2291,7 +2291,7 @@ namespace F2F_Application
             this.aidamount_20_TextBox.Depth = 0;
             this.aidamount_20_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.aidamount_20_TextBox.Hint = "";
-            this.aidamount_20_TextBox.Location = new System.Drawing.Point(457, 55);
+            this.aidamount_20_TextBox.Location = new System.Drawing.Point(487, 55);
             this.aidamount_20_TextBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidamount_20_TextBox.MaxLength = 32767;
             this.aidamount_20_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -2301,7 +2301,7 @@ namespace F2F_Application
             this.aidamount_20_TextBox.SelectedText = "";
             this.aidamount_20_TextBox.SelectionLength = 0;
             this.aidamount_20_TextBox.SelectionStart = 0;
-            this.aidamount_20_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.aidamount_20_TextBox.Size = new System.Drawing.Size(242, 31);
             this.aidamount_20_TextBox.TabIndex = 98;
             this.aidamount_20_TextBox.TabStop = false;
             this.aidamount_20_TextBox.UseSystemPasswordChar = false;
@@ -2314,7 +2314,7 @@ namespace F2F_Application
             this.aidamount_19_TextBox.Depth = 0;
             this.aidamount_19_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.aidamount_19_TextBox.Hint = "";
-            this.aidamount_19_TextBox.Location = new System.Drawing.Point(457, 82);
+            this.aidamount_19_TextBox.Location = new System.Drawing.Point(487, 82);
             this.aidamount_19_TextBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidamount_19_TextBox.MaxLength = 32767;
             this.aidamount_19_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -2324,7 +2324,7 @@ namespace F2F_Application
             this.aidamount_19_TextBox.SelectedText = "";
             this.aidamount_19_TextBox.SelectionLength = 0;
             this.aidamount_19_TextBox.SelectionStart = 0;
-            this.aidamount_19_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.aidamount_19_TextBox.Size = new System.Drawing.Size(242, 31);
             this.aidamount_19_TextBox.TabIndex = 102;
             this.aidamount_19_TextBox.TabStop = false;
             this.aidamount_19_TextBox.UseSystemPasswordChar = false;
@@ -2337,7 +2337,7 @@ namespace F2F_Application
             this.aidamount_14_TextBox.Depth = 0;
             this.aidamount_14_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.aidamount_14_TextBox.Hint = "";
-            this.aidamount_14_TextBox.Location = new System.Drawing.Point(457, 109);
+            this.aidamount_14_TextBox.Location = new System.Drawing.Point(487, 109);
             this.aidamount_14_TextBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidamount_14_TextBox.MaxLength = 32767;
             this.aidamount_14_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -2347,7 +2347,7 @@ namespace F2F_Application
             this.aidamount_14_TextBox.SelectedText = "";
             this.aidamount_14_TextBox.SelectionLength = 0;
             this.aidamount_14_TextBox.SelectionStart = 0;
-            this.aidamount_14_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.aidamount_14_TextBox.Size = new System.Drawing.Size(242, 31);
             this.aidamount_14_TextBox.TabIndex = 106;
             this.aidamount_14_TextBox.TabStop = false;
             this.aidamount_14_TextBox.UseSystemPasswordChar = false;
@@ -2360,7 +2360,7 @@ namespace F2F_Application
             this.aidamount_12_TextBox.Depth = 0;
             this.aidamount_12_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.aidamount_12_TextBox.Hint = "";
-            this.aidamount_12_TextBox.Location = new System.Drawing.Point(457, 136);
+            this.aidamount_12_TextBox.Location = new System.Drawing.Point(487, 136);
             this.aidamount_12_TextBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidamount_12_TextBox.MaxLength = 32767;
             this.aidamount_12_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -2370,7 +2370,7 @@ namespace F2F_Application
             this.aidamount_12_TextBox.SelectedText = "";
             this.aidamount_12_TextBox.SelectionLength = 0;
             this.aidamount_12_TextBox.SelectionStart = 0;
-            this.aidamount_12_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.aidamount_12_TextBox.Size = new System.Drawing.Size(242, 31);
             this.aidamount_12_TextBox.TabIndex = 109;
             this.aidamount_12_TextBox.TabStop = false;
             this.aidamount_12_TextBox.UseSystemPasswordChar = false;
@@ -2383,7 +2383,7 @@ namespace F2F_Application
             this.aidamount_17_Home_TextBox.Depth = 0;
             this.aidamount_17_Home_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.aidamount_17_Home_TextBox.Hint = "";
-            this.aidamount_17_Home_TextBox.Location = new System.Drawing.Point(457, 163);
+            this.aidamount_17_Home_TextBox.Location = new System.Drawing.Point(487, 163);
             this.aidamount_17_Home_TextBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidamount_17_Home_TextBox.MaxLength = 32767;
             this.aidamount_17_Home_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -2393,7 +2393,7 @@ namespace F2F_Application
             this.aidamount_17_Home_TextBox.SelectedText = "";
             this.aidamount_17_Home_TextBox.SelectionLength = 0;
             this.aidamount_17_Home_TextBox.SelectionStart = 0;
-            this.aidamount_17_Home_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.aidamount_17_Home_TextBox.Size = new System.Drawing.Size(242, 31);
             this.aidamount_17_Home_TextBox.TabIndex = 113;
             this.aidamount_17_Home_TextBox.TabStop = false;
             this.aidamount_17_Home_TextBox.UseSystemPasswordChar = false;
@@ -2406,7 +2406,7 @@ namespace F2F_Application
             this.aidamount_16_Home_TextBox.Depth = 0;
             this.aidamount_16_Home_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.aidamount_16_Home_TextBox.Hint = "";
-            this.aidamount_16_Home_TextBox.Location = new System.Drawing.Point(457, 190);
+            this.aidamount_16_Home_TextBox.Location = new System.Drawing.Point(487, 190);
             this.aidamount_16_Home_TextBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidamount_16_Home_TextBox.MaxLength = 32767;
             this.aidamount_16_Home_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -2416,7 +2416,7 @@ namespace F2F_Application
             this.aidamount_16_Home_TextBox.SelectedText = "";
             this.aidamount_16_Home_TextBox.SelectionLength = 0;
             this.aidamount_16_Home_TextBox.SelectionStart = 0;
-            this.aidamount_16_Home_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.aidamount_16_Home_TextBox.Size = new System.Drawing.Size(242, 31);
             this.aidamount_16_Home_TextBox.TabIndex = 117;
             this.aidamount_16_Home_TextBox.TabStop = false;
             this.aidamount_16_Home_TextBox.UseSystemPasswordChar = false;
@@ -2431,11 +2431,11 @@ namespace F2F_Application
             this.aidperiod_11_comboBox.BackColor = System.Drawing.Color.White;
             this.aidperiod_11_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidperiod_11_comboBox.FormattingEnabled = true;
-            this.aidperiod_11_comboBox.Location = new System.Drawing.Point(229, 28);
+            this.aidperiod_11_comboBox.Location = new System.Drawing.Point(244, 28);
             this.aidperiod_11_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidperiod_11_comboBox.Name = "aidperiod_11_comboBox";
             this.aidperiod_11_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidperiod_11_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidperiod_11_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidperiod_11_comboBox.TabIndex = 95;
             this.aidperiod_11_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidperiod_11_comboBox_SelectionChangeCommitted);
             // 
@@ -2446,11 +2446,11 @@ namespace F2F_Application
             this.aidperiod_20_comboBox.BackColor = System.Drawing.Color.White;
             this.aidperiod_20_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidperiod_20_comboBox.FormattingEnabled = true;
-            this.aidperiod_20_comboBox.Location = new System.Drawing.Point(229, 55);
+            this.aidperiod_20_comboBox.Location = new System.Drawing.Point(244, 55);
             this.aidperiod_20_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidperiod_20_comboBox.Name = "aidperiod_20_comboBox";
             this.aidperiod_20_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidperiod_20_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidperiod_20_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidperiod_20_comboBox.TabIndex = 99;
             this.aidperiod_20_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidperiod_20_comboBox_SelectionChangeCommitted);
             // 
@@ -2461,11 +2461,11 @@ namespace F2F_Application
             this.aidperiod_19_comboBox.BackColor = System.Drawing.Color.White;
             this.aidperiod_19_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidperiod_19_comboBox.FormattingEnabled = true;
-            this.aidperiod_19_comboBox.Location = new System.Drawing.Point(229, 82);
+            this.aidperiod_19_comboBox.Location = new System.Drawing.Point(244, 82);
             this.aidperiod_19_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidperiod_19_comboBox.Name = "aidperiod_19_comboBox";
             this.aidperiod_19_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidperiod_19_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidperiod_19_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidperiod_19_comboBox.TabIndex = 103;
             this.aidperiod_19_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidperiod_19_comboBox_SelectionChangeCommitted);
             // 
@@ -2476,11 +2476,11 @@ namespace F2F_Application
             this.aidperiod_14_comboBox.BackColor = System.Drawing.Color.White;
             this.aidperiod_14_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidperiod_14_comboBox.FormattingEnabled = true;
-            this.aidperiod_14_comboBox.Location = new System.Drawing.Point(229, 109);
+            this.aidperiod_14_comboBox.Location = new System.Drawing.Point(244, 109);
             this.aidperiod_14_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidperiod_14_comboBox.Name = "aidperiod_14_comboBox";
             this.aidperiod_14_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidperiod_14_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidperiod_14_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidperiod_14_comboBox.TabIndex = 107;
             this.aidperiod_14_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidperiod_14_comboBox_SelectionChangeCommitted);
             // 
@@ -2491,11 +2491,11 @@ namespace F2F_Application
             this.aidperiod_12_comboBox.BackColor = System.Drawing.Color.White;
             this.aidperiod_12_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidperiod_12_comboBox.FormattingEnabled = true;
-            this.aidperiod_12_comboBox.Location = new System.Drawing.Point(229, 136);
+            this.aidperiod_12_comboBox.Location = new System.Drawing.Point(244, 136);
             this.aidperiod_12_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidperiod_12_comboBox.Name = "aidperiod_12_comboBox";
             this.aidperiod_12_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidperiod_12_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidperiod_12_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidperiod_12_comboBox.TabIndex = 110;
             this.aidperiod_12_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidperiod_12_comboBox_SelectionChangeCommitted);
             // 
@@ -2506,11 +2506,11 @@ namespace F2F_Application
             this.aidperiod_17_home_comboBox.BackColor = System.Drawing.Color.White;
             this.aidperiod_17_home_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidperiod_17_home_comboBox.FormattingEnabled = true;
-            this.aidperiod_17_home_comboBox.Location = new System.Drawing.Point(229, 163);
+            this.aidperiod_17_home_comboBox.Location = new System.Drawing.Point(244, 163);
             this.aidperiod_17_home_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidperiod_17_home_comboBox.Name = "aidperiod_17_home_comboBox";
             this.aidperiod_17_home_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidperiod_17_home_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidperiod_17_home_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidperiod_17_home_comboBox.TabIndex = 114;
             this.aidperiod_17_home_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidperiod_17_home_comboBox_SelectionChangeCommitted);
             // 
@@ -2521,11 +2521,11 @@ namespace F2F_Application
             this.aidperiod_16_home_comboBox.BackColor = System.Drawing.Color.White;
             this.aidperiod_16_home_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidperiod_16_home_comboBox.FormattingEnabled = true;
-            this.aidperiod_16_home_comboBox.Location = new System.Drawing.Point(229, 190);
+            this.aidperiod_16_home_comboBox.Location = new System.Drawing.Point(244, 190);
             this.aidperiod_16_home_comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.aidperiod_16_home_comboBox.Name = "aidperiod_16_home_comboBox";
             this.aidperiod_16_home_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidperiod_16_home_comboBox.Size = new System.Drawing.Size(227, 33);
+            this.aidperiod_16_home_comboBox.Size = new System.Drawing.Size(242, 33);
             this.aidperiod_16_home_comboBox.TabIndex = 118;
             this.aidperiod_16_home_comboBox.SelectionChangeCommitted += new System.EventHandler(this.aidperiod_16_home_comboBox_SelectionChangeCommitted);
             // 
@@ -2544,7 +2544,7 @@ namespace F2F_Application
             this.NoteAid_11_TextBox.SelectedText = "";
             this.NoteAid_11_TextBox.SelectionLength = 0;
             this.NoteAid_11_TextBox.SelectionStart = 0;
-            this.NoteAid_11_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.NoteAid_11_TextBox.Size = new System.Drawing.Size(242, 31);
             this.NoteAid_11_TextBox.TabIndex = 96;
             this.NoteAid_11_TextBox.TabStop = false;
             this.NoteAid_11_TextBox.UseSystemPasswordChar = false;
@@ -2566,7 +2566,7 @@ namespace F2F_Application
             this.NoteAid_20_TextBox.SelectedText = "";
             this.NoteAid_20_TextBox.SelectionLength = 0;
             this.NoteAid_20_TextBox.SelectionStart = 0;
-            this.NoteAid_20_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.NoteAid_20_TextBox.Size = new System.Drawing.Size(242, 31);
             this.NoteAid_20_TextBox.TabIndex = 100;
             this.NoteAid_20_TextBox.TabStop = false;
             this.NoteAid_20_TextBox.UseSystemPasswordChar = false;
@@ -2588,7 +2588,7 @@ namespace F2F_Application
             this.NoteAid_19_TextBox.SelectedText = "";
             this.NoteAid_19_TextBox.SelectionLength = 0;
             this.NoteAid_19_TextBox.SelectionStart = 0;
-            this.NoteAid_19_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.NoteAid_19_TextBox.Size = new System.Drawing.Size(242, 31);
             this.NoteAid_19_TextBox.TabIndex = 104;
             this.NoteAid_19_TextBox.TabStop = false;
             this.NoteAid_19_TextBox.UseSystemPasswordChar = false;
@@ -2610,7 +2610,7 @@ namespace F2F_Application
             this.NoteAid_12_TextBox.SelectedText = "";
             this.NoteAid_12_TextBox.SelectionLength = 0;
             this.NoteAid_12_TextBox.SelectionStart = 0;
-            this.NoteAid_12_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.NoteAid_12_TextBox.Size = new System.Drawing.Size(242, 31);
             this.NoteAid_12_TextBox.TabIndex = 111;
             this.NoteAid_12_TextBox.TabStop = false;
             this.NoteAid_12_TextBox.UseSystemPasswordChar = false;
@@ -2632,7 +2632,7 @@ namespace F2F_Application
             this.NoteAid_17_home_TextBox.SelectedText = "";
             this.NoteAid_17_home_TextBox.SelectionLength = 0;
             this.NoteAid_17_home_TextBox.SelectionStart = 0;
-            this.NoteAid_17_home_TextBox.Size = new System.Drawing.Size(227, 31);
+            this.NoteAid_17_home_TextBox.Size = new System.Drawing.Size(242, 31);
             this.NoteAid_17_home_TextBox.TabIndex = 115;
             this.NoteAid_17_home_TextBox.TabStop = false;
             this.NoteAid_17_home_TextBox.UseSystemPasswordChar = false;
@@ -2649,7 +2649,7 @@ namespace F2F_Application
             this.panel5.ForeColor = System.Drawing.Color.Black;
             this.panel5.Location = new System.Drawing.Point(23, 2687);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1137, 38);
+            this.panel5.Size = new System.Drawing.Size(1214, 38);
             this.panel5.TabIndex = 41;
             // 
             // tableLayoutPanel37
@@ -2703,7 +2703,7 @@ namespace F2F_Application
             this.AidsLable.Dock = System.Windows.Forms.DockStyle.Right;
             this.AidsLable.Font = new System.Drawing.Font("Tajawal", 11F);
             this.AidsLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.AidsLable.Location = new System.Drawing.Point(847, 0);
+            this.AidsLable.Location = new System.Drawing.Point(924, 0);
             this.AidsLable.MaximumSize = new System.Drawing.Size(290, 53);
             this.AidsLable.MinimumSize = new System.Drawing.Size(290, 53);
             this.AidsLable.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -2777,7 +2777,7 @@ namespace F2F_Application
             this.CarAsset_DataGridView.RowHeadersWidth = 51;
             this.secondtableLayoutPanel.SetRowSpan(this.CarAsset_DataGridView, 3);
             this.CarAsset_DataGridView.RowTemplate.Height = 24;
-            this.CarAsset_DataGridView.Size = new System.Drawing.Size(1137, 126);
+            this.CarAsset_DataGridView.Size = new System.Drawing.Size(1214, 126);
             this.CarAsset_DataGridView.TabIndex = 81;
             this.CarAsset_DataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CarAsset_DataGridView_CellContentClick);
             this.CarAsset_DataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.CarAsset_DataGridView_CellEndEdit);
@@ -2924,7 +2924,7 @@ namespace F2F_Application
             this.Asset_DataGridView.RowHeadersWidth = 51;
             this.secondtableLayoutPanel.SetRowSpan(this.Asset_DataGridView, 5);
             this.Asset_DataGridView.RowTemplate.Height = 24;
-            this.Asset_DataGridView.Size = new System.Drawing.Size(1137, 214);
+            this.Asset_DataGridView.Size = new System.Drawing.Size(1214, 214);
             this.Asset_DataGridView.TabIndex = 80;
             this.Asset_DataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Asset_DataGridView_CellContentClick_1);
             this.Asset_DataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Asset_DataGridView_CellEndEdit);
@@ -3022,7 +3022,7 @@ namespace F2F_Application
             this.panel8.ForeColor = System.Drawing.Color.White;
             this.panel8.Location = new System.Drawing.Point(23, 1587);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1137, 38);
+            this.panel8.Size = new System.Drawing.Size(1214, 38);
             this.panel8.TabIndex = 47;
             // 
             // AssetsLable
@@ -3031,7 +3031,7 @@ namespace F2F_Application
             this.AssetsLable.Dock = System.Windows.Forms.DockStyle.Right;
             this.AssetsLable.Font = new System.Drawing.Font("Tajawal", 11F);
             this.AssetsLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.AssetsLable.Location = new System.Drawing.Point(896, 0);
+            this.AssetsLable.Location = new System.Drawing.Point(973, 0);
             this.AssetsLable.MaximumSize = new System.Drawing.Size(241, 53);
             this.AssetsLable.MinimumSize = new System.Drawing.Size(241, 53);
             this.AssetsLable.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -3049,7 +3049,7 @@ namespace F2F_Application
             this.materialLabel140.Depth = 0;
             this.materialLabel140.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel140.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel140.Location = new System.Drawing.Point(1009, 1505);
+            this.materialLabel140.Location = new System.Drawing.Point(1075, 1505);
             this.materialLabel140.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel140.Name = "materialLabel140";
             this.materialLabel140.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3064,7 +3064,7 @@ namespace F2F_Application
             this.materialLabel112.Depth = 0;
             this.materialLabel112.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel112.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel112.Location = new System.Drawing.Point(1009, 1461);
+            this.materialLabel112.Location = new System.Drawing.Point(1075, 1461);
             this.materialLabel112.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel112.Name = "materialLabel112";
             this.materialLabel112.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3079,7 +3079,7 @@ namespace F2F_Application
             this.materialLabel147.Depth = 0;
             this.materialLabel147.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel147.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel147.Location = new System.Drawing.Point(1009, 1408);
+            this.materialLabel147.Location = new System.Drawing.Point(1075, 1408);
             this.materialLabel147.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel147.Name = "materialLabel147";
             this.materialLabel147.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3095,7 +3095,7 @@ namespace F2F_Application
             this.materialLabel131.Depth = 0;
             this.materialLabel131.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel131.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel131.Location = new System.Drawing.Point(1009, 1373);
+            this.materialLabel131.Location = new System.Drawing.Point(1075, 1373);
             this.materialLabel131.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel131.Name = "materialLabel131";
             this.materialLabel131.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3115,11 +3115,11 @@ namespace F2F_Application
             this.tableLayoutPanel22.Controls.Add(this.Income11_1_RadioButton, 1, 0);
             this.tableLayoutPanel22.Controls.Add(this.Income11_3_RadioButton, 0, 0);
             this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel22.Location = new System.Drawing.Point(562, 1499);
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(598, 1499);
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RowCount = 1;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(441, 38);
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(471, 38);
             this.tableLayoutPanel22.TabIndex = 68;
             // 
             // Income11_2_RadioButton
@@ -3129,7 +3129,7 @@ namespace F2F_Application
             this.Income11_2_RadioButton.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Income11_2_RadioButton.Depth = 0;
             this.Income11_2_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.Income11_2_RadioButton.Location = new System.Drawing.Point(114, 4);
+            this.Income11_2_RadioButton.Location = new System.Drawing.Point(122, 4);
             this.Income11_2_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Income11_2_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Income11_2_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -3151,7 +3151,7 @@ namespace F2F_Application
             this.Income11_1_RadioButton.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Income11_1_RadioButton.Depth = 0;
             this.Income11_1_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.Income11_1_RadioButton.Location = new System.Drawing.Point(275, 4);
+            this.Income11_1_RadioButton.Location = new System.Drawing.Point(294, 4);
             this.Income11_1_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Income11_1_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Income11_1_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -3180,7 +3180,7 @@ namespace F2F_Application
             this.Income11_3_RadioButton.Name = "Income11_3_RadioButton";
             this.Income11_3_RadioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Income11_3_RadioButton.Ripple = true;
-            this.Income11_3_RadioButton.Size = new System.Drawing.Size(114, 38);
+            this.Income11_3_RadioButton.Size = new System.Drawing.Size(122, 38);
             this.Income11_3_RadioButton.TabIndex = 71;
             this.Income11_3_RadioButton.TabStop = true;
             this.Income11_3_RadioButton.Text = "لا يوجد";
@@ -3196,11 +3196,11 @@ namespace F2F_Application
             this.SellingFurniture_LayoutPanel.Controls.Add(this.SellingFurniture_Yes_RadioButton, 1, 0);
             this.SellingFurniture_LayoutPanel.Controls.Add(this.SellingFurniture_No_RadioButton, 0, 0);
             this.SellingFurniture_LayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SellingFurniture_LayoutPanel.Location = new System.Drawing.Point(680, 1455);
+            this.SellingFurniture_LayoutPanel.Location = new System.Drawing.Point(724, 1455);
             this.SellingFurniture_LayoutPanel.Name = "SellingFurniture_LayoutPanel";
             this.SellingFurniture_LayoutPanel.RowCount = 1;
             this.SellingFurniture_LayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SellingFurniture_LayoutPanel.Size = new System.Drawing.Size(323, 38);
+            this.SellingFurniture_LayoutPanel.Size = new System.Drawing.Size(345, 38);
             this.SellingFurniture_LayoutPanel.TabIndex = 62;
             // 
             // SellingFurniture_Yes_RadioButton
@@ -3209,7 +3209,7 @@ namespace F2F_Application
             this.SellingFurniture_Yes_RadioButton.AutoSize = true;
             this.SellingFurniture_Yes_RadioButton.Depth = 0;
             this.SellingFurniture_Yes_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.SellingFurniture_Yes_RadioButton.Location = new System.Drawing.Point(161, 4);
+            this.SellingFurniture_Yes_RadioButton.Location = new System.Drawing.Point(172, 4);
             this.SellingFurniture_Yes_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.SellingFurniture_Yes_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.SellingFurniture_Yes_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -3252,11 +3252,11 @@ namespace F2F_Application
             this.tableLayoutPanel18.Controls.Add(this.Electricity_Yes_RadioButton, 1, 0);
             this.tableLayoutPanel18.Controls.Add(this.Electricity_No_RadioButton, 0, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(680, 1411);
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(724, 1411);
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel18.TabIndex = 58;
             // 
             // Electricity_Yes_RadioButton
@@ -3265,7 +3265,7 @@ namespace F2F_Application
             this.Electricity_Yes_RadioButton.AutoSize = true;
             this.Electricity_Yes_RadioButton.Depth = 0;
             this.Electricity_Yes_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.Electricity_Yes_RadioButton.Location = new System.Drawing.Point(161, 4);
+            this.Electricity_Yes_RadioButton.Location = new System.Drawing.Point(172, 4);
             this.Electricity_Yes_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Electricity_Yes_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Electricity_Yes_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -3308,11 +3308,11 @@ namespace F2F_Application
             this.tableLayoutPanel13.Controls.Add(this.Expenses_16_Home_Yes_RadioButton, 1, 0);
             this.tableLayoutPanel13.Controls.Add(this.Expenses_16_Home_No_RadioButton, 0, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(680, 1367);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(724, 1367);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel13.TabIndex = 55;
             // 
             // Expenses_16_Home_Yes_RadioButton
@@ -3321,7 +3321,7 @@ namespace F2F_Application
             this.Expenses_16_Home_Yes_RadioButton.AutoSize = true;
             this.Expenses_16_Home_Yes_RadioButton.Depth = 0;
             this.Expenses_16_Home_Yes_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.Expenses_16_Home_Yes_RadioButton.Location = new System.Drawing.Point(161, 4);
+            this.Expenses_16_Home_Yes_RadioButton.Location = new System.Drawing.Point(172, 4);
             this.Expenses_16_Home_Yes_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Expenses_16_Home_Yes_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Expenses_16_Home_Yes_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -3362,7 +3362,7 @@ namespace F2F_Application
             this.ElectricityNote_Lable.Depth = 0;
             this.ElectricityNote_Lable.Font = new System.Drawing.Font("Tajawal", 11F);
             this.ElectricityNote_Lable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ElectricityNote_Lable.Location = new System.Drawing.Point(379, 1426);
+            this.ElectricityNote_Lable.Location = new System.Drawing.Point(402, 1426);
             this.ElectricityNote_Lable.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ElectricityNote_Lable.Name = "ElectricityNote_Lable";
             this.ElectricityNote_Lable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3377,7 +3377,7 @@ namespace F2F_Application
             this.ElectricityNote_TextBox.Depth = 0;
             this.ElectricityNote_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ElectricityNote_TextBox.Hint = "";
-            this.ElectricityNote_TextBox.Location = new System.Drawing.Point(138, 1418);
+            this.ElectricityNote_TextBox.Location = new System.Drawing.Point(145, 1418);
             this.ElectricityNote_TextBox.MaxLength = 32767;
             this.ElectricityNote_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ElectricityNote_TextBox.Name = "ElectricityNote_TextBox";
@@ -3386,7 +3386,7 @@ namespace F2F_Application
             this.ElectricityNote_TextBox.SelectedText = "";
             this.ElectricityNote_TextBox.SelectionLength = 0;
             this.ElectricityNote_TextBox.SelectionStart = 0;
-            this.ElectricityNote_TextBox.Size = new System.Drawing.Size(235, 31);
+            this.ElectricityNote_TextBox.Size = new System.Drawing.Size(251, 31);
             this.ElectricityNote_TextBox.TabIndex = 61;
             this.ElectricityNote_TextBox.TabStop = false;
             this.ElectricityNote_TextBox.UseSystemPasswordChar = false;
@@ -3402,18 +3402,18 @@ namespace F2F_Application
             this.SellingFurniturePanel.Controls.Add(this.SellingFurniture_type_id_1, 1, 0);
             this.SellingFurniturePanel.Controls.Add(this.SellingFurniture_type_id_2, 0, 0);
             this.SellingFurniturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SellingFurniturePanel.Location = new System.Drawing.Point(138, 1455);
+            this.SellingFurniturePanel.Location = new System.Drawing.Point(145, 1455);
             this.SellingFurniturePanel.Name = "SellingFurniturePanel";
             this.SellingFurniturePanel.RowCount = 1;
             this.SellingFurniturePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SellingFurniturePanel.Size = new System.Drawing.Size(339, 38);
+            this.SellingFurniturePanel.Size = new System.Drawing.Size(362, 38);
             this.SellingFurniturePanel.TabIndex = 65;
             // 
             // SellingFurniture_type_id_1
             // 
             this.SellingFurniture_type_id_1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.SellingFurniture_type_id_1.AutoSize = true;
-            this.SellingFurniture_type_id_1.Location = new System.Drawing.Point(202, 4);
+            this.SellingFurniture_type_id_1.Location = new System.Drawing.Point(225, 4);
             this.SellingFurniture_type_id_1.Name = "SellingFurniture_type_id_1";
             this.SellingFurniture_type_id_1.Size = new System.Drawing.Size(134, 29);
             this.SellingFurniture_type_id_1.TabIndex = 66;
@@ -3476,7 +3476,7 @@ namespace F2F_Application
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(1137, 82);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(1214, 82);
             this.tableLayoutPanel11.TabIndex = 45;
             // 
             // PowerLabel
@@ -3487,12 +3487,12 @@ namespace F2F_Application
             this.PowerLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PowerLabel.Font = new System.Drawing.Font("Tajawal", 11F);
             this.PowerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.PowerLabel.Location = new System.Drawing.Point(946, 1);
+            this.PowerLabel.Location = new System.Drawing.Point(1011, 1);
             this.PowerLabel.Margin = new System.Windows.Forms.Padding(0);
             this.PowerLabel.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.PowerLabel.Name = "PowerLabel";
             this.PowerLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PowerLabel.Size = new System.Drawing.Size(190, 26);
+            this.PowerLabel.Size = new System.Drawing.Size(202, 26);
             this.PowerLabel.TabIndex = 104;
             this.PowerLabel.Text = "الطاقة";
             this.PowerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3505,12 +3505,12 @@ namespace F2F_Application
             this.materialLabel132.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel132.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel132.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel132.Location = new System.Drawing.Point(568, 1);
+            this.materialLabel132.Location = new System.Drawing.Point(607, 1);
             this.materialLabel132.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel132.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel132.Name = "materialLabel132";
             this.materialLabel132.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel132.Size = new System.Drawing.Size(188, 26);
+            this.materialLabel132.Size = new System.Drawing.Size(201, 26);
             this.materialLabel132.TabIndex = 107;
             this.materialLabel132.Text = "عدد الأمبيرات";
             this.materialLabel132.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3523,12 +3523,12 @@ namespace F2F_Application
             this.materialLabel142.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel142.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel142.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel142.Location = new System.Drawing.Point(379, 1);
+            this.materialLabel142.Location = new System.Drawing.Point(405, 1);
             this.materialLabel142.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel142.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel142.Name = "materialLabel142";
             this.materialLabel142.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel142.Size = new System.Drawing.Size(188, 26);
+            this.materialLabel142.Size = new System.Drawing.Size(201, 26);
             this.materialLabel142.TabIndex = 108;
             this.materialLabel142.Text = "جهة المساعدة";
             this.materialLabel142.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3541,12 +3541,12 @@ namespace F2F_Application
             this.materialLabel143.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel143.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel143.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel143.Location = new System.Drawing.Point(190, 1);
+            this.materialLabel143.Location = new System.Drawing.Point(203, 1);
             this.materialLabel143.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel143.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel143.Name = "materialLabel143";
             this.materialLabel143.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel143.Size = new System.Drawing.Size(188, 26);
+            this.materialLabel143.Size = new System.Drawing.Size(201, 26);
             this.materialLabel143.TabIndex = 109;
             this.materialLabel143.Text = "قيمة المساعدة";
             this.materialLabel143.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3559,12 +3559,12 @@ namespace F2F_Application
             this.materialLabel146.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel146.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel146.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel146.Location = new System.Drawing.Point(946, 55);
+            this.materialLabel146.Location = new System.Drawing.Point(1011, 55);
             this.materialLabel146.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel146.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel146.Name = "materialLabel146";
             this.materialLabel146.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel146.Size = new System.Drawing.Size(190, 26);
+            this.materialLabel146.Size = new System.Drawing.Size(202, 26);
             this.materialLabel146.TabIndex = 112;
             this.materialLabel146.Text = "طاقة شمسية";
             this.materialLabel146.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3582,7 +3582,7 @@ namespace F2F_Application
             this.materialLabel144.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel144.Name = "materialLabel144";
             this.materialLabel144.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel144.Size = new System.Drawing.Size(188, 26);
+            this.materialLabel144.Size = new System.Drawing.Size(201, 26);
             this.materialLabel144.TabIndex = 110;
             this.materialLabel144.Text = "عدد مرات المساعدة";
             this.materialLabel144.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3592,7 +3592,7 @@ namespace F2F_Application
             this.AmperNumber_7_Home_TextBox.Depth = 0;
             this.AmperNumber_7_Home_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.AmperNumber_7_Home_TextBox.Hint = "";
-            this.AmperNumber_7_Home_TextBox.Location = new System.Drawing.Point(571, 31);
+            this.AmperNumber_7_Home_TextBox.Location = new System.Drawing.Point(610, 31);
             this.AmperNumber_7_Home_TextBox.MaxLength = 32767;
             this.AmperNumber_7_Home_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.AmperNumber_7_Home_TextBox.Name = "AmperNumber_7_Home_TextBox";
@@ -3601,7 +3601,7 @@ namespace F2F_Application
             this.AmperNumber_7_Home_TextBox.SelectedText = "";
             this.AmperNumber_7_Home_TextBox.SelectionLength = 0;
             this.AmperNumber_7_Home_TextBox.SelectionStart = 0;
-            this.AmperNumber_7_Home_TextBox.Size = new System.Drawing.Size(182, 31);
+            this.AmperNumber_7_Home_TextBox.Size = new System.Drawing.Size(195, 31);
             this.AmperNumber_7_Home_TextBox.TabIndex = 47;
             this.AmperNumber_7_Home_TextBox.TabStop = false;
             this.AmperNumber_7_Home_TextBox.UseSystemPasswordChar = false;
@@ -3617,12 +3617,12 @@ namespace F2F_Application
             this.materialLabel45.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel45.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel45.Location = new System.Drawing.Point(757, 1);
+            this.materialLabel45.Location = new System.Drawing.Point(809, 1);
             this.materialLabel45.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel45.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel45.Name = "materialLabel45";
             this.materialLabel45.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel45.Size = new System.Drawing.Size(188, 26);
+            this.materialLabel45.Size = new System.Drawing.Size(201, 26);
             this.materialLabel45.TabIndex = 105;
             this.materialLabel45.Text = "قيمة المصروف";
             this.materialLabel45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3635,12 +3635,12 @@ namespace F2F_Application
             this.materialLabel145.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel145.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel145.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel145.Location = new System.Drawing.Point(946, 28);
+            this.materialLabel145.Location = new System.Drawing.Point(1011, 28);
             this.materialLabel145.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel145.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel145.Name = "materialLabel145";
             this.materialLabel145.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel145.Size = new System.Drawing.Size(190, 26);
+            this.materialLabel145.Size = new System.Drawing.Size(202, 26);
             this.materialLabel145.TabIndex = 111;
             this.materialLabel145.Text = "أمبير";
             this.materialLabel145.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3650,7 +3650,7 @@ namespace F2F_Application
             this.expenses_amount_7_Home_TextBox.Depth = 0;
             this.expenses_amount_7_Home_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.expenses_amount_7_Home_TextBox.Hint = "";
-            this.expenses_amount_7_Home_TextBox.Location = new System.Drawing.Point(760, 31);
+            this.expenses_amount_7_Home_TextBox.Location = new System.Drawing.Point(812, 31);
             this.expenses_amount_7_Home_TextBox.MaxLength = 32767;
             this.expenses_amount_7_Home_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.expenses_amount_7_Home_TextBox.Name = "expenses_amount_7_Home_TextBox";
@@ -3659,7 +3659,7 @@ namespace F2F_Application
             this.expenses_amount_7_Home_TextBox.SelectedText = "";
             this.expenses_amount_7_Home_TextBox.SelectionLength = 0;
             this.expenses_amount_7_Home_TextBox.SelectionStart = 0;
-            this.expenses_amount_7_Home_TextBox.Size = new System.Drawing.Size(182, 31);
+            this.expenses_amount_7_Home_TextBox.Size = new System.Drawing.Size(195, 31);
             this.expenses_amount_7_Home_TextBox.TabIndex = 46;
             this.expenses_amount_7_Home_TextBox.TabStop = false;
             this.expenses_amount_7_Home_TextBox.UseSystemPasswordChar = false;
@@ -3674,10 +3674,10 @@ namespace F2F_Application
             this.aidsource_4_ComboBox.BackColor = System.Drawing.Color.White;
             this.aidsource_4_ComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidsource_4_ComboBox.FormattingEnabled = true;
-            this.aidsource_4_ComboBox.Location = new System.Drawing.Point(382, 31);
+            this.aidsource_4_ComboBox.Location = new System.Drawing.Point(408, 31);
             this.aidsource_4_ComboBox.Name = "aidsource_4_ComboBox";
             this.aidsource_4_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidsource_4_ComboBox.Size = new System.Drawing.Size(182, 33);
+            this.aidsource_4_ComboBox.Size = new System.Drawing.Size(195, 33);
             this.aidsource_4_ComboBox.TabIndex = 48;
             this.aidsource_4_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.aidsource_4_ComboBox_SelectionChangeCommitted);
             // 
@@ -3686,7 +3686,7 @@ namespace F2F_Application
             this.aidamount_4_TextBox.Depth = 0;
             this.aidamount_4_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.aidamount_4_TextBox.Hint = "";
-            this.aidamount_4_TextBox.Location = new System.Drawing.Point(193, 31);
+            this.aidamount_4_TextBox.Location = new System.Drawing.Point(206, 31);
             this.aidamount_4_TextBox.MaxLength = 32767;
             this.aidamount_4_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.aidamount_4_TextBox.Name = "aidamount_4_TextBox";
@@ -3695,7 +3695,7 @@ namespace F2F_Application
             this.aidamount_4_TextBox.SelectedText = "";
             this.aidamount_4_TextBox.SelectionLength = 0;
             this.aidamount_4_TextBox.SelectionStart = 0;
-            this.aidamount_4_TextBox.Size = new System.Drawing.Size(182, 31);
+            this.aidamount_4_TextBox.Size = new System.Drawing.Size(195, 31);
             this.aidamount_4_TextBox.TabIndex = 49;
             this.aidamount_4_TextBox.TabStop = false;
             this.aidamount_4_TextBox.UseSystemPasswordChar = false;
@@ -3713,7 +3713,7 @@ namespace F2F_Application
             this.aidperiod_4_ComboBox.Location = new System.Drawing.Point(4, 31);
             this.aidperiod_4_ComboBox.Name = "aidperiod_4_ComboBox";
             this.aidperiod_4_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidperiod_4_ComboBox.Size = new System.Drawing.Size(182, 33);
+            this.aidperiod_4_ComboBox.Size = new System.Drawing.Size(195, 33);
             this.aidperiod_4_ComboBox.TabIndex = 50;
             this.aidperiod_4_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.aidperiod_4_ComboBox_SelectionChangeCommitted);
             // 
@@ -3722,7 +3722,7 @@ namespace F2F_Application
             this.AmperNumber_17_Home_TextBox.Depth = 0;
             this.AmperNumber_17_Home_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.AmperNumber_17_Home_TextBox.Hint = "";
-            this.AmperNumber_17_Home_TextBox.Location = new System.Drawing.Point(571, 58);
+            this.AmperNumber_17_Home_TextBox.Location = new System.Drawing.Point(610, 58);
             this.AmperNumber_17_Home_TextBox.MaxLength = 32767;
             this.AmperNumber_17_Home_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.AmperNumber_17_Home_TextBox.Name = "AmperNumber_17_Home_TextBox";
@@ -3731,7 +3731,7 @@ namespace F2F_Application
             this.AmperNumber_17_Home_TextBox.SelectedText = "";
             this.AmperNumber_17_Home_TextBox.SelectionLength = 0;
             this.AmperNumber_17_Home_TextBox.SelectionStart = 0;
-            this.AmperNumber_17_Home_TextBox.Size = new System.Drawing.Size(182, 31);
+            this.AmperNumber_17_Home_TextBox.Size = new System.Drawing.Size(195, 31);
             this.AmperNumber_17_Home_TextBox.TabIndex = 51;
             this.AmperNumber_17_Home_TextBox.TabStop = false;
             this.AmperNumber_17_Home_TextBox.UseSystemPasswordChar = false;
@@ -3744,10 +3744,10 @@ namespace F2F_Application
             this.aidsource_16_ComboBox.BackColor = System.Drawing.Color.White;
             this.aidsource_16_ComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidsource_16_ComboBox.FormattingEnabled = true;
-            this.aidsource_16_ComboBox.Location = new System.Drawing.Point(382, 58);
+            this.aidsource_16_ComboBox.Location = new System.Drawing.Point(408, 58);
             this.aidsource_16_ComboBox.Name = "aidsource_16_ComboBox";
             this.aidsource_16_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidsource_16_ComboBox.Size = new System.Drawing.Size(182, 33);
+            this.aidsource_16_ComboBox.Size = new System.Drawing.Size(195, 33);
             this.aidsource_16_ComboBox.TabIndex = 52;
             this.aidsource_16_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.aidsource_16_ComboBox_SelectionChangeCommitted);
             // 
@@ -3756,7 +3756,7 @@ namespace F2F_Application
             this.aidamount_16_TextBox.Depth = 0;
             this.aidamount_16_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.aidamount_16_TextBox.Hint = "";
-            this.aidamount_16_TextBox.Location = new System.Drawing.Point(193, 58);
+            this.aidamount_16_TextBox.Location = new System.Drawing.Point(206, 58);
             this.aidamount_16_TextBox.MaxLength = 32767;
             this.aidamount_16_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.aidamount_16_TextBox.Name = "aidamount_16_TextBox";
@@ -3765,7 +3765,7 @@ namespace F2F_Application
             this.aidamount_16_TextBox.SelectedText = "";
             this.aidamount_16_TextBox.SelectionLength = 0;
             this.aidamount_16_TextBox.SelectionStart = 0;
-            this.aidamount_16_TextBox.Size = new System.Drawing.Size(182, 31);
+            this.aidamount_16_TextBox.Size = new System.Drawing.Size(195, 31);
             this.aidamount_16_TextBox.TabIndex = 53;
             this.aidamount_16_TextBox.TabStop = false;
             this.aidamount_16_TextBox.UseSystemPasswordChar = false;
@@ -3783,7 +3783,7 @@ namespace F2F_Application
             this.aidperiod_16_ComboBox.Location = new System.Drawing.Point(4, 58);
             this.aidperiod_16_ComboBox.Name = "aidperiod_16_ComboBox";
             this.aidperiod_16_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidperiod_16_ComboBox.Size = new System.Drawing.Size(182, 33);
+            this.aidperiod_16_ComboBox.Size = new System.Drawing.Size(195, 33);
             this.aidperiod_16_ComboBox.TabIndex = 54;
             this.aidperiod_16_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.aidperiod_16_ComboBox_SelectionChangeCommitted);
             // 
@@ -3794,7 +3794,7 @@ namespace F2F_Application
             this.materialLabel10.Depth = 0;
             this.materialLabel10.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel10.Location = new System.Drawing.Point(1009, 1144);
+            this.materialLabel10.Location = new System.Drawing.Point(1075, 1144);
             this.materialLabel10.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
             this.materialLabel10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3810,7 +3810,7 @@ namespace F2F_Application
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(1009, 1100);
+            this.materialLabel1.Location = new System.Drawing.Point(1075, 1100);
             this.materialLabel1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3828,11 +3828,11 @@ namespace F2F_Application
             this.tableLayoutPanel36.Controls.Add(this.Expenses_17_Home_Yes_RadioButton, 1, 0);
             this.tableLayoutPanel36.Controls.Add(this.Expenses_17_Home_No_RadioButton, 0, 0);
             this.tableLayoutPanel36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel36.Location = new System.Drawing.Point(680, 1147);
+            this.tableLayoutPanel36.Location = new System.Drawing.Point(724, 1147);
             this.tableLayoutPanel36.Name = "tableLayoutPanel36";
             this.tableLayoutPanel36.RowCount = 1;
             this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel36.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel36.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel36.TabIndex = 43;
             // 
             // Expenses_17_Home_Yes_RadioButton
@@ -3841,7 +3841,7 @@ namespace F2F_Application
             this.Expenses_17_Home_Yes_RadioButton.AutoSize = true;
             this.Expenses_17_Home_Yes_RadioButton.Depth = 0;
             this.Expenses_17_Home_Yes_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.Expenses_17_Home_Yes_RadioButton.Location = new System.Drawing.Point(161, 4);
+            this.Expenses_17_Home_Yes_RadioButton.Location = new System.Drawing.Point(172, 4);
             this.Expenses_17_Home_Yes_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Expenses_17_Home_Yes_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Expenses_17_Home_Yes_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -3884,11 +3884,11 @@ namespace F2F_Application
             this.tableLayoutPanel34.Controls.Add(this.Expenses_7_Home_Yes_RadioButton, 1, 0);
             this.tableLayoutPanel34.Controls.Add(this.Expenses_7_Home_No_RadioButton, 0, 0);
             this.tableLayoutPanel34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel34.Location = new System.Drawing.Point(680, 1103);
+            this.tableLayoutPanel34.Location = new System.Drawing.Point(724, 1103);
             this.tableLayoutPanel34.Name = "tableLayoutPanel34";
             this.tableLayoutPanel34.RowCount = 1;
             this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel34.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel34.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel34.TabIndex = 41;
             // 
             // Expenses_7_Home_Yes_RadioButton
@@ -3897,7 +3897,7 @@ namespace F2F_Application
             this.Expenses_7_Home_Yes_RadioButton.AutoSize = true;
             this.Expenses_7_Home_Yes_RadioButton.Depth = 0;
             this.Expenses_7_Home_Yes_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.Expenses_7_Home_Yes_RadioButton.Location = new System.Drawing.Point(161, 4);
+            this.Expenses_7_Home_Yes_RadioButton.Location = new System.Drawing.Point(172, 4);
             this.Expenses_7_Home_Yes_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Expenses_7_Home_Yes_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Expenses_7_Home_Yes_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -3940,7 +3940,7 @@ namespace F2F_Application
             this.panel29.ForeColor = System.Drawing.Color.White;
             this.panel29.Location = new System.Drawing.Point(23, 1059);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(1137, 38);
+            this.panel29.Size = new System.Drawing.Size(1214, 38);
             this.panel29.TabIndex = 200;
             // 
             // LightLable
@@ -3949,7 +3949,7 @@ namespace F2F_Application
             this.LightLable.Dock = System.Windows.Forms.DockStyle.Right;
             this.LightLable.Font = new System.Drawing.Font("Tajawal", 11F);
             this.LightLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LightLable.Location = new System.Drawing.Point(896, 0);
+            this.LightLable.Location = new System.Drawing.Point(973, 0);
             this.LightLable.MaximumSize = new System.Drawing.Size(241, 53);
             this.LightLable.MinimumSize = new System.Drawing.Size(241, 53);
             this.LightLable.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -3967,7 +3967,7 @@ namespace F2F_Application
             this.materialLabel22.Depth = 0;
             this.materialLabel22.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel22.Location = new System.Drawing.Point(1009, 986);
+            this.materialLabel22.Location = new System.Drawing.Point(1075, 986);
             this.materialLabel22.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel22.Name = "materialLabel22";
             this.materialLabel22.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3982,7 +3982,7 @@ namespace F2F_Application
             this.materialLabel20.Depth = 0;
             this.materialLabel20.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel20.Location = new System.Drawing.Point(680, 986);
+            this.materialLabel20.Location = new System.Drawing.Point(724, 986);
             this.materialLabel20.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel20.Name = "materialLabel20";
             this.materialLabel20.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3998,10 +3998,10 @@ namespace F2F_Application
             this.secondtableLayoutPanel.SetColumnSpan(this.Livingroom_ComboBox, 2);
             this.Livingroom_ComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Livingroom_ComboBox.FormattingEnabled = true;
-            this.Livingroom_ComboBox.Location = new System.Drawing.Point(797, 985);
+            this.Livingroom_ComboBox.Location = new System.Drawing.Point(848, 976);
             this.Livingroom_ComboBox.Name = "Livingroom_ComboBox";
             this.Livingroom_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Livingroom_ComboBox.Size = new System.Drawing.Size(206, 33);
+            this.Livingroom_ComboBox.Size = new System.Drawing.Size(221, 33);
             this.Livingroom_ComboBox.TabIndex = 39;
             this.Livingroom_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.Livingroom_ComboBox_SelectionChangeCommitted_1);
             // 
@@ -4014,10 +4014,10 @@ namespace F2F_Application
             this.Beds_ComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Beds_ComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.Beds_ComboBox.FormattingEnabled = true;
-            this.Beds_ComboBox.Location = new System.Drawing.Point(483, 986);
+            this.Beds_ComboBox.Location = new System.Drawing.Point(513, 978);
             this.Beds_ComboBox.Name = "Beds_ComboBox";
             this.Beds_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Beds_ComboBox.Size = new System.Drawing.Size(191, 31);
+            this.Beds_ComboBox.Size = new System.Drawing.Size(205, 31);
             this.Beds_ComboBox.TabIndex = 40;
             this.Beds_ComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.Beds_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.Beds_ComboBox_SelectionChangeCommitted);
@@ -4031,7 +4031,7 @@ namespace F2F_Application
             this.panel28.ForeColor = System.Drawing.Color.White;
             this.panel28.Location = new System.Drawing.Point(23, 927);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(1137, 38);
+            this.panel28.Size = new System.Drawing.Size(1214, 38);
             this.panel28.TabIndex = 196;
             // 
             // FurnitureLabel
@@ -4040,7 +4040,7 @@ namespace F2F_Application
             this.FurnitureLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.FurnitureLabel.Font = new System.Drawing.Font("Tajawal", 11F);
             this.FurnitureLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.FurnitureLabel.Location = new System.Drawing.Point(896, 0);
+            this.FurnitureLabel.Location = new System.Drawing.Point(973, 0);
             this.FurnitureLabel.MaximumSize = new System.Drawing.Size(241, 53);
             this.FurnitureLabel.MinimumSize = new System.Drawing.Size(241, 53);
             this.FurnitureLabel.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -4058,11 +4058,11 @@ namespace F2F_Application
             this.BuildingCondition_8.Depth = 0;
             this.BuildingCondition_8.Font = new System.Drawing.Font("Tajawal", 11F);
             this.BuildingCondition_8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BuildingCondition_8.Location = new System.Drawing.Point(1009, 880);
+            this.BuildingCondition_8.Location = new System.Drawing.Point(1075, 889);
             this.BuildingCondition_8.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingCondition_8.Name = "BuildingCondition_8";
             this.BuildingCondition_8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BuildingCondition_8.Size = new System.Drawing.Size(88, 44);
+            this.BuildingCondition_8.Size = new System.Drawing.Size(154, 26);
             this.BuildingCondition_8.TabIndex = 190;
             this.BuildingCondition_8.Text = "التمديدات الصحية:";
             // 
@@ -4073,7 +4073,7 @@ namespace F2F_Application
             this.BuildingCondition_5.Depth = 0;
             this.BuildingCondition_5.Font = new System.Drawing.Font("Tajawal", 11F);
             this.BuildingCondition_5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BuildingCondition_5.Location = new System.Drawing.Point(1009, 836);
+            this.BuildingCondition_5.Location = new System.Drawing.Point(1075, 836);
             this.BuildingCondition_5.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingCondition_5.Name = "BuildingCondition_5";
             this.BuildingCondition_5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -4088,7 +4088,7 @@ namespace F2F_Application
             this.BuildingCondition_3.Depth = 0;
             this.BuildingCondition_3.Font = new System.Drawing.Font("Tajawal", 11F);
             this.BuildingCondition_3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BuildingCondition_3.Location = new System.Drawing.Point(1009, 792);
+            this.BuildingCondition_3.Location = new System.Drawing.Point(1075, 792);
             this.BuildingCondition_3.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingCondition_3.Name = "BuildingCondition_3";
             this.BuildingCondition_3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -4103,11 +4103,11 @@ namespace F2F_Application
             this.BuildingCondition_2.Depth = 0;
             this.BuildingCondition_2.Font = new System.Drawing.Font("Tajawal", 11F);
             this.BuildingCondition_2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BuildingCondition_2.Location = new System.Drawing.Point(1009, 748);
+            this.BuildingCondition_2.Location = new System.Drawing.Point(1075, 748);
             this.BuildingCondition_2.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingCondition_2.Name = "BuildingCondition_2";
             this.BuildingCondition_2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BuildingCondition_2.Size = new System.Drawing.Size(102, 44);
+            this.BuildingCondition_2.Size = new System.Drawing.Size(158, 44);
             this.BuildingCondition_2.TabIndex = 187;
             this.BuildingCondition_2.Text = "تشققات او فتحات في الجدران:";
             // 
@@ -4118,7 +4118,7 @@ namespace F2F_Application
             this.BuildingCondition_1.Depth = 0;
             this.BuildingCondition_1.Font = new System.Drawing.Font("Tajawal", 11F);
             this.BuildingCondition_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BuildingCondition_1.Location = new System.Drawing.Point(1009, 713);
+            this.BuildingCondition_1.Location = new System.Drawing.Point(1075, 713);
             this.BuildingCondition_1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingCondition_1.Name = "BuildingCondition_1";
             this.BuildingCondition_1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -4137,11 +4137,11 @@ namespace F2F_Application
             this.tableLayoutPanel32.Controls.Add(this.BuildingConditionNotExist8, 2, 0);
             this.tableLayoutPanel32.Controls.Add(this.BuildingConditionMed8, 1, 0);
             this.tableLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel32.Location = new System.Drawing.Point(680, 883);
+            this.tableLayoutPanel32.Location = new System.Drawing.Point(724, 883);
             this.tableLayoutPanel32.Name = "tableLayoutPanel32";
             this.tableLayoutPanel32.RowCount = 1;
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel32.TabIndex = 38;
             // 
             // BuildingConditionHigh8
@@ -4157,7 +4157,7 @@ namespace F2F_Application
             this.BuildingConditionHigh8.Name = "BuildingConditionHigh8";
             this.BuildingConditionHigh8.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionHigh8.Ripple = true;
-            this.BuildingConditionHigh8.Size = new System.Drawing.Size(107, 38);
+            this.BuildingConditionHigh8.Size = new System.Drawing.Size(115, 38);
             this.BuildingConditionHigh8.TabIndex = 3;
             this.BuildingConditionHigh8.TabStop = true;
             this.BuildingConditionHigh8.Text = "سيئة";
@@ -4171,14 +4171,14 @@ namespace F2F_Application
             this.BuildingConditionNotExist8.AutoSize = true;
             this.BuildingConditionNotExist8.Depth = 0;
             this.BuildingConditionNotExist8.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.BuildingConditionNotExist8.Location = new System.Drawing.Point(214, 4);
+            this.BuildingConditionNotExist8.Location = new System.Drawing.Point(230, 4);
             this.BuildingConditionNotExist8.Margin = new System.Windows.Forms.Padding(0);
             this.BuildingConditionNotExist8.MouseLocation = new System.Drawing.Point(-1, -1);
             this.BuildingConditionNotExist8.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingConditionNotExist8.Name = "BuildingConditionNotExist8";
             this.BuildingConditionNotExist8.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionNotExist8.Ripple = true;
-            this.BuildingConditionNotExist8.Size = new System.Drawing.Size(109, 30);
+            this.BuildingConditionNotExist8.Size = new System.Drawing.Size(115, 30);
             this.BuildingConditionNotExist8.TabIndex = 1;
             this.BuildingConditionNotExist8.TabStop = true;
             this.BuildingConditionNotExist8.Text = "جيدة";
@@ -4192,14 +4192,14 @@ namespace F2F_Application
             this.BuildingConditionMed8.AutoSize = true;
             this.BuildingConditionMed8.Depth = 0;
             this.BuildingConditionMed8.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.BuildingConditionMed8.Location = new System.Drawing.Point(107, 4);
+            this.BuildingConditionMed8.Location = new System.Drawing.Point(115, 4);
             this.BuildingConditionMed8.Margin = new System.Windows.Forms.Padding(0);
             this.BuildingConditionMed8.MouseLocation = new System.Drawing.Point(-1, -1);
             this.BuildingConditionMed8.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingConditionMed8.Name = "BuildingConditionMed8";
             this.BuildingConditionMed8.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionMed8.Ripple = true;
-            this.BuildingConditionMed8.Size = new System.Drawing.Size(107, 30);
+            this.BuildingConditionMed8.Size = new System.Drawing.Size(115, 30);
             this.BuildingConditionMed8.TabIndex = 2;
             this.BuildingConditionMed8.TabStop = true;
             this.BuildingConditionMed8.Text = "وسط";
@@ -4218,11 +4218,11 @@ namespace F2F_Application
             this.tableLayoutPanel31.Controls.Add(this.BuildingConditionNotExist5, 2, 0);
             this.tableLayoutPanel31.Controls.Add(this.BuildingConditionMed5, 1, 0);
             this.tableLayoutPanel31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel31.Location = new System.Drawing.Point(680, 839);
+            this.tableLayoutPanel31.Location = new System.Drawing.Point(724, 839);
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
             this.tableLayoutPanel31.RowCount = 1;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel31.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel31.TabIndex = 37;
             // 
             // BuildingConditionHigh5
@@ -4238,7 +4238,7 @@ namespace F2F_Application
             this.BuildingConditionHigh5.Name = "BuildingConditionHigh5";
             this.BuildingConditionHigh5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionHigh5.Ripple = true;
-            this.BuildingConditionHigh5.Size = new System.Drawing.Size(107, 38);
+            this.BuildingConditionHigh5.Size = new System.Drawing.Size(115, 38);
             this.BuildingConditionHigh5.TabIndex = 3;
             this.BuildingConditionHigh5.TabStop = true;
             this.BuildingConditionHigh5.Text = "سيئة";
@@ -4252,14 +4252,14 @@ namespace F2F_Application
             this.BuildingConditionNotExist5.AutoSize = true;
             this.BuildingConditionNotExist5.Depth = 0;
             this.BuildingConditionNotExist5.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.BuildingConditionNotExist5.Location = new System.Drawing.Point(214, 4);
+            this.BuildingConditionNotExist5.Location = new System.Drawing.Point(230, 4);
             this.BuildingConditionNotExist5.Margin = new System.Windows.Forms.Padding(0);
             this.BuildingConditionNotExist5.MouseLocation = new System.Drawing.Point(-1, -1);
             this.BuildingConditionNotExist5.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingConditionNotExist5.Name = "BuildingConditionNotExist5";
             this.BuildingConditionNotExist5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionNotExist5.Ripple = true;
-            this.BuildingConditionNotExist5.Size = new System.Drawing.Size(109, 30);
+            this.BuildingConditionNotExist5.Size = new System.Drawing.Size(115, 30);
             this.BuildingConditionNotExist5.TabIndex = 1;
             this.BuildingConditionNotExist5.TabStop = true;
             this.BuildingConditionNotExist5.Text = "جيدة";
@@ -4273,14 +4273,14 @@ namespace F2F_Application
             this.BuildingConditionMed5.AutoSize = true;
             this.BuildingConditionMed5.Depth = 0;
             this.BuildingConditionMed5.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.BuildingConditionMed5.Location = new System.Drawing.Point(107, 4);
+            this.BuildingConditionMed5.Location = new System.Drawing.Point(115, 4);
             this.BuildingConditionMed5.Margin = new System.Windows.Forms.Padding(0);
             this.BuildingConditionMed5.MouseLocation = new System.Drawing.Point(-1, -1);
             this.BuildingConditionMed5.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingConditionMed5.Name = "BuildingConditionMed5";
             this.BuildingConditionMed5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionMed5.Ripple = true;
-            this.BuildingConditionMed5.Size = new System.Drawing.Size(107, 30);
+            this.BuildingConditionMed5.Size = new System.Drawing.Size(115, 30);
             this.BuildingConditionMed5.TabIndex = 2;
             this.BuildingConditionMed5.TabStop = true;
             this.BuildingConditionMed5.Text = "وسط";
@@ -4299,11 +4299,11 @@ namespace F2F_Application
             this.tableLayoutPanel30.Controls.Add(this.BuildingConditionNotExist3, 2, 0);
             this.tableLayoutPanel30.Controls.Add(this.BuildingConditionMed3, 1, 0);
             this.tableLayoutPanel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel30.Location = new System.Drawing.Point(680, 795);
+            this.tableLayoutPanel30.Location = new System.Drawing.Point(724, 795);
             this.tableLayoutPanel30.Name = "tableLayoutPanel30";
             this.tableLayoutPanel30.RowCount = 1;
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel30.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel30.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel30.TabIndex = 36;
             // 
             // BuildingConditionHigh3
@@ -4319,7 +4319,7 @@ namespace F2F_Application
             this.BuildingConditionHigh3.Name = "BuildingConditionHigh3";
             this.BuildingConditionHigh3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionHigh3.Ripple = true;
-            this.BuildingConditionHigh3.Size = new System.Drawing.Size(107, 38);
+            this.BuildingConditionHigh3.Size = new System.Drawing.Size(115, 38);
             this.BuildingConditionHigh3.TabIndex = 3;
             this.BuildingConditionHigh3.TabStop = true;
             this.BuildingConditionHigh3.Text = "عالية";
@@ -4333,14 +4333,14 @@ namespace F2F_Application
             this.BuildingConditionNotExist3.AutoSize = true;
             this.BuildingConditionNotExist3.Depth = 0;
             this.BuildingConditionNotExist3.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.BuildingConditionNotExist3.Location = new System.Drawing.Point(214, 4);
+            this.BuildingConditionNotExist3.Location = new System.Drawing.Point(230, 4);
             this.BuildingConditionNotExist3.Margin = new System.Windows.Forms.Padding(0);
             this.BuildingConditionNotExist3.MouseLocation = new System.Drawing.Point(-1, -1);
             this.BuildingConditionNotExist3.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingConditionNotExist3.Name = "BuildingConditionNotExist3";
             this.BuildingConditionNotExist3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionNotExist3.Ripple = true;
-            this.BuildingConditionNotExist3.Size = new System.Drawing.Size(109, 30);
+            this.BuildingConditionNotExist3.Size = new System.Drawing.Size(115, 30);
             this.BuildingConditionNotExist3.TabIndex = 1;
             this.BuildingConditionNotExist3.TabStop = true;
             this.BuildingConditionNotExist3.Text = "لا يوجد";
@@ -4354,14 +4354,14 @@ namespace F2F_Application
             this.BuildingConditionMed3.AutoSize = true;
             this.BuildingConditionMed3.Depth = 0;
             this.BuildingConditionMed3.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.BuildingConditionMed3.Location = new System.Drawing.Point(107, 4);
+            this.BuildingConditionMed3.Location = new System.Drawing.Point(115, 4);
             this.BuildingConditionMed3.Margin = new System.Windows.Forms.Padding(0);
             this.BuildingConditionMed3.MouseLocation = new System.Drawing.Point(-1, -1);
             this.BuildingConditionMed3.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingConditionMed3.Name = "BuildingConditionMed3";
             this.BuildingConditionMed3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionMed3.Ripple = true;
-            this.BuildingConditionMed3.Size = new System.Drawing.Size(107, 30);
+            this.BuildingConditionMed3.Size = new System.Drawing.Size(115, 30);
             this.BuildingConditionMed3.TabIndex = 2;
             this.BuildingConditionMed3.TabStop = true;
             this.BuildingConditionMed3.Text = "وسط";
@@ -4380,11 +4380,11 @@ namespace F2F_Application
             this.tableLayoutPanel29.Controls.Add(this.BuildingConditionNotExist2, 2, 0);
             this.tableLayoutPanel29.Controls.Add(this.BuildingConditionMed2, 1, 0);
             this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel29.Location = new System.Drawing.Point(680, 751);
+            this.tableLayoutPanel29.Location = new System.Drawing.Point(724, 751);
             this.tableLayoutPanel29.Name = "tableLayoutPanel29";
             this.tableLayoutPanel29.RowCount = 1;
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel29.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel29.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel29.TabIndex = 35;
             // 
             // BuildingConditionHigh2
@@ -4400,7 +4400,7 @@ namespace F2F_Application
             this.BuildingConditionHigh2.Name = "BuildingConditionHigh2";
             this.BuildingConditionHigh2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionHigh2.Ripple = true;
-            this.BuildingConditionHigh2.Size = new System.Drawing.Size(107, 38);
+            this.BuildingConditionHigh2.Size = new System.Drawing.Size(115, 38);
             this.BuildingConditionHigh2.TabIndex = 3;
             this.BuildingConditionHigh2.TabStop = true;
             this.BuildingConditionHigh2.Text = "عالية";
@@ -4414,14 +4414,14 @@ namespace F2F_Application
             this.BuildingConditionNotExist2.AutoSize = true;
             this.BuildingConditionNotExist2.Depth = 0;
             this.BuildingConditionNotExist2.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.BuildingConditionNotExist2.Location = new System.Drawing.Point(214, 4);
+            this.BuildingConditionNotExist2.Location = new System.Drawing.Point(230, 4);
             this.BuildingConditionNotExist2.Margin = new System.Windows.Forms.Padding(0);
             this.BuildingConditionNotExist2.MouseLocation = new System.Drawing.Point(-1, -1);
             this.BuildingConditionNotExist2.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingConditionNotExist2.Name = "BuildingConditionNotExist2";
             this.BuildingConditionNotExist2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionNotExist2.Ripple = true;
-            this.BuildingConditionNotExist2.Size = new System.Drawing.Size(109, 30);
+            this.BuildingConditionNotExist2.Size = new System.Drawing.Size(115, 30);
             this.BuildingConditionNotExist2.TabIndex = 1;
             this.BuildingConditionNotExist2.TabStop = true;
             this.BuildingConditionNotExist2.Text = "لا يوجد";
@@ -4435,14 +4435,14 @@ namespace F2F_Application
             this.BuildingConditionMed2.AutoSize = true;
             this.BuildingConditionMed2.Depth = 0;
             this.BuildingConditionMed2.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.BuildingConditionMed2.Location = new System.Drawing.Point(107, 4);
+            this.BuildingConditionMed2.Location = new System.Drawing.Point(115, 4);
             this.BuildingConditionMed2.Margin = new System.Windows.Forms.Padding(0);
             this.BuildingConditionMed2.MouseLocation = new System.Drawing.Point(-1, -1);
             this.BuildingConditionMed2.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingConditionMed2.Name = "BuildingConditionMed2";
             this.BuildingConditionMed2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionMed2.Ripple = true;
-            this.BuildingConditionMed2.Size = new System.Drawing.Size(107, 30);
+            this.BuildingConditionMed2.Size = new System.Drawing.Size(115, 30);
             this.BuildingConditionMed2.TabIndex = 2;
             this.BuildingConditionMed2.TabStop = true;
             this.BuildingConditionMed2.Text = "وسط";
@@ -4461,11 +4461,11 @@ namespace F2F_Application
             this.tableLayoutPanel3.Controls.Add(this.BuildingConditionNotExist1, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.BuildingConditionMed1, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(680, 707);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(724, 707);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel3.TabIndex = 34;
             // 
             // BuildingConditionHigh1
@@ -4481,7 +4481,7 @@ namespace F2F_Application
             this.BuildingConditionHigh1.Name = "BuildingConditionHigh1";
             this.BuildingConditionHigh1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionHigh1.Ripple = true;
-            this.BuildingConditionHigh1.Size = new System.Drawing.Size(107, 38);
+            this.BuildingConditionHigh1.Size = new System.Drawing.Size(115, 38);
             this.BuildingConditionHigh1.TabIndex = 3;
             this.BuildingConditionHigh1.TabStop = true;
             this.BuildingConditionHigh1.Text = "عالية";
@@ -4495,14 +4495,14 @@ namespace F2F_Application
             this.BuildingConditionNotExist1.AutoSize = true;
             this.BuildingConditionNotExist1.Depth = 0;
             this.BuildingConditionNotExist1.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.BuildingConditionNotExist1.Location = new System.Drawing.Point(214, 4);
+            this.BuildingConditionNotExist1.Location = new System.Drawing.Point(230, 4);
             this.BuildingConditionNotExist1.Margin = new System.Windows.Forms.Padding(0);
             this.BuildingConditionNotExist1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.BuildingConditionNotExist1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingConditionNotExist1.Name = "BuildingConditionNotExist1";
             this.BuildingConditionNotExist1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionNotExist1.Ripple = true;
-            this.BuildingConditionNotExist1.Size = new System.Drawing.Size(109, 30);
+            this.BuildingConditionNotExist1.Size = new System.Drawing.Size(115, 30);
             this.BuildingConditionNotExist1.TabIndex = 1;
             this.BuildingConditionNotExist1.TabStop = true;
             this.BuildingConditionNotExist1.Text = "لا يوجد";
@@ -4516,14 +4516,14 @@ namespace F2F_Application
             this.BuildingConditionMed1.AutoSize = true;
             this.BuildingConditionMed1.Depth = 0;
             this.BuildingConditionMed1.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.BuildingConditionMed1.Location = new System.Drawing.Point(107, 4);
+            this.BuildingConditionMed1.Location = new System.Drawing.Point(115, 4);
             this.BuildingConditionMed1.Margin = new System.Windows.Forms.Padding(0);
             this.BuildingConditionMed1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.BuildingConditionMed1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingConditionMed1.Name = "BuildingConditionMed1";
             this.BuildingConditionMed1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BuildingConditionMed1.Ripple = true;
-            this.BuildingConditionMed1.Size = new System.Drawing.Size(107, 30);
+            this.BuildingConditionMed1.Size = new System.Drawing.Size(115, 30);
             this.BuildingConditionMed1.TabIndex = 2;
             this.BuildingConditionMed1.TabStop = true;
             this.BuildingConditionMed1.Text = "وسط";
@@ -4540,7 +4540,7 @@ namespace F2F_Application
             this.panel26.ForeColor = System.Drawing.Color.White;
             this.panel26.Location = new System.Drawing.Point(23, 663);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(1137, 38);
+            this.panel26.Size = new System.Drawing.Size(1214, 38);
             this.panel26.TabIndex = 185;
             // 
             // BuildingConditionLabel
@@ -4549,7 +4549,7 @@ namespace F2F_Application
             this.BuildingConditionLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.BuildingConditionLabel.Font = new System.Drawing.Font("Tajawal", 11F);
             this.BuildingConditionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BuildingConditionLabel.Location = new System.Drawing.Point(896, 0);
+            this.BuildingConditionLabel.Location = new System.Drawing.Point(973, 0);
             this.BuildingConditionLabel.MaximumSize = new System.Drawing.Size(241, 53);
             this.BuildingConditionLabel.MinimumSize = new System.Drawing.Size(241, 53);
             this.BuildingConditionLabel.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -4564,9 +4564,9 @@ namespace F2F_Application
             // 
             this.HeatingCoolingDevices_1.AutoSize = true;
             this.HeatingCoolingDevices_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HeatingCoolingDevices_1.Location = new System.Drawing.Point(1009, 619);
+            this.HeatingCoolingDevices_1.Location = new System.Drawing.Point(1075, 619);
             this.HeatingCoolingDevices_1.Name = "HeatingCoolingDevices_1";
-            this.HeatingCoolingDevices_1.Size = new System.Drawing.Size(151, 38);
+            this.HeatingCoolingDevices_1.Size = new System.Drawing.Size(162, 38);
             this.HeatingCoolingDevices_1.TabIndex = 28;
             this.HeatingCoolingDevices_1.Text = "مدفئة كهربائية";
             this.HeatingCoolingDevices_1.UseVisualStyleBackColor = true;
@@ -4583,20 +4583,20 @@ namespace F2F_Application
             this.tableLayoutPanel27.Controls.Add(this.HeatingCoolingDevices_3, 1, 0);
             this.tableLayoutPanel27.Controls.Add(this.HeatingCoolingDevices_4, 0, 0);
             this.tableLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel27.Location = new System.Drawing.Point(680, 619);
+            this.tableLayoutPanel27.Location = new System.Drawing.Point(724, 619);
             this.tableLayoutPanel27.Name = "tableLayoutPanel27";
             this.tableLayoutPanel27.RowCount = 1;
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel27.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel27.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel27.TabIndex = 29;
             // 
             // HeatingCoolingDevices_2
             // 
             this.HeatingCoolingDevices_2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.HeatingCoolingDevices_2.AutoSize = true;
-            this.HeatingCoolingDevices_2.Location = new System.Drawing.Point(217, 4);
+            this.HeatingCoolingDevices_2.Location = new System.Drawing.Point(233, 4);
             this.HeatingCoolingDevices_2.Name = "HeatingCoolingDevices_2";
-            this.HeatingCoolingDevices_2.Size = new System.Drawing.Size(103, 29);
+            this.HeatingCoolingDevices_2.Size = new System.Drawing.Size(109, 29);
             this.HeatingCoolingDevices_2.TabIndex = 31;
             this.HeatingCoolingDevices_2.Text = "مدفئة مازوت";
             this.HeatingCoolingDevices_2.UseVisualStyleBackColor = true;
@@ -4606,9 +4606,9 @@ namespace F2F_Application
             // 
             this.HeatingCoolingDevices_3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.HeatingCoolingDevices_3.AutoSize = true;
-            this.HeatingCoolingDevices_3.Location = new System.Drawing.Point(110, 4);
+            this.HeatingCoolingDevices_3.Location = new System.Drawing.Point(118, 4);
             this.HeatingCoolingDevices_3.Name = "HeatingCoolingDevices_3";
-            this.HeatingCoolingDevices_3.Size = new System.Drawing.Size(101, 29);
+            this.HeatingCoolingDevices_3.Size = new System.Drawing.Size(109, 29);
             this.HeatingCoolingDevices_3.TabIndex = 32;
             this.HeatingCoolingDevices_3.Text = "مروحة";
             this.HeatingCoolingDevices_3.UseVisualStyleBackColor = true;
@@ -4620,7 +4620,7 @@ namespace F2F_Application
             this.HeatingCoolingDevices_4.AutoSize = true;
             this.HeatingCoolingDevices_4.Location = new System.Drawing.Point(3, 4);
             this.HeatingCoolingDevices_4.Name = "HeatingCoolingDevices_4";
-            this.HeatingCoolingDevices_4.Size = new System.Drawing.Size(101, 29);
+            this.HeatingCoolingDevices_4.Size = new System.Drawing.Size(109, 29);
             this.HeatingCoolingDevices_4.TabIndex = 33;
             this.HeatingCoolingDevices_4.Text = "مكيف";
             this.HeatingCoolingDevices_4.UseVisualStyleBackColor = true;
@@ -4633,7 +4633,7 @@ namespace F2F_Application
             this.ElectricalDevices3.Depth = 0;
             this.ElectricalDevices3.Font = new System.Drawing.Font("Tajawal", 11F);
             this.ElectricalDevices3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ElectricalDevices3.Location = new System.Drawing.Point(1009, 581);
+            this.ElectricalDevices3.Location = new System.Drawing.Point(1075, 581);
             this.ElectricalDevices3.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ElectricalDevices3.Name = "ElectricalDevices3";
             this.ElectricalDevices3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -4648,7 +4648,7 @@ namespace F2F_Application
             this.ElectricalDevices2.Depth = 0;
             this.ElectricalDevices2.Font = new System.Drawing.Font("Tajawal", 11F);
             this.ElectricalDevices2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ElectricalDevices2.Location = new System.Drawing.Point(1009, 537);
+            this.ElectricalDevices2.Location = new System.Drawing.Point(1075, 537);
             this.ElectricalDevices2.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ElectricalDevices2.Name = "ElectricalDevices2";
             this.ElectricalDevices2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -4663,7 +4663,7 @@ namespace F2F_Application
             this.ElectricalDevices1.Depth = 0;
             this.ElectricalDevices1.Font = new System.Drawing.Font("Tajawal", 11F);
             this.ElectricalDevices1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ElectricalDevices1.Location = new System.Drawing.Point(1009, 493);
+            this.ElectricalDevices1.Location = new System.Drawing.Point(1075, 493);
             this.ElectricalDevices1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ElectricalDevices1.Name = "ElectricalDevices1";
             this.ElectricalDevices1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -4682,11 +4682,11 @@ namespace F2F_Application
             this.tableLayoutPanel25.Controls.Add(this.ElectricalDevicesNonExist3, 1, 0);
             this.tableLayoutPanel25.Controls.Add(this.ElectricalDevicesExist3, 2, 0);
             this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel25.Location = new System.Drawing.Point(680, 575);
+            this.tableLayoutPanel25.Location = new System.Drawing.Point(724, 575);
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
             this.tableLayoutPanel25.RowCount = 1;
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel25.TabIndex = 27;
             // 
             // ElectricalDevicesFail3
@@ -4702,7 +4702,7 @@ namespace F2F_Application
             this.ElectricalDevicesFail3.Name = "ElectricalDevicesFail3";
             this.ElectricalDevicesFail3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ElectricalDevicesFail3.Ripple = true;
-            this.ElectricalDevicesFail3.Size = new System.Drawing.Size(107, 30);
+            this.ElectricalDevicesFail3.Size = new System.Drawing.Size(115, 30);
             this.ElectricalDevicesFail3.TabIndex = 3;
             this.ElectricalDevicesFail3.TabStop = true;
             this.ElectricalDevicesFail3.Text = "معطل";
@@ -4716,14 +4716,14 @@ namespace F2F_Application
             this.ElectricalDevicesNonExist3.AutoSize = true;
             this.ElectricalDevicesNonExist3.Depth = 0;
             this.ElectricalDevicesNonExist3.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.ElectricalDevicesNonExist3.Location = new System.Drawing.Point(107, 4);
+            this.ElectricalDevicesNonExist3.Location = new System.Drawing.Point(115, 4);
             this.ElectricalDevicesNonExist3.Margin = new System.Windows.Forms.Padding(0);
             this.ElectricalDevicesNonExist3.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ElectricalDevicesNonExist3.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ElectricalDevicesNonExist3.Name = "ElectricalDevicesNonExist3";
             this.ElectricalDevicesNonExist3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ElectricalDevicesNonExist3.Ripple = true;
-            this.ElectricalDevicesNonExist3.Size = new System.Drawing.Size(107, 30);
+            this.ElectricalDevicesNonExist3.Size = new System.Drawing.Size(115, 30);
             this.ElectricalDevicesNonExist3.TabIndex = 2;
             this.ElectricalDevicesNonExist3.TabStop = true;
             this.ElectricalDevicesNonExist3.Text = "لا يوجد ";
@@ -4737,14 +4737,14 @@ namespace F2F_Application
             this.ElectricalDevicesExist3.AutoSize = true;
             this.ElectricalDevicesExist3.Depth = 0;
             this.ElectricalDevicesExist3.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.ElectricalDevicesExist3.Location = new System.Drawing.Point(214, 4);
+            this.ElectricalDevicesExist3.Location = new System.Drawing.Point(230, 4);
             this.ElectricalDevicesExist3.Margin = new System.Windows.Forms.Padding(0);
             this.ElectricalDevicesExist3.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ElectricalDevicesExist3.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ElectricalDevicesExist3.Name = "ElectricalDevicesExist3";
             this.ElectricalDevicesExist3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ElectricalDevicesExist3.Ripple = true;
-            this.ElectricalDevicesExist3.Size = new System.Drawing.Size(109, 30);
+            this.ElectricalDevicesExist3.Size = new System.Drawing.Size(115, 30);
             this.ElectricalDevicesExist3.TabIndex = 1;
             this.ElectricalDevicesExist3.TabStop = true;
             this.ElectricalDevicesExist3.Text = "يوجد";
@@ -4763,11 +4763,11 @@ namespace F2F_Application
             this.tableLayoutPanel24.Controls.Add(this.ElectricalDevicesExist2, 2, 0);
             this.tableLayoutPanel24.Controls.Add(this.ElectricalDevicesNonExist2, 1, 0);
             this.tableLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel24.Location = new System.Drawing.Point(680, 531);
+            this.tableLayoutPanel24.Location = new System.Drawing.Point(724, 531);
             this.tableLayoutPanel24.Name = "tableLayoutPanel24";
             this.tableLayoutPanel24.RowCount = 1;
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel24.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel24.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel24.TabIndex = 26;
             // 
             // ElectricalDevicesFail2
@@ -4783,7 +4783,7 @@ namespace F2F_Application
             this.ElectricalDevicesFail2.Name = "ElectricalDevicesFail2";
             this.ElectricalDevicesFail2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ElectricalDevicesFail2.Ripple = true;
-            this.ElectricalDevicesFail2.Size = new System.Drawing.Size(107, 30);
+            this.ElectricalDevicesFail2.Size = new System.Drawing.Size(115, 30);
             this.ElectricalDevicesFail2.TabIndex = 3;
             this.ElectricalDevicesFail2.TabStop = true;
             this.ElectricalDevicesFail2.Text = "معطل";
@@ -4797,14 +4797,14 @@ namespace F2F_Application
             this.ElectricalDevicesExist2.AutoSize = true;
             this.ElectricalDevicesExist2.Depth = 0;
             this.ElectricalDevicesExist2.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.ElectricalDevicesExist2.Location = new System.Drawing.Point(214, 4);
+            this.ElectricalDevicesExist2.Location = new System.Drawing.Point(230, 4);
             this.ElectricalDevicesExist2.Margin = new System.Windows.Forms.Padding(0);
             this.ElectricalDevicesExist2.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ElectricalDevicesExist2.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ElectricalDevicesExist2.Name = "ElectricalDevicesExist2";
             this.ElectricalDevicesExist2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ElectricalDevicesExist2.Ripple = true;
-            this.ElectricalDevicesExist2.Size = new System.Drawing.Size(109, 30);
+            this.ElectricalDevicesExist2.Size = new System.Drawing.Size(115, 30);
             this.ElectricalDevicesExist2.TabIndex = 1;
             this.ElectricalDevicesExist2.TabStop = true;
             this.ElectricalDevicesExist2.Text = "يوجد";
@@ -4818,14 +4818,14 @@ namespace F2F_Application
             this.ElectricalDevicesNonExist2.AutoSize = true;
             this.ElectricalDevicesNonExist2.Depth = 0;
             this.ElectricalDevicesNonExist2.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.ElectricalDevicesNonExist2.Location = new System.Drawing.Point(107, 4);
+            this.ElectricalDevicesNonExist2.Location = new System.Drawing.Point(115, 4);
             this.ElectricalDevicesNonExist2.Margin = new System.Windows.Forms.Padding(0);
             this.ElectricalDevicesNonExist2.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ElectricalDevicesNonExist2.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ElectricalDevicesNonExist2.Name = "ElectricalDevicesNonExist2";
             this.ElectricalDevicesNonExist2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ElectricalDevicesNonExist2.Ripple = true;
-            this.ElectricalDevicesNonExist2.Size = new System.Drawing.Size(107, 30);
+            this.ElectricalDevicesNonExist2.Size = new System.Drawing.Size(115, 30);
             this.ElectricalDevicesNonExist2.TabIndex = 2;
             this.ElectricalDevicesNonExist2.TabStop = true;
             this.ElectricalDevicesNonExist2.Text = "لا يوجد ";
@@ -4844,11 +4844,11 @@ namespace F2F_Application
             this.tableLayoutPanel26.Controls.Add(this.ElectricalDevicesExist1, 2, 0);
             this.tableLayoutPanel26.Controls.Add(this.ElectricalDevicesNonExist1, 1, 0);
             this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(680, 487);
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(724, 487);
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
             this.tableLayoutPanel26.RowCount = 1;
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(323, 38);
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(345, 38);
             this.tableLayoutPanel26.TabIndex = 25;
             // 
             // ElectricalDevicesFail1
@@ -4864,7 +4864,7 @@ namespace F2F_Application
             this.ElectricalDevicesFail1.Name = "ElectricalDevicesFail1";
             this.ElectricalDevicesFail1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ElectricalDevicesFail1.Ripple = true;
-            this.ElectricalDevicesFail1.Size = new System.Drawing.Size(107, 30);
+            this.ElectricalDevicesFail1.Size = new System.Drawing.Size(115, 30);
             this.ElectricalDevicesFail1.TabIndex = 3;
             this.ElectricalDevicesFail1.TabStop = true;
             this.ElectricalDevicesFail1.Text = "معطل";
@@ -4878,14 +4878,14 @@ namespace F2F_Application
             this.ElectricalDevicesExist1.AutoSize = true;
             this.ElectricalDevicesExist1.Depth = 0;
             this.ElectricalDevicesExist1.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.ElectricalDevicesExist1.Location = new System.Drawing.Point(214, 4);
+            this.ElectricalDevicesExist1.Location = new System.Drawing.Point(230, 4);
             this.ElectricalDevicesExist1.Margin = new System.Windows.Forms.Padding(0);
             this.ElectricalDevicesExist1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ElectricalDevicesExist1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ElectricalDevicesExist1.Name = "ElectricalDevicesExist1";
             this.ElectricalDevicesExist1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ElectricalDevicesExist1.Ripple = true;
-            this.ElectricalDevicesExist1.Size = new System.Drawing.Size(109, 30);
+            this.ElectricalDevicesExist1.Size = new System.Drawing.Size(115, 30);
             this.ElectricalDevicesExist1.TabIndex = 1;
             this.ElectricalDevicesExist1.TabStop = true;
             this.ElectricalDevicesExist1.Text = "يوجد";
@@ -4899,14 +4899,14 @@ namespace F2F_Application
             this.ElectricalDevicesNonExist1.AutoSize = true;
             this.ElectricalDevicesNonExist1.Depth = 0;
             this.ElectricalDevicesNonExist1.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.ElectricalDevicesNonExist1.Location = new System.Drawing.Point(107, 4);
+            this.ElectricalDevicesNonExist1.Location = new System.Drawing.Point(115, 4);
             this.ElectricalDevicesNonExist1.Margin = new System.Windows.Forms.Padding(0);
             this.ElectricalDevicesNonExist1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ElectricalDevicesNonExist1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ElectricalDevicesNonExist1.Name = "ElectricalDevicesNonExist1";
             this.ElectricalDevicesNonExist1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ElectricalDevicesNonExist1.Ripple = true;
-            this.ElectricalDevicesNonExist1.Size = new System.Drawing.Size(107, 30);
+            this.ElectricalDevicesNonExist1.Size = new System.Drawing.Size(115, 30);
             this.ElectricalDevicesNonExist1.TabIndex = 2;
             this.ElectricalDevicesNonExist1.TabStop = true;
             this.ElectricalDevicesNonExist1.Text = "لا يوجد ";
@@ -4922,7 +4922,7 @@ namespace F2F_Application
             this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel24.Location = new System.Drawing.Point(23, 443);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(1137, 38);
+            this.panel24.Size = new System.Drawing.Size(1214, 38);
             this.panel24.TabIndex = 166;
             // 
             // ElectricalDevicesLabel
@@ -4931,7 +4931,7 @@ namespace F2F_Application
             this.ElectricalDevicesLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.ElectricalDevicesLabel.Font = new System.Drawing.Font("Tajawal", 11F);
             this.ElectricalDevicesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ElectricalDevicesLabel.Location = new System.Drawing.Point(896, 0);
+            this.ElectricalDevicesLabel.Location = new System.Drawing.Point(973, 0);
             this.ElectricalDevicesLabel.MaximumSize = new System.Drawing.Size(241, 53);
             this.ElectricalDevicesLabel.MinimumSize = new System.Drawing.Size(241, 53);
             this.ElectricalDevicesLabel.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -4977,7 +4977,7 @@ namespace F2F_Application
             this.secondtableLayoutPanel.SetRowSpan(this.LivingPanel, 2);
             this.LivingPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.LivingPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LivingPanel.Size = new System.Drawing.Size(1137, 82);
+            this.LivingPanel.Size = new System.Drawing.Size(1214, 82);
             this.LivingPanel.TabIndex = 17;
             // 
             // materialLabel23
@@ -4988,12 +4988,12 @@ namespace F2F_Application
             this.materialLabel23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel23.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel23.Location = new System.Drawing.Point(973, 1);
+            this.materialLabel23.Location = new System.Drawing.Point(1039, 1);
             this.materialLabel23.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel23.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel23.Name = "materialLabel23";
             this.materialLabel23.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel23.Size = new System.Drawing.Size(163, 39);
+            this.materialLabel23.Size = new System.Drawing.Size(174, 39);
             this.materialLabel23.TabIndex = 160;
             this.materialLabel23.Text = "قيمة القرض /الآجار/الرهن";
             this.materialLabel23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5008,7 +5008,7 @@ namespace F2F_Application
             this.aidperiod_5_3_home_ComboBox.Location = new System.Drawing.Point(4, 44);
             this.aidperiod_5_3_home_ComboBox.Name = "aidperiod_5_3_home_ComboBox";
             this.aidperiod_5_3_home_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidperiod_5_3_home_ComboBox.Size = new System.Drawing.Size(155, 33);
+            this.aidperiod_5_3_home_ComboBox.Size = new System.Drawing.Size(166, 33);
             this.aidperiod_5_3_home_ComboBox.TabIndex = 24;
             this.aidperiod_5_3_home_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.aidperiod_5_3_home_ComboBox_SelectionChangeCommitted);
             // 
@@ -5020,12 +5020,12 @@ namespace F2F_Application
             this.materialLabel177.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel177.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel177.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel177.Location = new System.Drawing.Point(811, 1);
+            this.materialLabel177.Location = new System.Drawing.Point(866, 1);
             this.materialLabel177.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel177.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel177.Name = "materialLabel177";
             this.materialLabel177.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel177.Size = new System.Drawing.Size(161, 39);
+            this.materialLabel177.Size = new System.Drawing.Size(172, 39);
             this.materialLabel177.TabIndex = 164;
             this.materialLabel177.Text = "نوع المصروف";
             this.materialLabel177.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5038,12 +5038,12 @@ namespace F2F_Application
             this.materialLabel176.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel176.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel176.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel176.Location = new System.Drawing.Point(649, 1);
+            this.materialLabel176.Location = new System.Drawing.Point(693, 1);
             this.materialLabel176.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel176.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel176.Name = "materialLabel176";
             this.materialLabel176.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel176.Size = new System.Drawing.Size(161, 39);
+            this.materialLabel176.Size = new System.Drawing.Size(172, 39);
             this.materialLabel176.TabIndex = 163;
             this.materialLabel176.Text = "وصف المكان";
             this.materialLabel176.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5056,12 +5056,12 @@ namespace F2F_Application
             this.materialLabel175.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel175.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel175.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel175.Location = new System.Drawing.Point(487, 1);
+            this.materialLabel175.Location = new System.Drawing.Point(520, 1);
             this.materialLabel175.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel175.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel175.Name = "materialLabel175";
             this.materialLabel175.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel175.Size = new System.Drawing.Size(161, 39);
+            this.materialLabel175.Size = new System.Drawing.Size(172, 39);
             this.materialLabel175.TabIndex = 162;
             this.materialLabel175.Text = "الطائفة";
             this.materialLabel175.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5074,12 +5074,12 @@ namespace F2F_Application
             this.materialLabel178.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel178.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel178.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel178.Location = new System.Drawing.Point(325, 1);
+            this.materialLabel178.Location = new System.Drawing.Point(347, 1);
             this.materialLabel178.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel178.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel178.Name = "materialLabel178";
             this.materialLabel178.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel178.Size = new System.Drawing.Size(161, 39);
+            this.materialLabel178.Size = new System.Drawing.Size(172, 39);
             this.materialLabel178.TabIndex = 165;
             this.materialLabel178.Text = "جهة المساعدة";
             this.materialLabel178.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5092,12 +5092,12 @@ namespace F2F_Application
             this.materialLabel179.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel179.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel179.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel179.Location = new System.Drawing.Point(163, 1);
+            this.materialLabel179.Location = new System.Drawing.Point(174, 1);
             this.materialLabel179.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel179.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel179.Name = "materialLabel179";
             this.materialLabel179.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel179.Size = new System.Drawing.Size(161, 39);
+            this.materialLabel179.Size = new System.Drawing.Size(172, 39);
             this.materialLabel179.TabIndex = 166;
             this.materialLabel179.Text = "قيمة المساعدة";
             this.materialLabel179.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5115,7 +5115,7 @@ namespace F2F_Application
             this.materialLabel180.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel180.Name = "materialLabel180";
             this.materialLabel180.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel180.Size = new System.Drawing.Size(161, 39);
+            this.materialLabel180.Size = new System.Drawing.Size(172, 39);
             this.materialLabel180.TabIndex = 167;
             this.materialLabel180.Text = "عدد مرات المساعدة";
             this.materialLabel180.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5125,7 +5125,7 @@ namespace F2F_Application
             this.expenses_amount_6_12_home_TextBox.Depth = 0;
             this.expenses_amount_6_12_home_TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.expenses_amount_6_12_home_TextBox.Hint = "";
-            this.expenses_amount_6_12_home_TextBox.Location = new System.Drawing.Point(976, 44);
+            this.expenses_amount_6_12_home_TextBox.Location = new System.Drawing.Point(1042, 44);
             this.expenses_amount_6_12_home_TextBox.MaxLength = 32767;
             this.expenses_amount_6_12_home_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.expenses_amount_6_12_home_TextBox.Name = "expenses_amount_6_12_home_TextBox";
@@ -5134,7 +5134,7 @@ namespace F2F_Application
             this.expenses_amount_6_12_home_TextBox.SelectedText = "";
             this.expenses_amount_6_12_home_TextBox.SelectionLength = 0;
             this.expenses_amount_6_12_home_TextBox.SelectionStart = 0;
-            this.expenses_amount_6_12_home_TextBox.Size = new System.Drawing.Size(157, 31);
+            this.expenses_amount_6_12_home_TextBox.Size = new System.Drawing.Size(168, 31);
             this.expenses_amount_6_12_home_TextBox.TabIndex = 18;
             this.expenses_amount_6_12_home_TextBox.TabStop = false;
             this.expenses_amount_6_12_home_TextBox.UseSystemPasswordChar = false;
@@ -5147,7 +5147,7 @@ namespace F2F_Application
             this.home_description_TextBox.Depth = 0;
             this.home_description_TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.home_description_TextBox.Hint = "";
-            this.home_description_TextBox.Location = new System.Drawing.Point(652, 44);
+            this.home_description_TextBox.Location = new System.Drawing.Point(696, 44);
             this.home_description_TextBox.MaxLength = 32767;
             this.home_description_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.home_description_TextBox.Name = "home_description_TextBox";
@@ -5156,7 +5156,7 @@ namespace F2F_Application
             this.home_description_TextBox.SelectedText = "";
             this.home_description_TextBox.SelectionLength = 0;
             this.home_description_TextBox.SelectionStart = 0;
-            this.home_description_TextBox.Size = new System.Drawing.Size(155, 31);
+            this.home_description_TextBox.Size = new System.Drawing.Size(166, 31);
             this.home_description_TextBox.TabIndex = 20;
             this.home_description_TextBox.TabStop = false;
             this.home_description_TextBox.UseSystemPasswordChar = false;
@@ -5168,7 +5168,7 @@ namespace F2F_Application
             this.aidamount_5_3_home_TextBox.Depth = 0;
             this.aidamount_5_3_home_TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidamount_5_3_home_TextBox.Hint = "";
-            this.aidamount_5_3_home_TextBox.Location = new System.Drawing.Point(166, 44);
+            this.aidamount_5_3_home_TextBox.Location = new System.Drawing.Point(177, 44);
             this.aidamount_5_3_home_TextBox.MaxLength = 32767;
             this.aidamount_5_3_home_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.aidamount_5_3_home_TextBox.Name = "aidamount_5_3_home_TextBox";
@@ -5177,7 +5177,7 @@ namespace F2F_Application
             this.aidamount_5_3_home_TextBox.SelectedText = "";
             this.aidamount_5_3_home_TextBox.SelectionLength = 0;
             this.aidamount_5_3_home_TextBox.SelectionStart = 0;
-            this.aidamount_5_3_home_TextBox.Size = new System.Drawing.Size(155, 31);
+            this.aidamount_5_3_home_TextBox.Size = new System.Drawing.Size(166, 31);
             this.aidamount_5_3_home_TextBox.TabIndex = 23;
             this.aidamount_5_3_home_TextBox.TabStop = false;
             this.aidamount_5_3_home_TextBox.UseSystemPasswordChar = false;
@@ -5192,10 +5192,10 @@ namespace F2F_Application
             this.ParishHome_ComboBox.BackColor = System.Drawing.Color.White;
             this.ParishHome_ComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ParishHome_ComboBox.FormattingEnabled = true;
-            this.ParishHome_ComboBox.Location = new System.Drawing.Point(490, 44);
+            this.ParishHome_ComboBox.Location = new System.Drawing.Point(523, 44);
             this.ParishHome_ComboBox.Name = "ParishHome_ComboBox";
             this.ParishHome_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ParishHome_ComboBox.Size = new System.Drawing.Size(155, 33);
+            this.ParishHome_ComboBox.Size = new System.Drawing.Size(166, 33);
             this.ParishHome_ComboBox.TabIndex = 21;
             this.ParishHome_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.ParishHome_ComboBox_SelectionChangeCommitted);
             // 
@@ -5206,10 +5206,10 @@ namespace F2F_Application
             this.aidsource_5_3_home_ComboBox.BackColor = System.Drawing.Color.White;
             this.aidsource_5_3_home_ComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aidsource_5_3_home_ComboBox.FormattingEnabled = true;
-            this.aidsource_5_3_home_ComboBox.Location = new System.Drawing.Point(328, 44);
+            this.aidsource_5_3_home_ComboBox.Location = new System.Drawing.Point(350, 44);
             this.aidsource_5_3_home_ComboBox.Name = "aidsource_5_3_home_ComboBox";
             this.aidsource_5_3_home_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.aidsource_5_3_home_ComboBox.Size = new System.Drawing.Size(155, 33);
+            this.aidsource_5_3_home_ComboBox.Size = new System.Drawing.Size(166, 33);
             this.aidsource_5_3_home_ComboBox.TabIndex = 22;
             this.aidsource_5_3_home_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.aidsource_5_3_home_ComboBox_SelectionChangeCommitted);
             // 
@@ -5220,10 +5220,10 @@ namespace F2F_Application
             this.expensestype_6_12_home_ComboBox.BackColor = System.Drawing.Color.White;
             this.expensestype_6_12_home_ComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.expensestype_6_12_home_ComboBox.FormattingEnabled = true;
-            this.expensestype_6_12_home_ComboBox.Location = new System.Drawing.Point(814, 44);
+            this.expensestype_6_12_home_ComboBox.Location = new System.Drawing.Point(869, 44);
             this.expensestype_6_12_home_ComboBox.Name = "expensestype_6_12_home_ComboBox";
             this.expensestype_6_12_home_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.expensestype_6_12_home_ComboBox.Size = new System.Drawing.Size(155, 33);
+            this.expensestype_6_12_home_ComboBox.Size = new System.Drawing.Size(166, 33);
             this.expensestype_6_12_home_ComboBox.TabIndex = 19;
             this.expensestype_6_12_home_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.expensestype_6_12_home_ComboBox_SelectionChangeCommitted);
             // 
@@ -5234,7 +5234,7 @@ namespace F2F_Application
             this.PlaceType_Lable.Depth = 0;
             this.PlaceType_Lable.Font = new System.Drawing.Font("Tajawal", 11F);
             this.PlaceType_Lable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.PlaceType_Lable.Location = new System.Drawing.Point(1009, 238);
+            this.PlaceType_Lable.Location = new System.Drawing.Point(1075, 238);
             this.PlaceType_Lable.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.PlaceType_Lable.Name = "PlaceType_Lable";
             this.PlaceType_Lable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5249,7 +5249,7 @@ namespace F2F_Application
             this.materialLabel14.Depth = 0;
             this.materialLabel14.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel14.Location = new System.Drawing.Point(680, 238);
+            this.materialLabel14.Location = new System.Drawing.Point(724, 238);
             this.materialLabel14.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel14.Name = "materialLabel14";
             this.materialLabel14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5264,7 +5264,7 @@ namespace F2F_Application
             this.materialLabel130.Depth = 0;
             this.materialLabel130.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel130.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel130.Location = new System.Drawing.Point(379, 238);
+            this.materialLabel130.Location = new System.Drawing.Point(402, 238);
             this.materialLabel130.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel130.Name = "materialLabel130";
             this.materialLabel130.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5279,7 +5279,7 @@ namespace F2F_Application
             this.HeirsNumber_Label.Depth = 0;
             this.HeirsNumber_Label.Font = new System.Drawing.Font("Tajawal", 11F);
             this.HeirsNumber_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.HeirsNumber_Label.Location = new System.Drawing.Point(138, 238);
+            this.HeirsNumber_Label.Location = new System.Drawing.Point(145, 238);
             this.HeirsNumber_Label.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.HeirsNumber_Label.Name = "HeirsNumber_Label";
             this.HeirsNumber_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5295,10 +5295,10 @@ namespace F2F_Application
             this.secondtableLayoutPanel.SetColumnSpan(this.HomeType_ComboBox, 2);
             this.HomeType_ComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.HomeType_ComboBox.FormattingEnabled = true;
-            this.HomeType_ComboBox.Location = new System.Drawing.Point(797, 237);
+            this.HomeType_ComboBox.Location = new System.Drawing.Point(848, 228);
             this.HomeType_ComboBox.Name = "HomeType_ComboBox";
             this.HomeType_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.HomeType_ComboBox.Size = new System.Drawing.Size(206, 33);
+            this.HomeType_ComboBox.Size = new System.Drawing.Size(221, 33);
             this.HomeType_ComboBox.TabIndex = 13;
             this.HomeType_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.HomeType_ComboBox_SelectionChangeCommitted);
             // 
@@ -5311,10 +5311,10 @@ namespace F2F_Application
             this.IsDisplaced_ComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.IsDisplaced_ComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.IsDisplaced_ComboBox.FormattingEnabled = true;
-            this.IsDisplaced_ComboBox.Location = new System.Drawing.Point(483, 238);
+            this.IsDisplaced_ComboBox.Location = new System.Drawing.Point(513, 230);
             this.IsDisplaced_ComboBox.Name = "IsDisplaced_ComboBox";
             this.IsDisplaced_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.IsDisplaced_ComboBox.Size = new System.Drawing.Size(191, 31);
+            this.IsDisplaced_ComboBox.Size = new System.Drawing.Size(205, 31);
             this.IsDisplaced_ComboBox.TabIndex = 14;
             this.IsDisplaced_ComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.IsDisplaced_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.IsDisplaced_ComboBox_SelectionChangeCommitted);
@@ -5324,7 +5324,7 @@ namespace F2F_Application
             this.RoomsNumber_TextBox.Depth = 0;
             this.RoomsNumber_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.RoomsNumber_TextBox.Hint = "";
-            this.RoomsNumber_TextBox.Location = new System.Drawing.Point(253, 230);
+            this.RoomsNumber_TextBox.Location = new System.Drawing.Point(267, 230);
             this.RoomsNumber_TextBox.MaxLength = 32767;
             this.RoomsNumber_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.RoomsNumber_TextBox.Name = "RoomsNumber_TextBox";
@@ -5333,7 +5333,7 @@ namespace F2F_Application
             this.RoomsNumber_TextBox.SelectedText = "";
             this.RoomsNumber_TextBox.SelectionLength = 0;
             this.RoomsNumber_TextBox.SelectionStart = 0;
-            this.RoomsNumber_TextBox.Size = new System.Drawing.Size(120, 31);
+            this.RoomsNumber_TextBox.Size = new System.Drawing.Size(129, 31);
             this.RoomsNumber_TextBox.TabIndex = 15;
             this.RoomsNumber_TextBox.TabStop = false;
             this.RoomsNumber_TextBox.UseSystemPasswordChar = false;
@@ -5355,7 +5355,7 @@ namespace F2F_Application
             this.HeirsNumber_TextBox.SelectedText = "";
             this.HeirsNumber_TextBox.SelectionLength = 0;
             this.HeirsNumber_TextBox.SelectionStart = 0;
-            this.HeirsNumber_TextBox.Size = new System.Drawing.Size(109, 31);
+            this.HeirsNumber_TextBox.Size = new System.Drawing.Size(116, 31);
             this.HeirsNumber_TextBox.TabIndex = 16;
             this.HeirsNumber_TextBox.TabStop = false;
             this.HeirsNumber_TextBox.UseSystemPasswordChar = false;
@@ -5371,7 +5371,7 @@ namespace F2F_Application
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(23, 179);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1137, 38);
+            this.panel6.Size = new System.Drawing.Size(1214, 38);
             this.panel6.TabIndex = 34;
             // 
             // LivingConditionLabel
@@ -5380,7 +5380,7 @@ namespace F2F_Application
             this.LivingConditionLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.LivingConditionLabel.Font = new System.Drawing.Font("Tajawal", 11F);
             this.LivingConditionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LivingConditionLabel.Location = new System.Drawing.Point(896, 0);
+            this.LivingConditionLabel.Location = new System.Drawing.Point(973, 0);
             this.LivingConditionLabel.MaximumSize = new System.Drawing.Size(241, 53);
             this.LivingConditionLabel.MinimumSize = new System.Drawing.Size(241, 53);
             this.LivingConditionLabel.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -5398,7 +5398,7 @@ namespace F2F_Application
             this.EntredBy_Label.Depth = 0;
             this.EntredBy_Label.Font = new System.Drawing.Font("Tajawal", 11F);
             this.EntredBy_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.EntredBy_Label.Location = new System.Drawing.Point(1009, 62);
+            this.EntredBy_Label.Location = new System.Drawing.Point(1075, 62);
             this.EntredBy_Label.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.EntredBy_Label.Name = "EntredBy_Label";
             this.EntredBy_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5413,7 +5413,7 @@ namespace F2F_Application
             this.EntredBy2_Label.Depth = 0;
             this.EntredBy2_Label.Font = new System.Drawing.Font("Tajawal", 11F);
             this.EntredBy2_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.EntredBy2_Label.Location = new System.Drawing.Point(680, 44);
+            this.EntredBy2_Label.Location = new System.Drawing.Point(724, 44);
             this.EntredBy2_Label.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.EntredBy2_Label.Name = "EntredBy2_Label";
             this.EntredBy2_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5426,10 +5426,10 @@ namespace F2F_Application
             this.secondtableLayoutPanel.SetColumnSpan(this.EntredBy_comboBox, 2);
             this.EntredBy_comboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.EntredBy_comboBox.FormattingEnabled = true;
-            this.EntredBy_comboBox.Location = new System.Drawing.Point(797, 61);
+            this.EntredBy_comboBox.Location = new System.Drawing.Point(848, 52);
             this.EntredBy_comboBox.Name = "EntredBy_comboBox";
             this.EntredBy_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.EntredBy_comboBox.Size = new System.Drawing.Size(206, 33);
+            this.EntredBy_comboBox.Size = new System.Drawing.Size(221, 33);
             this.EntredBy_comboBox.TabIndex = 10;
             this.EntredBy_comboBox.SelectionChangeCommitted += new System.EventHandler(this.EntredBy_comboBox_SelectionChangeCommitted);
             // 
@@ -5438,10 +5438,10 @@ namespace F2F_Application
             this.secondtableLayoutPanel.SetColumnSpan(this.EntredBy2_comboBox, 2);
             this.EntredBy2_comboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.EntredBy2_comboBox.FormattingEnabled = true;
-            this.EntredBy2_comboBox.Location = new System.Drawing.Point(483, 61);
+            this.EntredBy2_comboBox.Location = new System.Drawing.Point(513, 52);
             this.EntredBy2_comboBox.Name = "EntredBy2_comboBox";
             this.EntredBy2_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.EntredBy2_comboBox.Size = new System.Drawing.Size(191, 33);
+            this.EntredBy2_comboBox.Size = new System.Drawing.Size(205, 33);
             this.EntredBy2_comboBox.TabIndex = 11;
             this.EntredBy2_comboBox.SelectionChangeCommitted += new System.EventHandler(this.EntredBy2_comboBox_SelectionChangeCommitted);
             // 
@@ -5454,14 +5454,14 @@ namespace F2F_Application
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(23, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1137, 38);
+            this.panel3.Size = new System.Drawing.Size(1214, 38);
             this.panel3.TabIndex = 35;
             // 
             // VisitNameLabel
             // 
             this.VisitNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.VisitNameLabel.AutoSize = true;
-            this.VisitNameLabel.Location = new System.Drawing.Point(945, 12);
+            this.VisitNameLabel.Location = new System.Drawing.Point(1022, 12);
             this.VisitNameLabel.Name = "VisitNameLabel";
             this.VisitNameLabel.Size = new System.Drawing.Size(0, 25);
             this.VisitNameLabel.TabIndex = 3;
@@ -5472,7 +5472,7 @@ namespace F2F_Application
             this.VisitInfoLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.VisitInfoLabel.Font = new System.Drawing.Font("Tajawal", 11F);
             this.VisitInfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.VisitInfoLabel.Location = new System.Drawing.Point(896, 0);
+            this.VisitInfoLabel.Location = new System.Drawing.Point(973, 0);
             this.VisitInfoLabel.MaximumSize = new System.Drawing.Size(241, 53);
             this.VisitInfoLabel.MinimumSize = new System.Drawing.Size(241, 53);
             this.VisitInfoLabel.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -5490,7 +5490,7 @@ namespace F2F_Application
             this.EntredByOther_Label.Depth = 0;
             this.EntredByOther_Label.Font = new System.Drawing.Font("Tajawal", 11F);
             this.EntredByOther_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.EntredByOther_Label.Location = new System.Drawing.Point(379, 44);
+            this.EntredByOther_Label.Location = new System.Drawing.Point(402, 44);
             this.EntredByOther_Label.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.EntredByOther_Label.Name = "EntredByOther_Label";
             this.EntredByOther_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5504,7 +5504,7 @@ namespace F2F_Application
             this.EntredByOther_TextBox.Depth = 0;
             this.EntredByOther_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.EntredByOther_TextBox.Hint = "";
-            this.EntredByOther_TextBox.Location = new System.Drawing.Point(138, 57);
+            this.EntredByOther_TextBox.Location = new System.Drawing.Point(145, 57);
             this.EntredByOther_TextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.EntredByOther_TextBox.MaxLength = 32767;
             this.EntredByOther_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -5514,7 +5514,7 @@ namespace F2F_Application
             this.EntredByOther_TextBox.SelectedText = "";
             this.EntredByOther_TextBox.SelectionLength = 0;
             this.EntredByOther_TextBox.SelectionStart = 0;
-            this.EntredByOther_TextBox.Size = new System.Drawing.Size(235, 31);
+            this.EntredByOther_TextBox.Size = new System.Drawing.Size(251, 31);
             this.EntredByOther_TextBox.TabIndex = 12;
             this.EntredByOther_TextBox.TabStop = false;
             this.EntredByOther_TextBox.UseSystemPasswordChar = false;
@@ -5531,7 +5531,7 @@ namespace F2F_Application
             this.panel11.ForeColor = System.Drawing.Color.White;
             this.panel11.Location = new System.Drawing.Point(23, 2115);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1137, 38);
+            this.panel11.Size = new System.Drawing.Size(1214, 38);
             this.panel11.TabIndex = 42;
             // 
             // tableLayoutPanel38
@@ -5584,7 +5584,7 @@ namespace F2F_Application
             this.ExpensesLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.ExpensesLabel.Font = new System.Drawing.Font("Tajawal", 11F);
             this.ExpensesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ExpensesLabel.Location = new System.Drawing.Point(974, 0);
+            this.ExpensesLabel.Location = new System.Drawing.Point(1051, 0);
             this.ExpensesLabel.MaximumSize = new System.Drawing.Size(163, 53);
             this.ExpensesLabel.MinimumSize = new System.Drawing.Size(163, 53);
             this.ExpensesLabel.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -5628,7 +5628,7 @@ namespace F2F_Application
             this.tableLayoutPanel28.Controls.Add(this.ExpensesAmount_20_TextBox, 2, 5);
             this.tableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel28.ForeColor = System.Drawing.Color.White;
-            this.tableLayoutPanel28.Location = new System.Drawing.Point(379, 2159);
+            this.tableLayoutPanel28.Location = new System.Drawing.Point(402, 2159);
             this.tableLayoutPanel28.Name = "tableLayoutPanel28";
             this.tableLayoutPanel28.RowCount = 6;
             this.secondtableLayoutPanel.SetRowSpan(this.tableLayoutPanel28, 4);
@@ -5639,7 +5639,7 @@ namespace F2F_Application
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(781, 170);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(835, 170);
             this.tableLayoutPanel28.TabIndex = 82;
             // 
             // ExpensesAmount_11_TextBox
@@ -5656,7 +5656,7 @@ namespace F2F_Application
             this.ExpensesAmount_11_TextBox.SelectedText = "";
             this.ExpensesAmount_11_TextBox.SelectionLength = 0;
             this.ExpensesAmount_11_TextBox.SelectionStart = 0;
-            this.ExpensesAmount_11_TextBox.Size = new System.Drawing.Size(188, 31);
+            this.ExpensesAmount_11_TextBox.Size = new System.Drawing.Size(201, 31);
             this.ExpensesAmount_11_TextBox.TabIndex = 89;
             this.ExpensesAmount_11_TextBox.TabStop = false;
             this.ExpensesAmount_11_TextBox.UseSystemPasswordChar = false;
@@ -5678,7 +5678,7 @@ namespace F2F_Application
             this.ExpensesAmount_22_TextBox.SelectedText = "";
             this.ExpensesAmount_22_TextBox.SelectionLength = 0;
             this.ExpensesAmount_22_TextBox.SelectionStart = 0;
-            this.ExpensesAmount_22_TextBox.Size = new System.Drawing.Size(188, 31);
+            this.ExpensesAmount_22_TextBox.Size = new System.Drawing.Size(201, 31);
             this.ExpensesAmount_22_TextBox.TabIndex = 88;
             this.ExpensesAmount_22_TextBox.TabStop = false;
             this.ExpensesAmount_22_TextBox.UseSystemPasswordChar = false;
@@ -5700,7 +5700,7 @@ namespace F2F_Application
             this.ExpensesAmount_21_TextBox.SelectedText = "";
             this.ExpensesAmount_21_TextBox.SelectionLength = 0;
             this.ExpensesAmount_21_TextBox.SelectionStart = 0;
-            this.ExpensesAmount_21_TextBox.Size = new System.Drawing.Size(188, 31);
+            this.ExpensesAmount_21_TextBox.Size = new System.Drawing.Size(201, 31);
             this.ExpensesAmount_21_TextBox.TabIndex = 87;
             this.ExpensesAmount_21_TextBox.TabStop = false;
             this.ExpensesAmount_21_TextBox.UseSystemPasswordChar = false;
@@ -5713,7 +5713,7 @@ namespace F2F_Application
             this.ExpensesAmount_19_TextBox.Depth = 0;
             this.ExpensesAmount_19_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ExpensesAmount_19_TextBox.Hint = "";
-            this.ExpensesAmount_19_TextBox.Location = new System.Drawing.Point(394, 116);
+            this.ExpensesAmount_19_TextBox.Location = new System.Drawing.Point(420, 116);
             this.ExpensesAmount_19_TextBox.MaxLength = 32767;
             this.ExpensesAmount_19_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ExpensesAmount_19_TextBox.Name = "ExpensesAmount_19_TextBox";
@@ -5722,7 +5722,7 @@ namespace F2F_Application
             this.ExpensesAmount_19_TextBox.SelectedText = "";
             this.ExpensesAmount_19_TextBox.SelectionLength = 0;
             this.ExpensesAmount_19_TextBox.SelectionStart = 0;
-            this.ExpensesAmount_19_TextBox.Size = new System.Drawing.Size(188, 31);
+            this.ExpensesAmount_19_TextBox.Size = new System.Drawing.Size(201, 31);
             this.ExpensesAmount_19_TextBox.TabIndex = 84;
             this.ExpensesAmount_19_TextBox.TabStop = false;
             this.ExpensesAmount_19_TextBox.UseSystemPasswordChar = false;
@@ -5744,7 +5744,7 @@ namespace F2F_Application
             this.ExpensesAmount_2_Home_TextBox.SelectedText = "";
             this.ExpensesAmount_2_Home_TextBox.SelectionLength = 0;
             this.ExpensesAmount_2_Home_TextBox.SelectionStart = 0;
-            this.ExpensesAmount_2_Home_TextBox.Size = new System.Drawing.Size(188, 31);
+            this.ExpensesAmount_2_Home_TextBox.Size = new System.Drawing.Size(201, 31);
             this.ExpensesAmount_2_Home_TextBox.TabIndex = 86;
             this.ExpensesAmount_2_Home_TextBox.TabStop = false;
             this.ExpensesAmount_2_Home_TextBox.UseSystemPasswordChar = false;
@@ -5759,10 +5759,10 @@ namespace F2F_Application
             this.Expenses_1_comboBox.BackColor = System.Drawing.Color.White;
             this.Expenses_1_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Expenses_1_comboBox.FormattingEnabled = true;
-            this.Expenses_1_comboBox.Location = new System.Drawing.Point(394, 60);
+            this.Expenses_1_comboBox.Location = new System.Drawing.Point(420, 60);
             this.Expenses_1_comboBox.Name = "Expenses_1_comboBox";
             this.Expenses_1_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Expenses_1_comboBox.Size = new System.Drawing.Size(188, 33);
+            this.Expenses_1_comboBox.Size = new System.Drawing.Size(201, 33);
             this.Expenses_1_comboBox.TabIndex = 82;
             this.Expenses_1_comboBox.SelectionChangeCommitted += new System.EventHandler(this.Expenses_1_comboBox_SelectionChangeCommitted);
             // 
@@ -5771,7 +5771,7 @@ namespace F2F_Application
             this.ExpensesAmount_3_TextBox.Depth = 0;
             this.ExpensesAmount_3_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ExpensesAmount_3_TextBox.Hint = "";
-            this.ExpensesAmount_3_TextBox.Location = new System.Drawing.Point(394, 88);
+            this.ExpensesAmount_3_TextBox.Location = new System.Drawing.Point(420, 88);
             this.ExpensesAmount_3_TextBox.MaxLength = 32767;
             this.ExpensesAmount_3_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ExpensesAmount_3_TextBox.Name = "ExpensesAmount_3_TextBox";
@@ -5780,7 +5780,7 @@ namespace F2F_Application
             this.ExpensesAmount_3_TextBox.SelectedText = "";
             this.ExpensesAmount_3_TextBox.SelectionLength = 0;
             this.ExpensesAmount_3_TextBox.SelectionStart = 0;
-            this.ExpensesAmount_3_TextBox.Size = new System.Drawing.Size(188, 31);
+            this.ExpensesAmount_3_TextBox.Size = new System.Drawing.Size(201, 31);
             this.ExpensesAmount_3_TextBox.TabIndex = 83;
             this.ExpensesAmount_3_TextBox.TabStop = false;
             this.ExpensesAmount_3_TextBox.UseSystemPasswordChar = false;
@@ -5793,7 +5793,7 @@ namespace F2F_Application
             this.ExpensesAmount_20_TextBox.Depth = 0;
             this.ExpensesAmount_20_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ExpensesAmount_20_TextBox.Hint = "";
-            this.ExpensesAmount_20_TextBox.Location = new System.Drawing.Point(394, 144);
+            this.ExpensesAmount_20_TextBox.Location = new System.Drawing.Point(420, 144);
             this.ExpensesAmount_20_TextBox.MaxLength = 32767;
             this.ExpensesAmount_20_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ExpensesAmount_20_TextBox.Name = "ExpensesAmount_20_TextBox";
@@ -5802,7 +5802,7 @@ namespace F2F_Application
             this.ExpensesAmount_20_TextBox.SelectedText = "";
             this.ExpensesAmount_20_TextBox.SelectionLength = 0;
             this.ExpensesAmount_20_TextBox.SelectionStart = 0;
-            this.ExpensesAmount_20_TextBox.Size = new System.Drawing.Size(188, 31);
+            this.ExpensesAmount_20_TextBox.Size = new System.Drawing.Size(201, 31);
             this.ExpensesAmount_20_TextBox.TabIndex = 85;
             this.ExpensesAmount_20_TextBox.TabStop = false;
             this.ExpensesAmount_20_TextBox.UseSystemPasswordChar = false;
@@ -5817,7 +5817,7 @@ namespace F2F_Application
             this.materialLabel18.Depth = 0;
             this.materialLabel18.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel18.Location = new System.Drawing.Point(1009, 2350);
+            this.materialLabel18.Location = new System.Drawing.Point(1075, 2350);
             this.materialLabel18.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel18.Name = "materialLabel18";
             this.materialLabel18.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5832,7 +5832,7 @@ namespace F2F_Application
             this.materialLabel158.Depth = 0;
             this.materialLabel158.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel158.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel158.Location = new System.Drawing.Point(680, 2350);
+            this.materialLabel158.Location = new System.Drawing.Point(724, 2350);
             this.materialLabel158.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel158.Name = "materialLabel158";
             this.materialLabel158.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5846,7 +5846,7 @@ namespace F2F_Application
             this.Expenses_10_TextBox.Depth = 0;
             this.Expenses_10_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Expenses_10_TextBox.Hint = "";
-            this.Expenses_10_TextBox.Location = new System.Drawing.Point(797, 2342);
+            this.Expenses_10_TextBox.Location = new System.Drawing.Point(848, 2342);
             this.Expenses_10_TextBox.MaxLength = 32767;
             this.Expenses_10_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.Expenses_10_TextBox.Name = "Expenses_10_TextBox";
@@ -5855,7 +5855,7 @@ namespace F2F_Application
             this.Expenses_10_TextBox.SelectedText = "";
             this.Expenses_10_TextBox.SelectionLength = 0;
             this.Expenses_10_TextBox.SelectionStart = 0;
-            this.Expenses_10_TextBox.Size = new System.Drawing.Size(206, 31);
+            this.Expenses_10_TextBox.Size = new System.Drawing.Size(221, 31);
             this.Expenses_10_TextBox.TabIndex = 90;
             this.Expenses_10_TextBox.TabStop = false;
             this.Expenses_10_TextBox.UseSystemPasswordChar = false;
@@ -5868,7 +5868,7 @@ namespace F2F_Application
             this.ExpensesAmount_10_TextBox.Depth = 0;
             this.ExpensesAmount_10_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ExpensesAmount_10_TextBox.Hint = "";
-            this.ExpensesAmount_10_TextBox.Location = new System.Drawing.Point(376, 2345);
+            this.ExpensesAmount_10_TextBox.Location = new System.Drawing.Point(399, 2345);
             this.ExpensesAmount_10_TextBox.Margin = new System.Windows.Forms.Padding(0);
             this.ExpensesAmount_10_TextBox.MaxLength = 32767;
             this.ExpensesAmount_10_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -5878,7 +5878,7 @@ namespace F2F_Application
             this.ExpensesAmount_10_TextBox.SelectedText = "";
             this.ExpensesAmount_10_TextBox.SelectionLength = 0;
             this.ExpensesAmount_10_TextBox.SelectionStart = 0;
-            this.ExpensesAmount_10_TextBox.Size = new System.Drawing.Size(301, 31);
+            this.ExpensesAmount_10_TextBox.Size = new System.Drawing.Size(322, 31);
             this.ExpensesAmount_10_TextBox.TabIndex = 90;
             this.ExpensesAmount_10_TextBox.TabStop = false;
             this.ExpensesAmount_10_TextBox.UseSystemPasswordChar = false;
@@ -5916,7 +5916,7 @@ namespace F2F_Application
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(224, 170);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(238, 170);
             this.tableLayoutPanel1.TabIndex = 209;
             // 
             // materialLabel44
@@ -5926,7 +5926,7 @@ namespace F2F_Application
             this.materialLabel44.Depth = 0;
             this.materialLabel44.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel44.Location = new System.Drawing.Point(17, 141);
+            this.materialLabel44.Location = new System.Drawing.Point(21, 141);
             this.materialLabel44.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel44.Name = "materialLabel44";
             this.materialLabel44.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5947,7 +5947,7 @@ namespace F2F_Application
             this.materialLabel150.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel150.Name = "materialLabel150";
             this.materialLabel150.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel150.Size = new System.Drawing.Size(216, 27);
+            this.materialLabel150.Size = new System.Drawing.Size(230, 27);
             this.materialLabel150.TabIndex = 218;
             this.materialLabel150.Text = "مصروف الطعام";
             this.materialLabel150.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -5959,11 +5959,11 @@ namespace F2F_Application
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(115, 29);
+            this.materialLabel7.Location = new System.Drawing.Point(122, 29);
             this.materialLabel7.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel7.Size = new System.Drawing.Size(105, 26);
+            this.materialLabel7.Size = new System.Drawing.Size(112, 26);
             this.materialLabel7.TabIndex = 210;
             this.materialLabel7.Text = "عدد الأفراد";
             this.materialLabel7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -5975,7 +5975,7 @@ namespace F2F_Application
             this.materialLabel43.Depth = 0;
             this.materialLabel43.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel43.Location = new System.Drawing.Point(17, 113);
+            this.materialLabel43.Location = new System.Drawing.Point(21, 113);
             this.materialLabel43.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel43.Name = "materialLabel43";
             this.materialLabel43.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5995,7 +5995,7 @@ namespace F2F_Application
             this.materialLabel8.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel8.Size = new System.Drawing.Size(104, 27);
+            this.materialLabel8.Size = new System.Drawing.Size(111, 27);
             this.materialLabel8.TabIndex = 211;
             this.materialLabel8.Text = "معدل المصروف";
             // 
@@ -6008,11 +6008,11 @@ namespace F2F_Application
             this.materialLabel36.Depth = 0;
             this.materialLabel36.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel36.Location = new System.Drawing.Point(115, 57);
+            this.materialLabel36.Location = new System.Drawing.Point(122, 57);
             this.materialLabel36.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel36.Name = "materialLabel36";
             this.materialLabel36.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel36.Size = new System.Drawing.Size(105, 27);
+            this.materialLabel36.Size = new System.Drawing.Size(112, 27);
             this.materialLabel36.TabIndex = 212;
             this.materialLabel36.Text = "1-2 فرد";
             this.materialLabel36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6024,7 +6024,7 @@ namespace F2F_Application
             this.materialLabel41.Depth = 0;
             this.materialLabel41.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel41.Location = new System.Drawing.Point(18, 57);
+            this.materialLabel41.Location = new System.Drawing.Point(21, 57);
             this.materialLabel41.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel41.Name = "materialLabel41";
             this.materialLabel41.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6042,11 +6042,11 @@ namespace F2F_Application
             this.materialLabel39.Depth = 0;
             this.materialLabel39.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel39.Location = new System.Drawing.Point(115, 113);
+            this.materialLabel39.Location = new System.Drawing.Point(122, 113);
             this.materialLabel39.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel39.Name = "materialLabel39";
             this.materialLabel39.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel39.Size = new System.Drawing.Size(105, 27);
+            this.materialLabel39.Size = new System.Drawing.Size(112, 27);
             this.materialLabel39.TabIndex = 214;
             this.materialLabel39.Text = "5-6 فرد";
             this.materialLabel39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6060,11 +6060,11 @@ namespace F2F_Application
             this.materialLabel37.Depth = 0;
             this.materialLabel37.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel37.Location = new System.Drawing.Point(115, 85);
+            this.materialLabel37.Location = new System.Drawing.Point(122, 85);
             this.materialLabel37.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel37.Name = "materialLabel37";
             this.materialLabel37.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel37.Size = new System.Drawing.Size(105, 27);
+            this.materialLabel37.Size = new System.Drawing.Size(112, 27);
             this.materialLabel37.TabIndex = 213;
             this.materialLabel37.Text = "3-4 فرد";
             this.materialLabel37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6076,7 +6076,7 @@ namespace F2F_Application
             this.materialLabel42.Depth = 0;
             this.materialLabel42.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel42.Location = new System.Drawing.Point(17, 85);
+            this.materialLabel42.Location = new System.Drawing.Point(20, 85);
             this.materialLabel42.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel42.Name = "materialLabel42";
             this.materialLabel42.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6094,11 +6094,11 @@ namespace F2F_Application
             this.materialLabel40.Depth = 0;
             this.materialLabel40.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel40.Location = new System.Drawing.Point(115, 141);
+            this.materialLabel40.Location = new System.Drawing.Point(122, 141);
             this.materialLabel40.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel40.Name = "materialLabel40";
             this.materialLabel40.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel40.Size = new System.Drawing.Size(105, 28);
+            this.materialLabel40.Size = new System.Drawing.Size(112, 28);
             this.materialLabel40.TabIndex = 215;
             this.materialLabel40.Text = "اكثر من 6 أفراد";
             this.materialLabel40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6112,7 +6112,7 @@ namespace F2F_Application
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(23, 2423);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1137, 38);
+            this.panel4.Size = new System.Drawing.Size(1214, 38);
             this.panel4.TabIndex = 30;
             // 
             // tableLayoutPanel39
@@ -6165,7 +6165,7 @@ namespace F2F_Application
             this.IncomeLable.Dock = System.Windows.Forms.DockStyle.Right;
             this.IncomeLable.Font = new System.Drawing.Font("Tajawal", 11F);
             this.IncomeLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.IncomeLable.Location = new System.Drawing.Point(896, 0);
+            this.IncomeLable.Location = new System.Drawing.Point(973, 0);
             this.IncomeLable.MaximumSize = new System.Drawing.Size(241, 53);
             this.IncomeLable.MinimumSize = new System.Drawing.Size(241, 53);
             this.IncomeLable.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -6235,7 +6235,7 @@ namespace F2F_Application
             this.Income_DataGridView.RowHeadersWidth = 51;
             this.secondtableLayoutPanel.SetRowSpan(this.Income_DataGridView, 3);
             this.Income_DataGridView.RowTemplate.Height = 24;
-            this.Income_DataGridView.Size = new System.Drawing.Size(1137, 126);
+            this.Income_DataGridView.Size = new System.Drawing.Size(1214, 126);
             this.Income_DataGridView.TabIndex = 91;
             this.Income_DataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Income_DataGridView_CellContentClick);
             this.Income_DataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Income_DataGridView_CellEndEdit);
@@ -6306,7 +6306,7 @@ namespace F2F_Application
             this.panel7.ForeColor = System.Drawing.Color.White;
             this.panel7.Location = new System.Drawing.Point(23, 3259);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1137, 38);
+            this.panel7.Size = new System.Drawing.Size(1214, 38);
             this.panel7.TabIndex = 115;
             // 
             // visitNoteLabel
@@ -6315,7 +6315,7 @@ namespace F2F_Application
             this.visitNoteLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.visitNoteLabel.Font = new System.Drawing.Font("Tajawal", 11F);
             this.visitNoteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visitNoteLabel.Location = new System.Drawing.Point(896, 0);
+            this.visitNoteLabel.Location = new System.Drawing.Point(973, 0);
             this.visitNoteLabel.MaximumSize = new System.Drawing.Size(241, 53);
             this.visitNoteLabel.MinimumSize = new System.Drawing.Size(241, 53);
             this.visitNoteLabel.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -6333,11 +6333,11 @@ namespace F2F_Application
             this.materialLabel17.Depth = 0;
             this.materialLabel17.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel17.Location = new System.Drawing.Point(1009, 3309);
+            this.materialLabel17.Location = new System.Drawing.Point(1075, 3309);
             this.materialLabel17.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel17.Name = "materialLabel17";
             this.materialLabel17.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel17.Size = new System.Drawing.Size(151, 26);
+            this.materialLabel17.Size = new System.Drawing.Size(162, 26);
             this.materialLabel17.TabIndex = 105;
             this.materialLabel17.Text = "ملاحظات الفريق:";
             // 
@@ -6356,7 +6356,7 @@ namespace F2F_Application
             this.FamilyNote_TextBox.SelectedText = "";
             this.FamilyNote_TextBox.SelectionLength = 0;
             this.FamilyNote_TextBox.SelectionStart = 0;
-            this.FamilyNote_TextBox.Size = new System.Drawing.Size(980, 31);
+            this.FamilyNote_TextBox.Size = new System.Drawing.Size(1046, 31);
             this.FamilyNote_TextBox.TabIndex = 125;
             this.FamilyNote_TextBox.TabStop = false;
             this.FamilyNote_TextBox.UseSystemPasswordChar = false;
@@ -6371,12 +6371,12 @@ namespace F2F_Application
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.Update_Button, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(379, 3391);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(402, 3391);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.secondtableLayoutPanel.SetRowSpan(this.tableLayoutPanel2, 2);
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(412, 86);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(440, 86);
             this.tableLayoutPanel2.TabIndex = 130;
             // 
             // Update_Button
@@ -6392,7 +6392,7 @@ namespace F2F_Application
             this.Update_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Update_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Update_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Update_Button.Location = new System.Drawing.Point(155, 22);
+            this.Update_Button.Location = new System.Drawing.Point(169, 22);
             this.Update_Button.MaximumSize = new System.Drawing.Size(102, 42);
             this.Update_Button.MinimumSize = new System.Drawing.Size(102, 42);
             this.Update_Button.Name = "Update_Button";
@@ -6419,7 +6419,7 @@ namespace F2F_Application
             this.firsttableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.51554F));
             this.firsttableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.296563F));
             this.firsttableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.53152F));
-            this.firsttableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
+            this.firsttableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.firsttableLayoutPanel.ContextMenuStrip = this.materialContextMenuStrip1;
             this.firsttableLayoutPanel.Controls.Add(this.materialLabel12, 10, 26);
             this.firsttableLayoutPanel.Controls.Add(this.Floor_TextBox, 5, 16);
@@ -6536,7 +6536,7 @@ namespace F2F_Application
             this.materialLabel12.Depth = 0;
             this.materialLabel12.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel12.Location = new System.Drawing.Point(989, 1190);
+            this.materialLabel12.Location = new System.Drawing.Point(1052, 1190);
             this.materialLabel12.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
             this.materialLabel12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6550,7 +6550,7 @@ namespace F2F_Application
             this.firsttableLayoutPanel.SetColumnSpan(this.Floor_TextBox, 2);
             this.Floor_TextBox.Depth = 0;
             this.Floor_TextBox.Hint = "";
-            this.Floor_TextBox.Location = new System.Drawing.Point(483, 717);
+            this.Floor_TextBox.Location = new System.Drawing.Point(512, 717);
             this.Floor_TextBox.MaxLength = 32767;
             this.Floor_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.Floor_TextBox.Name = "Floor_TextBox";
@@ -6559,7 +6559,7 @@ namespace F2F_Application
             this.Floor_TextBox.SelectedText = "";
             this.Floor_TextBox.SelectionLength = 0;
             this.Floor_TextBox.SelectionStart = 0;
-            this.Floor_TextBox.Size = new System.Drawing.Size(188, 31);
+            this.Floor_TextBox.Size = new System.Drawing.Size(201, 31);
             this.Floor_TextBox.TabIndex = 33;
             this.Floor_TextBox.TabStop = false;
             this.Floor_TextBox.UseSystemPasswordChar = false;
@@ -6574,7 +6574,7 @@ namespace F2F_Application
             this.materialLabel129.Depth = 0;
             this.materialLabel129.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel129.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel129.Location = new System.Drawing.Point(677, 720);
+            this.materialLabel129.Location = new System.Drawing.Point(719, 720);
             this.materialLabel129.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel129.Name = "materialLabel129";
             this.materialLabel129.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6588,7 +6588,7 @@ namespace F2F_Application
             this.firsttableLayoutPanel.SetColumnSpan(this.BuildingNumber_TextBox, 2);
             this.BuildingNumber_TextBox.Depth = 0;
             this.BuildingNumber_TextBox.Hint = "";
-            this.BuildingNumber_TextBox.Location = new System.Drawing.Point(797, 717);
+            this.BuildingNumber_TextBox.Location = new System.Drawing.Point(847, 717);
             this.BuildingNumber_TextBox.MaxLength = 32767;
             this.BuildingNumber_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.BuildingNumber_TextBox.Name = "BuildingNumber_TextBox";
@@ -6597,7 +6597,7 @@ namespace F2F_Application
             this.BuildingNumber_TextBox.SelectedText = "";
             this.BuildingNumber_TextBox.SelectionLength = 0;
             this.BuildingNumber_TextBox.SelectionStart = 0;
-            this.BuildingNumber_TextBox.Size = new System.Drawing.Size(186, 31);
+            this.BuildingNumber_TextBox.Size = new System.Drawing.Size(199, 31);
             this.BuildingNumber_TextBox.TabIndex = 32;
             this.BuildingNumber_TextBox.TabStop = false;
             this.BuildingNumber_TextBox.UseSystemPasswordChar = false;
@@ -6612,7 +6612,7 @@ namespace F2F_Application
             this.materialLabel128.Depth = 0;
             this.materialLabel128.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel128.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel128.Location = new System.Drawing.Point(989, 720);
+            this.materialLabel128.Location = new System.Drawing.Point(1052, 720);
             this.materialLabel128.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel128.Name = "materialLabel128";
             this.materialLabel128.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6626,7 +6626,7 @@ namespace F2F_Application
             this.GoToLocation.BackgroundImage = global::F2F_Application.Properties.Resources.location_icon;
             this.GoToLocation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.GoToLocation.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GoToLocation.Location = new System.Drawing.Point(91, 679);
+            this.GoToLocation.Location = new System.Drawing.Point(98, 679);
             this.GoToLocation.Name = "GoToLocation";
             this.GoToLocation.Size = new System.Drawing.Size(41, 28);
             this.GoToLocation.TabIndex = 158;
@@ -6645,12 +6645,12 @@ namespace F2F_Application
             this.tableLayoutPanel20.Controls.Add(this.LocationLatitude_TextBox, 0, 0);
             this.tableLayoutPanel20.Controls.Add(this.materialLabel126, 1, 0);
             this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel20.Location = new System.Drawing.Point(135, 664);
+            this.tableLayoutPanel20.Location = new System.Drawing.Point(142, 664);
             this.tableLayoutPanel20.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel20.Name = "tableLayoutPanel20";
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(241, 46);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(256, 46);
             this.tableLayoutPanel20.TabIndex = 58;
             // 
             // LocationLongtitude_TextBox
@@ -6658,7 +6658,7 @@ namespace F2F_Application
             this.LocationLongtitude_TextBox.Depth = 0;
             this.LocationLongtitude_TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LocationLongtitude_TextBox.Hint = "";
-            this.LocationLongtitude_TextBox.Location = new System.Drawing.Point(139, 0);
+            this.LocationLongtitude_TextBox.Location = new System.Drawing.Point(147, 0);
             this.LocationLongtitude_TextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.LocationLongtitude_TextBox.MaxLength = 32767;
             this.LocationLongtitude_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -6668,7 +6668,7 @@ namespace F2F_Application
             this.LocationLongtitude_TextBox.SelectedText = "";
             this.LocationLongtitude_TextBox.SelectionLength = 0;
             this.LocationLongtitude_TextBox.SelectionStart = 0;
-            this.LocationLongtitude_TextBox.Size = new System.Drawing.Size(99, 31);
+            this.LocationLongtitude_TextBox.Size = new System.Drawing.Size(106, 31);
             this.LocationLongtitude_TextBox.TabIndex = 30;
             this.LocationLongtitude_TextBox.TabStop = false;
             this.LocationLongtitude_TextBox.UseSystemPasswordChar = false;
@@ -6691,7 +6691,7 @@ namespace F2F_Application
             this.LocationLatitude_TextBox.SelectedText = "";
             this.LocationLatitude_TextBox.SelectionLength = 0;
             this.LocationLatitude_TextBox.SelectionStart = 0;
-            this.LocationLatitude_TextBox.Size = new System.Drawing.Size(98, 31);
+            this.LocationLatitude_TextBox.Size = new System.Drawing.Size(106, 31);
             this.LocationLatitude_TextBox.TabIndex = 31;
             this.LocationLatitude_TextBox.TabStop = false;
             this.LocationLatitude_TextBox.UseSystemPasswordChar = false;
@@ -6704,7 +6704,7 @@ namespace F2F_Application
             this.materialLabel126.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel126.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel126.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel126.Location = new System.Drawing.Point(107, 0);
+            this.materialLabel126.Location = new System.Drawing.Point(115, 0);
             this.materialLabel126.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel126.Name = "materialLabel126";
             this.materialLabel126.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -6720,7 +6720,7 @@ namespace F2F_Application
             this.materialLabel124.Depth = 0;
             this.materialLabel124.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel124.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel124.Location = new System.Drawing.Point(379, 674);
+            this.materialLabel124.Location = new System.Drawing.Point(401, 674);
             this.materialLabel124.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel124.Name = "materialLabel124";
             this.materialLabel124.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6737,10 +6737,10 @@ namespace F2F_Application
             this.firsttableLayoutPanel.SetColumnSpan(this.Street_ComboBox, 2);
             this.Street_ComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.Street_ComboBox.FormattingEnabled = true;
-            this.Street_ComboBox.Location = new System.Drawing.Point(483, 675);
+            this.Street_ComboBox.Location = new System.Drawing.Point(512, 671);
             this.Street_ComboBox.Name = "Street_ComboBox";
             this.Street_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Street_ComboBox.Size = new System.Drawing.Size(188, 31);
+            this.Street_ComboBox.Size = new System.Drawing.Size(201, 31);
             this.Street_ComboBox.TabIndex = 29;
             this.Street_ComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.Street_ComboBox_DrawItem);
             this.Street_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.Street_ComboBox_SelectionChangeCommitted);
@@ -6751,7 +6751,7 @@ namespace F2F_Application
             this.firsttableLayoutPanel.SetColumnSpan(this.MobileNumber_TextBox, 2);
             this.MobileNumber_TextBox.Depth = 0;
             this.MobileNumber_TextBox.Hint = "";
-            this.MobileNumber_TextBox.Location = new System.Drawing.Point(483, 625);
+            this.MobileNumber_TextBox.Location = new System.Drawing.Point(512, 625);
             this.MobileNumber_TextBox.MaxLength = 32767;
             this.MobileNumber_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.MobileNumber_TextBox.Name = "MobileNumber_TextBox";
@@ -6760,7 +6760,7 @@ namespace F2F_Application
             this.MobileNumber_TextBox.SelectedText = "";
             this.MobileNumber_TextBox.SelectionLength = 0;
             this.MobileNumber_TextBox.SelectionStart = 0;
-            this.MobileNumber_TextBox.Size = new System.Drawing.Size(188, 31);
+            this.MobileNumber_TextBox.Size = new System.Drawing.Size(201, 31);
             this.MobileNumber_TextBox.TabIndex = 27;
             this.MobileNumber_TextBox.TabStop = false;
             this.MobileNumber_TextBox.UseSystemPasswordChar = false;
@@ -6775,7 +6775,7 @@ namespace F2F_Application
             this.materialLabel11.Depth = 0;
             this.materialLabel11.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel11.Location = new System.Drawing.Point(677, 628);
+            this.materialLabel11.Location = new System.Drawing.Point(719, 628);
             this.materialLabel11.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel11.Name = "materialLabel11";
             this.materialLabel11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6790,7 +6790,7 @@ namespace F2F_Application
             this.materialLabel122.Depth = 0;
             this.materialLabel122.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel122.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel122.Location = new System.Drawing.Point(677, 674);
+            this.materialLabel122.Location = new System.Drawing.Point(719, 674);
             this.materialLabel122.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel122.Name = "materialLabel122";
             this.materialLabel122.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6804,7 +6804,7 @@ namespace F2F_Application
             this.firsttableLayoutPanel.SetColumnSpan(this.LandLine_TextBox, 2);
             this.LandLine_TextBox.Depth = 0;
             this.LandLine_TextBox.Hint = "";
-            this.LandLine_TextBox.Location = new System.Drawing.Point(797, 625);
+            this.LandLine_TextBox.Location = new System.Drawing.Point(847, 625);
             this.LandLine_TextBox.MaxLength = 32767;
             this.LandLine_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.LandLine_TextBox.Name = "LandLine_TextBox";
@@ -6813,7 +6813,7 @@ namespace F2F_Application
             this.LandLine_TextBox.SelectedText = "";
             this.LandLine_TextBox.SelectionLength = 0;
             this.LandLine_TextBox.SelectionStart = 0;
-            this.LandLine_TextBox.Size = new System.Drawing.Size(186, 31);
+            this.LandLine_TextBox.Size = new System.Drawing.Size(199, 31);
             this.LandLine_TextBox.TabIndex = 26;
             this.LandLine_TextBox.TabStop = false;
             this.LandLine_TextBox.UseSystemPasswordChar = false;
@@ -6828,7 +6828,7 @@ namespace F2F_Application
             this.materialLabel15.Depth = 0;
             this.materialLabel15.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel15.Location = new System.Drawing.Point(989, 628);
+            this.materialLabel15.Location = new System.Drawing.Point(1052, 628);
             this.materialLabel15.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel15.Name = "materialLabel15";
             this.materialLabel15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6845,10 +6845,10 @@ namespace F2F_Application
             this.Parish_ComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Parish_ComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.Parish_ComboBox.FormattingEnabled = true;
-            this.Parish_ComboBox.Location = new System.Drawing.Point(138, 575);
+            this.Parish_ComboBox.Location = new System.Drawing.Point(145, 575);
             this.Parish_ComboBox.Name = "Parish_ComboBox";
             this.Parish_ComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Parish_ComboBox.Size = new System.Drawing.Size(235, 31);
+            this.Parish_ComboBox.Size = new System.Drawing.Size(250, 31);
             this.Parish_ComboBox.TabIndex = 25;
             this.Parish_ComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.Parish_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.Parish_ComboBox_SelectionChangeCommitted);
@@ -6860,7 +6860,7 @@ namespace F2F_Application
             this.Parish_Label.Depth = 0;
             this.Parish_Label.Font = new System.Drawing.Font("Tajawal", 11F);
             this.Parish_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Parish_Label.Location = new System.Drawing.Point(379, 582);
+            this.Parish_Label.Location = new System.Drawing.Point(401, 582);
             this.Parish_Label.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.Parish_Label.Name = "Parish_Label";
             this.Parish_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6875,7 +6875,7 @@ namespace F2F_Application
             this.materialLabel13.Depth = 0;
             this.materialLabel13.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel13.Location = new System.Drawing.Point(989, 674);
+            this.materialLabel13.Location = new System.Drawing.Point(1052, 674);
             this.materialLabel13.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel13.Name = "materialLabel13";
             this.materialLabel13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6890,7 +6890,7 @@ namespace F2F_Application
             this.NumberOfAllMembers_TextBox.Depth = 0;
             this.NumberOfAllMembers_TextBox.Enabled = false;
             this.NumberOfAllMembers_TextBox.Hint = "";
-            this.NumberOfAllMembers_TextBox.Location = new System.Drawing.Point(483, 579);
+            this.NumberOfAllMembers_TextBox.Location = new System.Drawing.Point(512, 579);
             this.NumberOfAllMembers_TextBox.MaxLength = 32767;
             this.NumberOfAllMembers_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.NumberOfAllMembers_TextBox.Name = "NumberOfAllMembers_TextBox";
@@ -6899,7 +6899,7 @@ namespace F2F_Application
             this.NumberOfAllMembers_TextBox.SelectedText = "";
             this.NumberOfAllMembers_TextBox.SelectionLength = 0;
             this.NumberOfAllMembers_TextBox.SelectionStart = 0;
-            this.NumberOfAllMembers_TextBox.Size = new System.Drawing.Size(188, 31);
+            this.NumberOfAllMembers_TextBox.Size = new System.Drawing.Size(201, 31);
             this.NumberOfAllMembers_TextBox.TabIndex = 24;
             this.NumberOfAllMembers_TextBox.TabStop = false;
             this.NumberOfAllMembers_TextBox.UseSystemPasswordChar = false;
@@ -6913,7 +6913,7 @@ namespace F2F_Application
             this.materialLabel116.Depth = 0;
             this.materialLabel116.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel116.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel116.Location = new System.Drawing.Point(677, 572);
+            this.materialLabel116.Location = new System.Drawing.Point(719, 572);
             this.materialLabel116.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel116.Name = "materialLabel116";
             this.materialLabel116.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6948,7 +6948,7 @@ namespace F2F_Application
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1138, 40);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1213, 40);
             this.tableLayoutPanel7.TabIndex = 1;
             this.tableLayoutPanel7.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel7_Paint);
             // 
@@ -6968,7 +6968,7 @@ namespace F2F_Application
             this.TotalMark_Label.SelectedText = "";
             this.TotalMark_Label.SelectionLength = 0;
             this.TotalMark_Label.SelectionStart = 0;
-            this.TotalMark_Label.Size = new System.Drawing.Size(136, 31);
+            this.TotalMark_Label.Size = new System.Drawing.Size(145, 31);
             this.TotalMark_Label.TabIndex = 4;
             this.TotalMark_Label.TabStop = false;
             this.TotalMark_Label.UseSystemPasswordChar = false;
@@ -6980,7 +6980,7 @@ namespace F2F_Application
             this.materialLabel16.Depth = 0;
             this.materialLabel16.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel16.Location = new System.Drawing.Point(997, 14);
+            this.materialLabel16.Location = new System.Drawing.Point(1060, 14);
             this.materialLabel16.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel16.Name = "materialLabel16";
             this.materialLabel16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6995,7 +6995,7 @@ namespace F2F_Application
             this.mark_label.Depth = 0;
             this.mark_label.Font = new System.Drawing.Font("Tajawal", 11F);
             this.mark_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mark_label.Location = new System.Drawing.Point(145, 14);
+            this.mark_label.Location = new System.Drawing.Point(154, 14);
             this.mark_label.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.mark_label.Name = "mark_label";
             this.mark_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -7008,7 +7008,7 @@ namespace F2F_Application
             this.FamilyCode_TextBox.Depth = 0;
             this.FamilyCode_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.FamilyCode_TextBox.Hint = "";
-            this.FamilyCode_TextBox.Location = new System.Drawing.Point(855, 9);
+            this.FamilyCode_TextBox.Location = new System.Drawing.Point(909, 9);
             this.FamilyCode_TextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.FamilyCode_TextBox.MaxLength = 32767;
             this.FamilyCode_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7018,7 +7018,7 @@ namespace F2F_Application
             this.FamilyCode_TextBox.SelectedText = "";
             this.FamilyCode_TextBox.SelectionLength = 0;
             this.FamilyCode_TextBox.SelectionStart = 0;
-            this.FamilyCode_TextBox.Size = new System.Drawing.Size(136, 31);
+            this.FamilyCode_TextBox.Size = new System.Drawing.Size(145, 31);
             this.FamilyCode_TextBox.TabIndex = 2;
             this.FamilyCode_TextBox.TabStop = false;
             this.FamilyCode_TextBox.UseSystemPasswordChar = false;
@@ -7032,7 +7032,7 @@ namespace F2F_Application
             this.Receiver_Label.Depth = 0;
             this.Receiver_Label.Font = new System.Drawing.Font("Tajawal", 11F);
             this.Receiver_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Receiver_Label.Location = new System.Drawing.Point(713, 14);
+            this.Receiver_Label.Location = new System.Drawing.Point(758, 14);
             this.Receiver_Label.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.Receiver_Label.Name = "Receiver_Label";
             this.Receiver_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -7046,7 +7046,7 @@ namespace F2F_Application
             this.Receiver_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Receiver_TextBox.Enabled = false;
             this.Receiver_TextBox.Hint = "";
-            this.Receiver_TextBox.Location = new System.Drawing.Point(571, 9);
+            this.Receiver_TextBox.Location = new System.Drawing.Point(607, 9);
             this.Receiver_TextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.Receiver_TextBox.MaxLength = 32767;
             this.Receiver_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7056,7 +7056,7 @@ namespace F2F_Application
             this.Receiver_TextBox.SelectedText = "";
             this.Receiver_TextBox.SelectionLength = 0;
             this.Receiver_TextBox.SelectionStart = 0;
-            this.Receiver_TextBox.Size = new System.Drawing.Size(136, 31);
+            this.Receiver_TextBox.Size = new System.Drawing.Size(145, 31);
             this.Receiver_TextBox.TabIndex = 2;
             this.Receiver_TextBox.TabStop = false;
             this.Receiver_TextBox.UseSystemPasswordChar = false;
@@ -7068,7 +7068,7 @@ namespace F2F_Application
             this.vstate_Label.Depth = 0;
             this.vstate_Label.Font = new System.Drawing.Font("Tajawal", 11F);
             this.vstate_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.vstate_Label.Location = new System.Drawing.Point(429, 14);
+            this.vstate_Label.Location = new System.Drawing.Point(456, 14);
             this.vstate_Label.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.vstate_Label.Name = "vstate_Label";
             this.vstate_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -7082,7 +7082,7 @@ namespace F2F_Application
             this.visitstate_Label.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.visitstate_Label.Enabled = false;
             this.visitstate_Label.Hint = "";
-            this.visitstate_Label.Location = new System.Drawing.Point(287, 9);
+            this.visitstate_Label.Location = new System.Drawing.Point(305, 9);
             this.visitstate_Label.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.visitstate_Label.MaxLength = 32767;
             this.visitstate_Label.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7092,7 +7092,7 @@ namespace F2F_Application
             this.visitstate_Label.SelectedText = "";
             this.visitstate_Label.SelectionLength = 0;
             this.visitstate_Label.SelectionStart = 0;
-            this.visitstate_Label.Size = new System.Drawing.Size(136, 31);
+            this.visitstate_Label.Size = new System.Drawing.Size(145, 31);
             this.visitstate_Label.TabIndex = 3;
             this.visitstate_Label.TabStop = false;
             this.visitstate_Label.UseSystemPasswordChar = false;
@@ -7122,7 +7122,7 @@ namespace F2F_Application
             this.tableLayoutPanel42.Name = "tableLayoutPanel42";
             this.tableLayoutPanel42.RowCount = 1;
             this.tableLayoutPanel42.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel42.Size = new System.Drawing.Size(1138, 40);
+            this.tableLayoutPanel42.Size = new System.Drawing.Size(1213, 40);
             this.tableLayoutPanel42.TabIndex = 5;
             // 
             // ApprovalDate_TextBox
@@ -7141,7 +7141,7 @@ namespace F2F_Application
             this.ApprovalDate_TextBox.SelectedText = "";
             this.ApprovalDate_TextBox.SelectionLength = 0;
             this.ApprovalDate_TextBox.SelectionStart = 0;
-            this.ApprovalDate_TextBox.Size = new System.Drawing.Size(136, 31);
+            this.ApprovalDate_TextBox.Size = new System.Drawing.Size(145, 31);
             this.ApprovalDate_TextBox.TabIndex = 8;
             this.ApprovalDate_TextBox.TabStop = false;
             this.ApprovalDate_TextBox.UseSystemPasswordChar = false;
@@ -7154,13 +7154,13 @@ namespace F2F_Application
             this.InEvaluation_RadioButton.Depth = 0;
             this.InEvaluation_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
             this.InEvaluation_RadioButton.ForeColor = System.Drawing.Color.White;
-            this.InEvaluation_RadioButton.Location = new System.Drawing.Point(994, 10);
+            this.InEvaluation_RadioButton.Location = new System.Drawing.Point(1057, 10);
             this.InEvaluation_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.InEvaluation_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.InEvaluation_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.InEvaluation_RadioButton.Name = "InEvaluation_RadioButton";
             this.InEvaluation_RadioButton.Ripple = true;
-            this.InEvaluation_RadioButton.Size = new System.Drawing.Size(144, 30);
+            this.InEvaluation_RadioButton.Size = new System.Drawing.Size(155, 30);
             this.InEvaluation_RadioButton.TabIndex = 5;
             this.InEvaluation_RadioButton.Text = "تظهر في التقييم";
             this.InEvaluation_RadioButton.UseVisualStyleBackColor = true;
@@ -7173,7 +7173,7 @@ namespace F2F_Application
             this.ApprovalDate_Label.Depth = 0;
             this.ApprovalDate_Label.Font = new System.Drawing.Font("Tajawal", 11F);
             this.ApprovalDate_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ApprovalDate_Label.Location = new System.Drawing.Point(145, 0);
+            this.ApprovalDate_Label.Location = new System.Drawing.Point(154, 0);
             this.ApprovalDate_Label.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ApprovalDate_Label.Name = "ApprovalDate_Label";
             this.ApprovalDate_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -7187,7 +7187,7 @@ namespace F2F_Application
             this.InEvaluationBy_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.InEvaluationBy_TextBox.Enabled = false;
             this.InEvaluationBy_TextBox.Hint = "";
-            this.InEvaluationBy_TextBox.Location = new System.Drawing.Point(855, 9);
+            this.InEvaluationBy_TextBox.Location = new System.Drawing.Point(909, 9);
             this.InEvaluationBy_TextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.InEvaluationBy_TextBox.MaxLength = 32767;
             this.InEvaluationBy_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7197,7 +7197,7 @@ namespace F2F_Application
             this.InEvaluationBy_TextBox.SelectedText = "";
             this.InEvaluationBy_TextBox.SelectionLength = 0;
             this.InEvaluationBy_TextBox.SelectionStart = 0;
-            this.InEvaluationBy_TextBox.Size = new System.Drawing.Size(136, 31);
+            this.InEvaluationBy_TextBox.Size = new System.Drawing.Size(145, 31);
             this.InEvaluationBy_TextBox.TabIndex = 6;
             this.InEvaluationBy_TextBox.TabStop = false;
             this.InEvaluationBy_TextBox.UseSystemPasswordChar = false;
@@ -7209,7 +7209,7 @@ namespace F2F_Application
             this.InEvaluationLable.Depth = 0;
             this.InEvaluationLable.Font = new System.Drawing.Font("Tajawal", 11F);
             this.InEvaluationLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.InEvaluationLable.Location = new System.Drawing.Point(713, 14);
+            this.InEvaluationLable.Location = new System.Drawing.Point(758, 14);
             this.InEvaluationLable.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.InEvaluationLable.Name = "InEvaluationLable";
             this.InEvaluationLable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -7223,7 +7223,7 @@ namespace F2F_Application
             this.EvaluationDate_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.EvaluationDate_TextBox.Enabled = false;
             this.EvaluationDate_TextBox.Hint = "";
-            this.EvaluationDate_TextBox.Location = new System.Drawing.Point(571, 9);
+            this.EvaluationDate_TextBox.Location = new System.Drawing.Point(607, 9);
             this.EvaluationDate_TextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.EvaluationDate_TextBox.MaxLength = 32767;
             this.EvaluationDate_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7233,7 +7233,7 @@ namespace F2F_Application
             this.EvaluationDate_TextBox.SelectedText = "";
             this.EvaluationDate_TextBox.SelectionLength = 0;
             this.EvaluationDate_TextBox.SelectionStart = 0;
-            this.EvaluationDate_TextBox.Size = new System.Drawing.Size(136, 31);
+            this.EvaluationDate_TextBox.Size = new System.Drawing.Size(145, 31);
             this.EvaluationDate_TextBox.TabIndex = 6;
             this.EvaluationDate_TextBox.TabStop = false;
             this.EvaluationDate_TextBox.UseSystemPasswordChar = false;
@@ -7245,7 +7245,7 @@ namespace F2F_Application
             this.Approved_RadioButton.AutoSize = true;
             this.Approved_RadioButton.Depth = 0;
             this.Approved_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.Approved_RadioButton.Location = new System.Drawing.Point(426, 10);
+            this.Approved_RadioButton.Location = new System.Drawing.Point(453, 10);
             this.Approved_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Approved_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Approved_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7265,7 +7265,7 @@ namespace F2F_Application
             this.ApprovedBy_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ApprovedBy_TextBox.Enabled = false;
             this.ApprovedBy_TextBox.Hint = "";
-            this.ApprovedBy_TextBox.Location = new System.Drawing.Point(287, 9);
+            this.ApprovedBy_TextBox.Location = new System.Drawing.Point(305, 9);
             this.ApprovedBy_TextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.ApprovedBy_TextBox.MaxLength = 32767;
             this.ApprovedBy_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7275,7 +7275,7 @@ namespace F2F_Application
             this.ApprovedBy_TextBox.SelectedText = "";
             this.ApprovedBy_TextBox.SelectionLength = 0;
             this.ApprovedBy_TextBox.SelectionStart = 0;
-            this.ApprovedBy_TextBox.Size = new System.Drawing.Size(136, 31);
+            this.ApprovedBy_TextBox.Size = new System.Drawing.Size(145, 31);
             this.ApprovedBy_TextBox.TabIndex = 6;
             this.ApprovedBy_TextBox.TabStop = false;
             this.ApprovedBy_TextBox.UseSystemPasswordChar = false;
@@ -7305,7 +7305,7 @@ namespace F2F_Application
             this.tableLayoutPanel43.Name = "tableLayoutPanel43";
             this.tableLayoutPanel43.RowCount = 1;
             this.tableLayoutPanel43.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel43.Size = new System.Drawing.Size(1138, 40);
+            this.tableLayoutPanel43.Size = new System.Drawing.Size(1213, 40);
             this.tableLayoutPanel43.TabIndex = 9;
             // 
             // PVMDate_TextBox
@@ -7324,7 +7324,7 @@ namespace F2F_Application
             this.PVMDate_TextBox.SelectedText = "";
             this.PVMDate_TextBox.SelectionLength = 0;
             this.PVMDate_TextBox.SelectionStart = 0;
-            this.PVMDate_TextBox.Size = new System.Drawing.Size(136, 31);
+            this.PVMDate_TextBox.Size = new System.Drawing.Size(145, 31);
             this.PVMDate_TextBox.TabIndex = 13;
             this.PVMDate_TextBox.TabStop = false;
             this.PVMDate_TextBox.UseSystemPasswordChar = false;
@@ -7335,7 +7335,7 @@ namespace F2F_Application
             this.PDMDate_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PDMDate_TextBox.Enabled = false;
             this.PDMDate_TextBox.Hint = "";
-            this.PDMDate_TextBox.Location = new System.Drawing.Point(571, 9);
+            this.PDMDate_TextBox.Location = new System.Drawing.Point(607, 9);
             this.PDMDate_TextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.PDMDate_TextBox.MaxLength = 32767;
             this.PDMDate_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7345,7 +7345,7 @@ namespace F2F_Application
             this.PDMDate_TextBox.SelectedText = "";
             this.PDMDate_TextBox.SelectionLength = 0;
             this.PDMDate_TextBox.SelectionStart = 0;
-            this.PDMDate_TextBox.Size = new System.Drawing.Size(136, 31);
+            this.PDMDate_TextBox.Size = new System.Drawing.Size(145, 31);
             this.PDMDate_TextBox.TabIndex = 11;
             this.PDMDate_TextBox.TabStop = false;
             this.PDMDate_TextBox.UseSystemPasswordChar = false;
@@ -7357,7 +7357,7 @@ namespace F2F_Application
             this.PvmDate_Label.Depth = 0;
             this.PvmDate_Label.Font = new System.Drawing.Font("Tajawal", 11F);
             this.PvmDate_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.PvmDate_Label.Location = new System.Drawing.Point(145, 14);
+            this.PvmDate_Label.Location = new System.Drawing.Point(154, 14);
             this.PvmDate_Label.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.PvmDate_Label.Name = "PvmDate_Label";
             this.PvmDate_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -7372,7 +7372,7 @@ namespace F2F_Application
             this.PDM_RadioButton.AutoSize = true;
             this.PDM_RadioButton.Depth = 0;
             this.PDM_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.PDM_RadioButton.Location = new System.Drawing.Point(994, 10);
+            this.PDM_RadioButton.Location = new System.Drawing.Point(1057, 10);
             this.PDM_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.PDM_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.PDM_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7391,7 +7391,7 @@ namespace F2F_Application
             this.PVMBy_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PVMBy_TextBox.Enabled = false;
             this.PVMBy_TextBox.Hint = "";
-            this.PVMBy_TextBox.Location = new System.Drawing.Point(287, 9);
+            this.PVMBy_TextBox.Location = new System.Drawing.Point(305, 9);
             this.PVMBy_TextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.PVMBy_TextBox.MaxLength = 32767;
             this.PVMBy_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7401,7 +7401,7 @@ namespace F2F_Application
             this.PVMBy_TextBox.SelectedText = "";
             this.PVMBy_TextBox.SelectionLength = 0;
             this.PVMBy_TextBox.SelectionStart = 0;
-            this.PVMBy_TextBox.Size = new System.Drawing.Size(136, 31);
+            this.PVMBy_TextBox.Size = new System.Drawing.Size(145, 31);
             this.PVMBy_TextBox.TabIndex = 12;
             this.PVMBy_TextBox.TabStop = false;
             this.PVMBy_TextBox.UseSystemPasswordChar = false;
@@ -7413,7 +7413,7 @@ namespace F2F_Application
             this.PdmDate_Label.Depth = 0;
             this.PdmDate_Label.Font = new System.Drawing.Font("Tajawal", 11F);
             this.PdmDate_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.PdmDate_Label.Location = new System.Drawing.Point(713, 14);
+            this.PdmDate_Label.Location = new System.Drawing.Point(758, 14);
             this.PdmDate_Label.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.PdmDate_Label.Name = "PdmDate_Label";
             this.PdmDate_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -7429,7 +7429,7 @@ namespace F2F_Application
             this.PVM_RadioButton.AutoSize = true;
             this.PVM_RadioButton.Depth = 0;
             this.PVM_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.PVM_RadioButton.Location = new System.Drawing.Point(426, 10);
+            this.PVM_RadioButton.Location = new System.Drawing.Point(453, 10);
             this.PVM_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.PVM_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.PVM_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7448,7 +7448,7 @@ namespace F2F_Application
             this.PDMBy_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PDMBy_TextBox.Enabled = false;
             this.PDMBy_TextBox.Hint = "";
-            this.PDMBy_TextBox.Location = new System.Drawing.Point(855, 9);
+            this.PDMBy_TextBox.Location = new System.Drawing.Point(909, 9);
             this.PDMBy_TextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.PDMBy_TextBox.MaxLength = 32767;
             this.PDMBy_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7458,7 +7458,7 @@ namespace F2F_Application
             this.PDMBy_TextBox.SelectedText = "";
             this.PDMBy_TextBox.SelectionLength = 0;
             this.PDMBy_TextBox.SelectionStart = 0;
-            this.PDMBy_TextBox.Size = new System.Drawing.Size(136, 31);
+            this.PDMBy_TextBox.Size = new System.Drawing.Size(145, 31);
             this.PDMBy_TextBox.TabIndex = 9;
             this.PDMBy_TextBox.TabStop = false;
             this.PDMBy_TextBox.UseSystemPasswordChar = false;
@@ -7484,7 +7484,7 @@ namespace F2F_Application
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(1138, 40);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(1213, 40);
             this.tableLayoutPanel12.TabIndex = 14;
             // 
             // ComplaintDate_TextBox
@@ -7493,7 +7493,7 @@ namespace F2F_Application
             this.ComplaintDate_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ComplaintDate_TextBox.Enabled = false;
             this.ComplaintDate_TextBox.Hint = "";
-            this.ComplaintDate_TextBox.Location = new System.Drawing.Point(571, 9);
+            this.ComplaintDate_TextBox.Location = new System.Drawing.Point(607, 9);
             this.ComplaintDate_TextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.ComplaintDate_TextBox.MaxLength = 32767;
             this.ComplaintDate_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7503,7 +7503,7 @@ namespace F2F_Application
             this.ComplaintDate_TextBox.SelectedText = "";
             this.ComplaintDate_TextBox.SelectionLength = 0;
             this.ComplaintDate_TextBox.SelectionStart = 0;
-            this.ComplaintDate_TextBox.Size = new System.Drawing.Size(136, 31);
+            this.ComplaintDate_TextBox.Size = new System.Drawing.Size(145, 31);
             this.ComplaintDate_TextBox.TabIndex = 16;
             this.ComplaintDate_TextBox.TabStop = false;
             this.ComplaintDate_TextBox.UseSystemPasswordChar = false;
@@ -7515,7 +7515,7 @@ namespace F2F_Application
             this.Complaint_RadioButton.AutoSize = true;
             this.Complaint_RadioButton.Depth = 0;
             this.Complaint_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.Complaint_RadioButton.Location = new System.Drawing.Point(994, 10);
+            this.Complaint_RadioButton.Location = new System.Drawing.Point(1057, 10);
             this.Complaint_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Complaint_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Complaint_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7535,7 +7535,7 @@ namespace F2F_Application
             this.ComplaintDate_Label.Depth = 0;
             this.ComplaintDate_Label.Font = new System.Drawing.Font("Tajawal", 11F);
             this.ComplaintDate_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ComplaintDate_Label.Location = new System.Drawing.Point(713, 14);
+            this.ComplaintDate_Label.Location = new System.Drawing.Point(758, 14);
             this.ComplaintDate_Label.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.ComplaintDate_Label.Name = "ComplaintDate_Label";
             this.ComplaintDate_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -7549,7 +7549,7 @@ namespace F2F_Application
             this.ComplaintBy_TextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ComplaintBy_TextBox.Enabled = false;
             this.ComplaintBy_TextBox.Hint = "";
-            this.ComplaintBy_TextBox.Location = new System.Drawing.Point(855, 9);
+            this.ComplaintBy_TextBox.Location = new System.Drawing.Point(909, 9);
             this.ComplaintBy_TextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.ComplaintBy_TextBox.MaxLength = 32767;
             this.ComplaintBy_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7559,7 +7559,7 @@ namespace F2F_Application
             this.ComplaintBy_TextBox.SelectedText = "";
             this.ComplaintBy_TextBox.SelectionLength = 0;
             this.ComplaintBy_TextBox.SelectionStart = 0;
-            this.ComplaintBy_TextBox.Size = new System.Drawing.Size(136, 31);
+            this.ComplaintBy_TextBox.Size = new System.Drawing.Size(145, 31);
             this.ComplaintBy_TextBox.TabIndex = 12;
             this.ComplaintBy_TextBox.TabStop = false;
             this.ComplaintBy_TextBox.UseSystemPasswordChar = false;
@@ -7573,7 +7573,7 @@ namespace F2F_Application
             this.panel10.ForeColor = System.Drawing.Color.Azure;
             this.panel10.Location = new System.Drawing.Point(23, 345);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1138, 40);
+            this.panel10.Size = new System.Drawing.Size(1213, 40);
             this.panel10.TabIndex = 243;
             // 
             // PartnersLabel
@@ -7583,7 +7583,7 @@ namespace F2F_Application
             this.PartnersLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.PartnersLabel.Font = new System.Drawing.Font("Tajawal", 11F);
             this.PartnersLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.PartnersLabel.Location = new System.Drawing.Point(1018, 0);
+            this.PartnersLabel.Location = new System.Drawing.Point(1093, 0);
             this.PartnersLabel.MaximumSize = new System.Drawing.Size(120, 53);
             this.PartnersLabel.MinimumSize = new System.Drawing.Size(120, 53);
             this.PartnersLabel.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7652,7 +7652,7 @@ namespace F2F_Application
             this.Partner_DataGridView.RowHeadersWidth = 51;
             this.firsttableLayoutPanel.SetRowSpan(this.Partner_DataGridView, 3);
             this.Partner_DataGridView.RowTemplate.Height = 24;
-            this.Partner_DataGridView.Size = new System.Drawing.Size(1138, 132);
+            this.Partner_DataGridView.Size = new System.Drawing.Size(1213, 132);
             this.Partner_DataGridView.TabIndex = 22;
             this.Partner_DataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Partner_DataGridView_CellContentClick);
             this.Partner_DataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Partner_DataGridView_CellEndEdit);
@@ -7718,7 +7718,7 @@ namespace F2F_Application
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(23, 529);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1138, 40);
+            this.panel2.Size = new System.Drawing.Size(1213, 40);
             this.panel2.TabIndex = 245;
             // 
             // InfoLabel
@@ -7728,7 +7728,7 @@ namespace F2F_Application
             this.InfoLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.InfoLabel.Font = new System.Drawing.Font("Tajawal", 11F);
             this.InfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.InfoLabel.Location = new System.Drawing.Point(897, 0);
+            this.InfoLabel.Location = new System.Drawing.Point(972, 0);
             this.InfoLabel.MaximumSize = new System.Drawing.Size(241, 53);
             this.InfoLabel.MinimumSize = new System.Drawing.Size(241, 53);
             this.InfoLabel.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7746,7 +7746,7 @@ namespace F2F_Application
             this.materialLabel27.Depth = 0;
             this.materialLabel27.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel27.Location = new System.Drawing.Point(989, 582);
+            this.materialLabel27.Location = new System.Drawing.Point(1052, 582);
             this.materialLabel27.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel27.Name = "materialLabel27";
             this.materialLabel27.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -7760,7 +7760,7 @@ namespace F2F_Application
             this.firsttableLayoutPanel.SetColumnSpan(this.FamilyNumber_TextBox, 2);
             this.FamilyNumber_TextBox.Depth = 0;
             this.FamilyNumber_TextBox.Hint = "";
-            this.FamilyNumber_TextBox.Location = new System.Drawing.Point(797, 579);
+            this.FamilyNumber_TextBox.Location = new System.Drawing.Point(847, 579);
             this.FamilyNumber_TextBox.MaxLength = 32767;
             this.FamilyNumber_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.FamilyNumber_TextBox.Name = "FamilyNumber_TextBox";
@@ -7769,7 +7769,7 @@ namespace F2F_Application
             this.FamilyNumber_TextBox.SelectedText = "";
             this.FamilyNumber_TextBox.SelectionLength = 0;
             this.FamilyNumber_TextBox.SelectionStart = 0;
-            this.FamilyNumber_TextBox.Size = new System.Drawing.Size(186, 31);
+            this.FamilyNumber_TextBox.Size = new System.Drawing.Size(199, 31);
             this.FamilyNumber_TextBox.TabIndex = 23;
             this.FamilyNumber_TextBox.TabStop = false;
             this.FamilyNumber_TextBox.UseSystemPasswordChar = false;
@@ -7782,7 +7782,7 @@ namespace F2F_Application
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(23, 989);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1138, 40);
+            this.panel13.Size = new System.Drawing.Size(1213, 40);
             this.panel13.TabIndex = 35;
             // 
             // GeneralNoteLable
@@ -7791,7 +7791,7 @@ namespace F2F_Application
             this.GeneralNoteLable.Dock = System.Windows.Forms.DockStyle.Right;
             this.GeneralNoteLable.Font = new System.Drawing.Font("Tajawal", 11F);
             this.GeneralNoteLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.GeneralNoteLable.Location = new System.Drawing.Point(897, 0);
+            this.GeneralNoteLable.Location = new System.Drawing.Point(972, 0);
             this.GeneralNoteLable.MaximumSize = new System.Drawing.Size(241, 53);
             this.GeneralNoteLable.MinimumSize = new System.Drawing.Size(241, 53);
             this.GeneralNoteLable.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7809,7 +7809,7 @@ namespace F2F_Application
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(989, 1052);
+            this.materialLabel2.Location = new System.Drawing.Point(1052, 1052);
             this.materialLabel2.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -7824,7 +7824,7 @@ namespace F2F_Application
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(989, 1098);
+            this.materialLabel3.Location = new System.Drawing.Point(1052, 1098);
             this.materialLabel3.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -7847,7 +7847,7 @@ namespace F2F_Application
             this.Note_TextBox.SelectedText = "";
             this.Note_TextBox.SelectionLength = 0;
             this.Note_TextBox.SelectionStart = 0;
-            this.Note_TextBox.Size = new System.Drawing.Size(960, 31);
+            this.Note_TextBox.Size = new System.Drawing.Size(1023, 31);
             this.Note_TextBox.TabIndex = 38;
             this.Note_TextBox.TabStop = false;
             this.Note_TextBox.UseSystemPasswordChar = false;
@@ -7869,7 +7869,7 @@ namespace F2F_Application
             this.PartnerNote_TextBox.SelectedText = "";
             this.PartnerNote_TextBox.SelectionLength = 0;
             this.PartnerNote_TextBox.SelectionStart = 0;
-            this.PartnerNote_TextBox.Size = new System.Drawing.Size(960, 31);
+            this.PartnerNote_TextBox.Size = new System.Drawing.Size(1023, 31);
             this.PartnerNote_TextBox.TabIndex = 39;
             this.PartnerNote_TextBox.TabStop = false;
             this.PartnerNote_TextBox.UseSystemPasswordChar = false;
@@ -7891,7 +7891,7 @@ namespace F2F_Application
             this.ComplaintNote_TextBox.SelectedText = "";
             this.ComplaintNote_TextBox.SelectionLength = 0;
             this.ComplaintNote_TextBox.SelectionStart = 0;
-            this.ComplaintNote_TextBox.Size = new System.Drawing.Size(960, 31);
+            this.ComplaintNote_TextBox.Size = new System.Drawing.Size(1023, 31);
             this.ComplaintNote_TextBox.TabIndex = 40;
             this.ComplaintNote_TextBox.TabStop = false;
             this.ComplaintNote_TextBox.UseSystemPasswordChar = false;
@@ -7906,7 +7906,7 @@ namespace F2F_Application
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(23, 1403);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1138, 40);
+            this.panel1.Size = new System.Drawing.Size(1213, 40);
             this.panel1.TabIndex = 235;
             // 
             // VisitLabel
@@ -7915,7 +7915,7 @@ namespace F2F_Application
             this.VisitLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.VisitLabel.Font = new System.Drawing.Font("Tajawal", 11F);
             this.VisitLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.VisitLabel.Location = new System.Drawing.Point(897, 0);
+            this.VisitLabel.Location = new System.Drawing.Point(972, 0);
             this.VisitLabel.MaximumSize = new System.Drawing.Size(241, 53);
             this.VisitLabel.MinimumSize = new System.Drawing.Size(241, 53);
             this.VisitLabel.MouseState = MaterialSkinPlus.MouseState.HOVER;
@@ -7992,7 +7992,7 @@ namespace F2F_Application
             this.firsttableLayoutPanel.SetRowSpan(this.ME_DataGridView, 5);
             this.ME_DataGridView.RowTemplate.Height = 24;
             this.ME_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ME_DataGridView.Size = new System.Drawing.Size(1138, 224);
+            this.ME_DataGridView.Size = new System.Drawing.Size(1213, 224);
             this.ME_DataGridView.TabIndex = 45;
             this.toolTip1.SetToolTip(this.ME_DataGridView, "لانشاء زيارة جديدة قم باخال تاريخ جدولة جديد");
             this.ME_DataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.ME_DataGridView_CellBeginEdit);
@@ -8115,7 +8115,7 @@ namespace F2F_Application
             this.FamilyHistory_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FamilyHistory_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FamilyHistory_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.FamilyHistory_Button.Location = new System.Drawing.Point(379, 253);
+            this.FamilyHistory_Button.Location = new System.Drawing.Point(401, 253);
             this.FamilyHistory_Button.MaximumSize = new System.Drawing.Size(220, 42);
             this.FamilyHistory_Button.MinimumSize = new System.Drawing.Size(220, 42);
             this.FamilyHistory_Button.Name = "FamilyHistory_Button";
@@ -8166,7 +8166,7 @@ namespace F2F_Application
             this.members_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.51943F));
             this.members_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.24131F));
             this.members_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.members_table.Size = new System.Drawing.Size(1138, 500);
+            this.members_table.Size = new System.Drawing.Size(1213, 500);
             this.members_table.TabIndex = 46;
             // 
             // Beneficiaries_DataGridView
@@ -8221,7 +8221,7 @@ namespace F2F_Application
             this.members_table.SetRowSpan(this.Beneficiaries_DataGridView, 2);
             this.Beneficiaries_DataGridView.RowTemplate.Height = 24;
             this.Beneficiaries_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Beneficiaries_DataGridView.Size = new System.Drawing.Size(1132, 288);
+            this.Beneficiaries_DataGridView.Size = new System.Drawing.Size(1207, 288);
             this.Beneficiaries_DataGridView.TabIndex = 1;
             this.Beneficiaries_DataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Beneficiaries_DataGridView_CellContentClick);
             this.Beneficiaries_DataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.Beneficiaries_DataGridView_CellPainting);
@@ -8235,7 +8235,7 @@ namespace F2F_Application
             this.materialLabel121.Depth = 0;
             this.materialLabel121.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel121.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel121.Location = new System.Drawing.Point(1020, 104);
+            this.materialLabel121.Location = new System.Drawing.Point(1092, 104);
             this.materialLabel121.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel121.Name = "materialLabel121";
             this.materialLabel121.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -8249,7 +8249,7 @@ namespace F2F_Application
             this.NumberOfBeneficiaries_TextBox1.Depth = 0;
             this.NumberOfBeneficiaries_TextBox1.Enabled = false;
             this.NumberOfBeneficiaries_TextBox1.Hint = "";
-            this.NumberOfBeneficiaries_TextBox1.Location = new System.Drawing.Point(939, 103);
+            this.NumberOfBeneficiaries_TextBox1.Location = new System.Drawing.Point(1011, 103);
             this.NumberOfBeneficiaries_TextBox1.MaxLength = 32767;
             this.NumberOfBeneficiaries_TextBox1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.NumberOfBeneficiaries_TextBox1.Name = "NumberOfBeneficiaries_TextBox1";
@@ -8270,7 +8270,7 @@ namespace F2F_Application
             this.materialLabel120.Depth = 0;
             this.materialLabel120.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel120.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel120.Location = new System.Drawing.Point(794, 104);
+            this.materialLabel120.Location = new System.Drawing.Point(850, 104);
             this.materialLabel120.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel120.Name = "materialLabel120";
             this.materialLabel120.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -8284,7 +8284,7 @@ namespace F2F_Application
             this.NumberOfWorkers_TextBox1.Depth = 0;
             this.NumberOfWorkers_TextBox1.Enabled = false;
             this.NumberOfWorkers_TextBox1.Hint = "";
-            this.NumberOfWorkers_TextBox1.Location = new System.Drawing.Point(713, 103);
+            this.NumberOfWorkers_TextBox1.Location = new System.Drawing.Point(769, 103);
             this.NumberOfWorkers_TextBox1.MaxLength = 32767;
             this.NumberOfWorkers_TextBox1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.NumberOfWorkers_TextBox1.Name = "NumberOfWorkers_TextBox1";
@@ -8305,7 +8305,7 @@ namespace F2F_Application
             this.materialLabel119.Depth = 0;
             this.materialLabel119.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel119.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel119.Location = new System.Drawing.Point(568, 104);
+            this.materialLabel119.Location = new System.Drawing.Point(608, 104);
             this.materialLabel119.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel119.Name = "materialLabel119";
             this.materialLabel119.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -8319,7 +8319,7 @@ namespace F2F_Application
             this.NumberOfStudents_TextBox1.Depth = 0;
             this.NumberOfStudents_TextBox1.Enabled = false;
             this.NumberOfStudents_TextBox1.Hint = "";
-            this.NumberOfStudents_TextBox1.Location = new System.Drawing.Point(487, 103);
+            this.NumberOfStudents_TextBox1.Location = new System.Drawing.Point(527, 103);
             this.NumberOfStudents_TextBox1.MaxLength = 32767;
             this.NumberOfStudents_TextBox1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.NumberOfStudents_TextBox1.Name = "NumberOfStudents_TextBox1";
@@ -8340,7 +8340,7 @@ namespace F2F_Application
             this.materialLabel118.Depth = 0;
             this.materialLabel118.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel118.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel118.Location = new System.Drawing.Point(342, 104);
+            this.materialLabel118.Location = new System.Drawing.Point(366, 104);
             this.materialLabel118.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel118.Name = "materialLabel118";
             this.materialLabel118.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -8354,7 +8354,7 @@ namespace F2F_Application
             this.NumberOfOld_TextBox1.Depth = 0;
             this.NumberOfOld_TextBox1.Enabled = false;
             this.NumberOfOld_TextBox1.Hint = "";
-            this.NumberOfOld_TextBox1.Location = new System.Drawing.Point(261, 103);
+            this.NumberOfOld_TextBox1.Location = new System.Drawing.Point(285, 103);
             this.NumberOfOld_TextBox1.MaxLength = 32767;
             this.NumberOfOld_TextBox1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.NumberOfOld_TextBox1.Name = "NumberOfOld_TextBox1";
@@ -8375,7 +8375,7 @@ namespace F2F_Application
             this.materialLabel117.Depth = 0;
             this.materialLabel117.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel117.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel117.Location = new System.Drawing.Point(116, 104);
+            this.materialLabel117.Location = new System.Drawing.Point(124, 104);
             this.materialLabel117.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel117.Name = "materialLabel117";
             this.materialLabel117.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -8389,7 +8389,7 @@ namespace F2F_Application
             this.NumberOfPatient_TextBox1.Depth = 0;
             this.NumberOfPatient_TextBox1.Enabled = false;
             this.NumberOfPatient_TextBox1.Hint = "";
-            this.NumberOfPatient_TextBox1.Location = new System.Drawing.Point(35, 103);
+            this.NumberOfPatient_TextBox1.Location = new System.Drawing.Point(43, 103);
             this.NumberOfPatient_TextBox1.MaxLength = 32767;
             this.NumberOfPatient_TextBox1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.NumberOfPatient_TextBox1.Name = "NumberOfPatient_TextBox1";
@@ -8492,7 +8492,7 @@ namespace F2F_Application
             this.AddPerson_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddPerson_Button.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddPerson_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.AddPerson_Button.Location = new System.Drawing.Point(455, 161);
+            this.AddPerson_Button.Location = new System.Drawing.Point(487, 161);
             this.AddPerson_Button.MaximumSize = new System.Drawing.Size(220, 42);
             this.AddPerson_Button.MinimumSize = new System.Drawing.Size(220, 42);
             this.AddPerson_Button.Name = "AddPerson_Button";
@@ -8514,12 +8514,12 @@ namespace F2F_Application
             this.tableLayoutPanel8.Controls.Add(this.Delete_Button, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.UpdateFamily_Button, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(379, 1265);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(401, 1265);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.firsttableLayoutPanel.SetRowSpan(this.tableLayoutPanel8, 2);
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(412, 86);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(440, 86);
             this.tableLayoutPanel8.TabIndex = 100;
             // 
             // Delete_Button
@@ -8535,7 +8535,7 @@ namespace F2F_Application
             this.Delete_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Delete_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Delete_Button.Location = new System.Drawing.Point(101, 22);
+            this.Delete_Button.Location = new System.Drawing.Point(115, 22);
             this.Delete_Button.MaximumSize = new System.Drawing.Size(102, 42);
             this.Delete_Button.MinimumSize = new System.Drawing.Size(102, 42);
             this.Delete_Button.Name = "Delete_Button";
@@ -8560,7 +8560,7 @@ namespace F2F_Application
             this.UpdateFamily_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpdateFamily_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateFamily_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.UpdateFamily_Button.Location = new System.Drawing.Point(307, 22);
+            this.UpdateFamily_Button.Location = new System.Drawing.Point(335, 22);
             this.UpdateFamily_Button.MaximumSize = new System.Drawing.Size(102, 42);
             this.UpdateFamily_Button.MinimumSize = new System.Drawing.Size(102, 42);
             this.UpdateFamily_Button.Name = "UpdateFamily_Button";
@@ -8584,7 +8584,7 @@ namespace F2F_Application
             this.SaveFamily_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveFamily_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveFamily_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.SaveFamily_Button.Location = new System.Drawing.Point(562, 1219);
+            this.SaveFamily_Button.Location = new System.Drawing.Point(597, 1219);
             this.SaveFamily_Button.MaximumSize = new System.Drawing.Size(102, 42);
             this.SaveFamily_Button.MinimumSize = new System.Drawing.Size(102, 42);
             this.SaveFamily_Button.Name = "SaveFamily_Button";
@@ -8609,7 +8609,7 @@ namespace F2F_Application
             this.DistributionHistory_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DistributionHistory_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DistributionHistory_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.DistributionHistory_Button.Location = new System.Drawing.Point(677, 253);
+            this.DistributionHistory_Button.Location = new System.Drawing.Point(719, 253);
             this.DistributionHistory_Button.MaximumSize = new System.Drawing.Size(220, 42);
             this.DistributionHistory_Button.MinimumSize = new System.Drawing.Size(220, 42);
             this.DistributionHistory_Button.Name = "DistributionHistory_Button";
@@ -8681,7 +8681,7 @@ namespace F2F_Application
             this.firsttableLayoutPanel.SetRowSpan(this.LivingWith_DataGridView, 3);
             this.LivingWith_DataGridView.RowTemplate.Height = 24;
             this.LivingWith_DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.LivingWith_DataGridView.Size = new System.Drawing.Size(1138, 132);
+            this.LivingWith_DataGridView.Size = new System.Drawing.Size(1213, 132);
             this.LivingWith_DataGridView.TabIndex = 37;
             this.toolTip1.SetToolTip(this.LivingWith_DataGridView, "لانشاء زيارة جديدة قم باخال تاريخ جدولة جديد");
             this.LivingWith_DataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LivingWith_DataGridView_CellContentClick);
@@ -8690,6 +8690,71 @@ namespace F2F_Application
             this.LivingWith_DataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.LivingWith_DataGridView_DataError);
             this.LivingWith_DataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.LivingWith_DataGridView_EditingControlShowing);
             // 
+            // Family_LivingWith_ID
+            // 
+            this.Family_LivingWith_ID.HeaderText = "InDatabase";
+            this.Family_LivingWith_ID.MinimumWidth = 6;
+            this.Family_LivingWith_ID.Name = "Family_LivingWith_ID";
+            this.Family_LivingWith_ID.Visible = false;
+            // 
+            // F_ID
+            // 
+            this.F_ID.HeaderText = "Family_ID";
+            this.F_ID.MinimumWidth = 6;
+            this.F_ID.Name = "F_ID";
+            this.F_ID.Visible = false;
+            // 
+            // Family_LivingWith_Code
+            // 
+            this.Family_LivingWith_Code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Family_LivingWith_Code.FillWeight = 20F;
+            this.Family_LivingWith_Code.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Family_LivingWith_Code.HeaderText = "رمز العائلة";
+            this.Family_LivingWith_Code.MinimumWidth = 6;
+            this.Family_LivingWith_Code.Name = "Family_LivingWith_Code";
+            this.Family_LivingWith_Code.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Family_LivingWith_Code.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Family_livingWith_Note
+            // 
+            this.Family_livingWith_Note.FillWeight = 40F;
+            this.Family_livingWith_Note.HeaderText = "ملاحظات";
+            this.Family_livingWith_Note.MinimumWidth = 10;
+            this.Family_livingWith_Note.Name = "Family_livingWith_Note";
+            // 
+            // family_HeadOfHousehold
+            // 
+            this.family_HeadOfHousehold.FillWeight = 40F;
+            this.family_HeadOfHousehold.HeaderText = "المستلم";
+            this.family_HeadOfHousehold.MinimumWidth = 10;
+            this.family_HeadOfHousehold.Name = "family_HeadOfHousehold";
+            this.family_HeadOfHousehold.ReadOnly = true;
+            // 
+            // Family_GoToFamily
+            // 
+            this.Family_GoToFamily.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Family_GoToFamily.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Family_GoToFamily.HeaderText = "";
+            this.Family_GoToFamily.MinimumWidth = 50;
+            this.Family_GoToFamily.Name = "Family_GoToFamily";
+            this.Family_GoToFamily.Width = 50;
+            // 
+            // Family_LivingWith_Delete
+            // 
+            this.Family_LivingWith_Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Family_LivingWith_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Family_LivingWith_Delete.HeaderText = "";
+            this.Family_LivingWith_Delete.MinimumWidth = 50;
+            this.Family_LivingWith_Delete.Name = "Family_LivingWith_Delete";
+            this.Family_LivingWith_Delete.Width = 50;
+            // 
+            // LivingWith_isDirty
+            // 
+            this.LivingWith_isDirty.HeaderText = "isDirty";
+            this.LivingWith_isDirty.MinimumWidth = 6;
+            this.LivingWith_isDirty.Name = "LivingWith_isDirty";
+            this.LivingWith_isDirty.Visible = false;
+            // 
             // materialLabel9
             // 
             this.materialLabel9.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -8697,11 +8762,11 @@ namespace F2F_Application
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel9.Location = new System.Drawing.Point(989, 802);
+            this.materialLabel9.Location = new System.Drawing.Point(1052, 812);
             this.materialLabel9.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
             this.materialLabel9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.materialLabel9.Size = new System.Drawing.Size(133, 46);
+            this.materialLabel9.Size = new System.Drawing.Size(175, 26);
             this.materialLabel9.TabIndex = 33;
             this.materialLabel9.Text = "تسكن مع عائلة أخرى";
             this.materialLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8715,11 +8780,11 @@ namespace F2F_Application
             this.LivingWithFamily_LayoutPanel.Controls.Add(this.Yes_RadioButton, 1, 0);
             this.LivingWithFamily_LayoutPanel.Controls.Add(this.No_RadioButton, 0, 0);
             this.LivingWithFamily_LayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LivingWithFamily_LayoutPanel.Location = new System.Drawing.Point(797, 805);
+            this.LivingWithFamily_LayoutPanel.Location = new System.Drawing.Point(847, 805);
             this.LivingWithFamily_LayoutPanel.Name = "LivingWithFamily_LayoutPanel";
             this.LivingWithFamily_LayoutPanel.RowCount = 1;
             this.LivingWithFamily_LayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.LivingWithFamily_LayoutPanel.Size = new System.Drawing.Size(186, 40);
+            this.LivingWithFamily_LayoutPanel.Size = new System.Drawing.Size(199, 40);
             this.LivingWithFamily_LayoutPanel.TabIndex = 34;
             // 
             // Yes_RadioButton
@@ -8728,14 +8793,14 @@ namespace F2F_Application
             this.Yes_RadioButton.Depth = 0;
             this.Yes_RadioButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Yes_RadioButton.Font = new System.Drawing.Font("Tajawal", 11F);
-            this.Yes_RadioButton.Location = new System.Drawing.Point(93, 10);
+            this.Yes_RadioButton.Location = new System.Drawing.Point(99, 10);
             this.Yes_RadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.Yes_RadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Yes_RadioButton.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.Yes_RadioButton.Name = "Yes_RadioButton";
             this.Yes_RadioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Yes_RadioButton.Ripple = true;
-            this.Yes_RadioButton.Size = new System.Drawing.Size(93, 30);
+            this.Yes_RadioButton.Size = new System.Drawing.Size(100, 30);
             this.Yes_RadioButton.TabIndex = 35;
             this.Yes_RadioButton.TabStop = true;
             this.Yes_RadioButton.Text = "نعم";
@@ -8755,7 +8820,7 @@ namespace F2F_Application
             this.No_RadioButton.Name = "No_RadioButton";
             this.No_RadioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.No_RadioButton.Ripple = true;
-            this.No_RadioButton.Size = new System.Drawing.Size(93, 30);
+            this.No_RadioButton.Size = new System.Drawing.Size(99, 30);
             this.No_RadioButton.TabIndex = 36;
             this.No_RadioButton.TabStop = true;
             this.No_RadioButton.Text = "لا";
@@ -8769,7 +8834,7 @@ namespace F2F_Application
             this.materialLabel21.Depth = 0;
             this.materialLabel21.Font = new System.Drawing.Font("Tajawal", 11F);
             this.materialLabel21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel21.Location = new System.Drawing.Point(989, 1144);
+            this.materialLabel21.Location = new System.Drawing.Point(1052, 1144);
             this.materialLabel21.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialLabel21.Name = "materialLabel21";
             this.materialLabel21.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -8792,7 +8857,7 @@ namespace F2F_Application
             this.EvaluationNote_TextBox.SelectedText = "";
             this.EvaluationNote_TextBox.SelectionLength = 0;
             this.EvaluationNote_TextBox.SelectionStart = 0;
-            this.EvaluationNote_TextBox.Size = new System.Drawing.Size(960, 31);
+            this.EvaluationNote_TextBox.Size = new System.Drawing.Size(1023, 31);
             this.EvaluationNote_TextBox.TabIndex = 41;
             this.EvaluationNote_TextBox.TabStop = false;
             this.EvaluationNote_TextBox.UseSystemPasswordChar = false;
@@ -8806,7 +8871,7 @@ namespace F2F_Application
             this.firsttableLayoutPanel.SetColumnSpan(this.Address_TextBox, 2);
             this.Address_TextBox.Depth = 0;
             this.Address_TextBox.Hint = "";
-            this.Address_TextBox.Location = new System.Drawing.Point(797, 671);
+            this.Address_TextBox.Location = new System.Drawing.Point(847, 671);
             this.Address_TextBox.MaxLength = 32767;
             this.Address_TextBox.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.Address_TextBox.Name = "Address_TextBox";
@@ -8815,7 +8880,7 @@ namespace F2F_Application
             this.Address_TextBox.SelectedText = "";
             this.Address_TextBox.SelectionLength = 0;
             this.Address_TextBox.SelectionStart = 0;
-            this.Address_TextBox.Size = new System.Drawing.Size(186, 31);
+            this.Address_TextBox.Size = new System.Drawing.Size(199, 31);
             this.Address_TextBox.TabIndex = 28;
             this.Address_TextBox.TabStop = false;
             this.Address_TextBox.UseSystemPasswordChar = false;
@@ -8838,7 +8903,7 @@ namespace F2F_Application
             this.AddVisit_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddVisit_Button.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddVisit_Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.AddVisit_Button.Location = new System.Drawing.Point(483, 1449);
+            this.AddVisit_Button.Location = new System.Drawing.Point(512, 1449);
             this.AddVisit_Button.MaximumSize = new System.Drawing.Size(220, 42);
             this.AddVisit_Button.MinimumSize = new System.Drawing.Size(220, 42);
             this.AddVisit_Button.Name = "AddVisit_Button";
@@ -9426,7 +9491,7 @@ namespace F2F_Application
             this.Visitor2_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel6.SetColumnSpan(this.Visitor2_comboBox, 2);
             this.Visitor2_comboBox.FormattingEnabled = true;
-            this.Visitor2_comboBox.Location = new System.Drawing.Point(3, 148);
+            this.Visitor2_comboBox.Location = new System.Drawing.Point(3, 144);
             this.Visitor2_comboBox.Name = "Visitor2_comboBox";
             this.Visitor2_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Visitor2_comboBox.Size = new System.Drawing.Size(208, 32);
@@ -9437,7 +9502,7 @@ namespace F2F_Application
             this.Visitor1_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel6.SetColumnSpan(this.Visitor1_comboBox, 2);
             this.Visitor1_comboBox.FormattingEnabled = true;
-            this.Visitor1_comboBox.Location = new System.Drawing.Point(217, 148);
+            this.Visitor1_comboBox.Location = new System.Drawing.Point(217, 144);
             this.Visitor1_comboBox.Name = "Visitor1_comboBox";
             this.Visitor1_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Visitor1_comboBox.Size = new System.Drawing.Size(208, 32);
@@ -12600,71 +12665,6 @@ namespace F2F_Application
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(1299, 785);
             this.MainPanel.TabIndex = 4;
-            // 
-            // Family_LivingWith_ID
-            // 
-            this.Family_LivingWith_ID.HeaderText = "InDatabase";
-            this.Family_LivingWith_ID.MinimumWidth = 6;
-            this.Family_LivingWith_ID.Name = "Family_LivingWith_ID";
-            this.Family_LivingWith_ID.Visible = false;
-            // 
-            // F_ID
-            // 
-            this.F_ID.HeaderText = "Family_ID";
-            this.F_ID.MinimumWidth = 6;
-            this.F_ID.Name = "F_ID";
-            this.F_ID.Visible = false;
-            // 
-            // Family_LivingWith_Code
-            // 
-            this.Family_LivingWith_Code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Family_LivingWith_Code.FillWeight = 20F;
-            this.Family_LivingWith_Code.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Family_LivingWith_Code.HeaderText = "رمز العائلة";
-            this.Family_LivingWith_Code.MinimumWidth = 6;
-            this.Family_LivingWith_Code.Name = "Family_LivingWith_Code";
-            this.Family_LivingWith_Code.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Family_LivingWith_Code.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Family_livingWith_Note
-            // 
-            this.Family_livingWith_Note.FillWeight = 40F;
-            this.Family_livingWith_Note.HeaderText = "ملاحظات";
-            this.Family_livingWith_Note.MinimumWidth = 10;
-            this.Family_livingWith_Note.Name = "Family_livingWith_Note";
-            // 
-            // family_HeadOfHousehold
-            // 
-            this.family_HeadOfHousehold.FillWeight = 40F;
-            this.family_HeadOfHousehold.HeaderText = "المستلم";
-            this.family_HeadOfHousehold.MinimumWidth = 10;
-            this.family_HeadOfHousehold.Name = "family_HeadOfHousehold";
-            this.family_HeadOfHousehold.ReadOnly = true;
-            // 
-            // Family_GoToFamily
-            // 
-            this.Family_GoToFamily.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Family_GoToFamily.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Family_GoToFamily.HeaderText = "";
-            this.Family_GoToFamily.MinimumWidth = 50;
-            this.Family_GoToFamily.Name = "Family_GoToFamily";
-            this.Family_GoToFamily.Width = 50;
-            // 
-            // Family_LivingWith_Delete
-            // 
-            this.Family_LivingWith_Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Family_LivingWith_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Family_LivingWith_Delete.HeaderText = "";
-            this.Family_LivingWith_Delete.MinimumWidth = 50;
-            this.Family_LivingWith_Delete.Name = "Family_LivingWith_Delete";
-            this.Family_LivingWith_Delete.Width = 50;
-            // 
-            // LivingWith_isDirty
-            // 
-            this.LivingWith_isDirty.HeaderText = "isDirty";
-            this.LivingWith_isDirty.MinimumWidth = 6;
-            this.LivingWith_isDirty.Name = "LivingWith_isDirty";
-            this.LivingWith_isDirty.Visible = false;
             // 
             // Family_Form
             // 
