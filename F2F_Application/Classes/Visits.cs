@@ -12,6 +12,16 @@ namespace F2F_Application.Classes
 
         public void Insert_Visit(int Family_ID, string VisitType, string Visit_Name, string Visite_State, string Scedualed_Visit_date, string Visit_date, string Form_Name)
         {
+            Insert_Visit_Internal(Family_ID, VisitType, Visit_Name, null, Visite_State, Scedualed_Visit_date, Visit_date, Form_Name);
+        }
+
+        public void Insert_Visit_ByStateId(int Family_ID, string VisitType, string Visit_Name, int Visit_State, string Scedualed_Visit_date, string Visit_date, string Form_Name)
+        {
+            Insert_Visit_Internal(Family_ID, VisitType, Visit_Name, Visit_State, "", Scedualed_Visit_date, Visit_date, Form_Name);
+        }
+
+        private void Insert_Visit_Internal(int Family_ID, string VisitType, string Visit_Name, int? Visit_State, string Visite_State, string Scedualed_Visit_date, string Visit_date, string Form_Name)
+        {
             //check connection//
             Program.buildConnection();
 
@@ -19,7 +29,10 @@ namespace F2F_Application.Classes
             sc.Parameters.AddWithValue("@Family_ID", Family_ID);
             sc.Parameters.AddWithValue("@VisitType", VisitType);
             sc.Parameters.AddWithValue("@Visit_Name", Visit_Name);
-            sc.Parameters.AddWithValue("@Visite_State", Visite_State);
+            if (Visit_State.HasValue)
+                sc.Parameters.AddWithValue("@Visit_State", Visit_State.Value);
+            else
+                sc.Parameters.AddWithValue("@Visite_State", Visite_State);
             if (string.IsNullOrWhiteSpace(Scedualed_Visit_date))
             {
                 sc.Parameters.AddWithValue("@Scedualed_Visit_date", DBNull.Value);
@@ -40,8 +53,9 @@ namespace F2F_Application.Classes
             sc.Parameters.AddWithValue("@Form_Name", Form_Name);
 
             query = " START TRANSACTION;";
+            string visitStateExpression = Visit_State.HasValue ? "@Visit_State" : "(SELECT id FROM visitstate WHERE name = @Visite_State)";
             query += "INSERT  INTO `family_visit`( `family_id`, `visittype_id`, `visit_name`, `visitstate_id`, `Scedualed_Visit_date`, `Visit_date`)"
-                  + " SELECT @Family_ID, (SELECT id FROM visittype WHERE NAME = @VisitType), @Visit_Name, (SELECT id FROM visitstate WHERE name = @Visite_State), @Scedualed_Visit_date,@Visit_date;";
+                  + " SELECT @Family_ID, (SELECT id FROM visittype WHERE NAME = @VisitType), @Visit_Name, " + visitStateExpression + ", @Scedualed_Visit_date,@Visit_date;";
 
             //+ " SELECT @Family_ID, (SELECT id FROM visittype WHERE NAME = @VisitType), @Visit_Name, (SELECT id FROM visitstate WHERE name = @Visite_State), STR_TO_DATE(@Scedualed_Visit_date, '%d/%m/%Y',STR_TO_DATE(@Visit_date, '%d/%m/%Y');";
 

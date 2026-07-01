@@ -133,6 +133,7 @@ namespace F2F_Application
                     else Visit_ID = ds1.Tables[0].Rows[0].Field<int>("id");
                     ME_DataGridView.Visible = true;
                     panel1.Visible = true;
+                    SaveVisit_Button.Visible = true;
                     members_table.Visible = true;
                     FamilyHistory_Button.Visible = true;
                     Fill_Family(true, Visit_ID);
@@ -6613,6 +6614,7 @@ namespace F2F_Application
                     Set_Controls();
                     members_table.Visible = true;
                     ME_DataGridView.Visible = true;
+                    SaveVisit_Button.Visible = true;
                     FamilyHistory_Button.Visible = true;
                     panel1.Visible = true;
                     Fill_Family(true, Visit_ID);
@@ -6745,7 +6747,21 @@ namespace F2F_Application
 
         private void ME_DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            string colName = ME_DataGridView.Columns[e.ColumnIndex].Name;
+            if (colName == "ME_Scedualed_Date")
+            {
+                ShowDatePickerForColumn(e.RowIndex, e.ColumnIndex, DatePicker1);
+            }
+            else if (colName == "ME_Date")
+            {
+                if (TryGetMEVisitState(ME_DataGridView.Rows[e.RowIndex], out int state) &&
+                    !IsScheduledVisitState(state) &&
+                    !IsCanceledVisitState(state))
+                    ShowDatePickerForColumn(e.RowIndex, e.ColumnIndex, DatePicker5);
+            }
         }
          
         private void ME_DataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -8981,6 +8997,147 @@ namespace F2F_Application
 
         }
 
+        private bool TryGetMEVisitState(DataGridViewRow row, out int visitState)
+        {
+            visitState = 0;
+            object stateVal = row.Cells["ME_State"].Value;
+            return stateVal != null && stateVal != DBNull.Value && int.TryParse(stateVal.ToString(), out visitState);
+        }
+
+        private bool IsScheduledVisitState(int visitState)
+        {
+            return visitState == 1;
+        }
+
+        private bool IsCanceledVisitState(int visitState)
+        {
+            return visitState == 2 || visitState == 4;
+        }
+
+        private bool IsCompletedVisitState(int visitState)
+        {
+            return visitState == 3;
+        }
+
+        private void SaveVisit_Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ME_DataGridView.IsCurrentCellDirty)
+                    ME_DataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                ME_DataGridView.EndEdit();
+
+                Visits v = new Visits();
+                bool hasErrors = false;
+
+                foreach (DataGridViewRow row in ME_DataGridView.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    if (row.Cells["ME_Name"].Value == null || string.IsNullOrWhiteSpace(row.Cells["ME_Name"].Value?.ToString()))
+                        continue;
+
+                    string visitName = row.Cells["ME_Name"].Value.ToString();
+                    string scheduledDate = "";
+                    if (row.Cells["ME_Scedualed_Date"].Value != null &&
+                        DateTime.TryParse(row.Cells["ME_Scedualed_Date"].Value.ToString(), out DateTime parsedScheduled))
+                        scheduledDate = parsedScheduled.ToString("yyyy-MM-dd");
+                    string visitDate = "";
+                    if (row.Cells["ME_Date"].Value != null &&
+                        DateTime.TryParse(row.Cells["ME_Date"].Value.ToString(), out DateTime parsedVisit))
+                        visitDate = parsedVisit.ToString("yyyy-MM-dd");
+                    string reason = row.Cells["ME_Reason"].Value == null ? "" : row.Cells["ME_Reason"].Value.ToString();
+
+                    if (string.IsNullOrWhiteSpace(scheduledDate))
+                    {
+                        MessageBox.Show("لا يمكن ترك التاريخ أو الوقت فارغاً للزيارة " + visitName, "Error");
+                        hasErrors = true;
+                        continue;
+                    }
+
+                    if (!TryGetMEVisitState(row, out int visitState))
+                    {
+                        MessageBox.Show("يجب اختيار حالة الزيارة " + visitName, "Error");
+                        hasErrors = true;
+                        continue;
+                    }
+
+                    if (IsScheduledVisitState(visitState))
+                    {
+                        if (!string.IsNullOrWhiteSpace(visitDate))
+                        {
+                            MessageBox.Show("لا يمكن إدخال تاريخ زيارة للزيارة المجدولة " + visitName, "Error");
+                            hasErrors = true;
+                            continue;
+                        }
+                    }
+                    else if (IsCanceledVisitState(visitState))
+                    {
+                        if (!string.IsNullOrWhiteSpace(visitDate))
+                        {
+                            MessageBox.Show("الزيارة الملغاة لا يمكن إدخال تاريخ زيارة لها", "Error");
+                            hasErrors = true;
+                            continue;
+                        }
+                        if (string.IsNullOrWhiteSpace(reason))
+                        {
+                            MessageBox.Show("يجب إدخال سبب الإلغاء للزيارة " + visitName, "Error");
+                            hasErrors = true;
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        if (string.IsNullOrWhiteSpace(visitDate))
+                        {
+                            MessageBox.Show("يجب إدخال تاريخ الزيارة للزيارة " + visitName, "Error");
+                            hasErrors = true;
+                            continue;
+                        }
+                        if (DateTime.TryParse(visitDate, out DateTime visitDt) &&
+                            DateTime.TryParse(scheduledDate, out DateTime schedDt) &&
+                            visitDt < schedDt)
+                        {
+                            MessageBox.Show("لا يمكن أن يكون تاريخ الزيارة قبل تاريخ الجدولة للزيارة " + visitName, "Error");
+                            hasErrors = true;
+                            continue;
+                        }
+                    }
+
+                    if (row.Cells["ME_Family_Visit_ID"].Value == null || string.IsNullOrWhiteSpace(row.Cells["ME_Family_Visit_ID"].Value.ToString()))
+                    {
+                        v.Insert_Visit_ByStateId(Family_ID, "M&E", visitName, visitState, scheduledDate, visitDate, this.Name);
+                    }
+                    else
+                    {
+                        int familyVisitId = int.Parse(row.Cells["ME_Family_Visit_ID"].Value.ToString());
+                        v.Update_ME_Visit(familyVisitId, Family_ID, visitName, visitState, scheduledDate, visitDate, reason, this.Name);
+                        if (IsCompletedVisitState(visitState))
+                            secondtableLayoutPanel.Visible = true;
+                    }
+                }
+
+                if (!hasErrors)
+                    MessageBox.Show("تم حفظ الزيارات بنجاح", "Confirmation");
+
+                Bind_Visits("ME");
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void SaveVisit_Button_MouseEnter(object sender, EventArgs e)
+        {
+            SaveVisit_Button.BackgroundImage = F2F_Application.Properties.Resources.button1_1;
+        }
+
+        private void SaveVisit_Button_MouseLeave(object sender, EventArgs e)
+        {
+            SaveVisit_Button.BackgroundImage = F2F_Application.Properties.Resources.button1;
+        }
+
         private void Bind_Show_Hide_ToolStrip()
         {
             ToolStripMenuItem Hide_Columns = Show_Hide_ToolStrip.DropDownItems[0] as ToolStripMenuItem;
@@ -9583,11 +9740,6 @@ namespace F2F_Application
             {
                 ME_DataGridView.Rows.Clear();
 
-                foreach (DataGridViewColumn c in ME_DataGridView.Columns)
-                {
-                    if (c.Name == "ME_Name")
-                        c.ReadOnly = true;
-                }
                 for (int i = 0; i < ME_dt.Rows.Count; i++)
                 {
                     ME_DataGridView.Rows.Add();
@@ -9613,6 +9765,7 @@ namespace F2F_Application
                     //ME_DataGridView.Rows[i].Cells["ME_Visit_Team"].Value = ME_dt.Rows[i].Field<string>("visit_team");
 
                 }
+                ApplyVisitStateStyling();
             }
 
             if (Story_dt != null)
@@ -9975,9 +10128,10 @@ namespace F2F_Application
                 }
                 foreach (DataGridViewRow R in ME_DataGridView.Rows)
                 {
-                    if (Convert.ToInt64(R.Cells["ME_State"].Value) == 2 || Convert.ToInt64(R.Cells["ME_State"].Value) == 4)
+                    if (!R.IsNewRow &&
+                        TryGetMEVisitState(R, out int visitState) &&
+                        IsCanceledVisitState(visitState))
                     {
-
                         ME_State.FlatStyle = FlatStyle.Flat;
                         R.Cells["ME_State"].Style.BackColor = Color.Red; //Color.FromArgb(125, 0, 0);
                     }
@@ -10031,298 +10185,88 @@ namespace F2F_Application
         }
         private void ME_DataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (!UserMode)
+                return;
+
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Name")
             {
-                if (UserMode)
+                string val = ME_DataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value?.ToString();
+                if (!string.IsNullOrEmpty(val) && !val.StartsWith("M&E - "))
                 {
-                    //if click is on new row or header row
-                    if (e.RowIndex < 0 || e.ColumnIndex < 0)
-                        return;
-
-                    //if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Scedualed_Date")
-                    //{
-                    if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Scedualed_Date")
-                    {
-                        DatePicker1 = new DateTimePicker();
-                        DatePicker1.ShowUpDown = false;
-                        DatePicker1.Format = DateTimePickerFormat.Short;
-                        DatePicker1.Visible = true;
-                        Rectangle oRectangle1 = ME_DataGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
-                        DatePicker1.Size = new Size(oRectangle1.Width, oRectangle1.Height);
-                        DatePicker1.Location = new Point(oRectangle1.X, oRectangle1.Y);
-                        DatePicker1.RightToLeftLayout = true;
-                        ME_DataGridView.Controls.Add(DatePicker1);
-                        DatePicker1.Leave += this.DatePickerChange1;
-                    }
-
-                    if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Date")
-                    {
-                        DatePicker5 = new DateTimePicker();
-                        DatePicker5.ShowUpDown = false;
-                        DatePicker5.Format = DateTimePickerFormat.Short;
-                        DatePicker5.Visible = true;
-                        Rectangle oRectangle5 = ME_DataGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
-                        DatePicker5.Size = new Size(oRectangle5.Width, oRectangle5.Height);
-                        DatePicker5.Location = new Point(oRectangle5.X, oRectangle5.Y);
-                        DatePicker5.RightToLeftLayout = true;
-                        ME_DataGridView.Controls.Add(DatePicker5);
-                        DatePicker5.Leave += this.DatePickerChange5;
-                    }
-
-                    DatePicker2 = new DateTimePicker();
-                    DatePicker2.ShowUpDown = false;
-                    DatePicker2.Format = DateTimePickerFormat.Short;
-                    DatePicker2.Visible = false;
-                    Rectangle oRectangle2 = Story_DataGridView.GetCellDisplayRectangle(3, 0, true);
-                    DatePicker2.Size = new Size(oRectangle2.Width, oRectangle2.Height);
-                    DatePicker2.Location = new Point(oRectangle2.X, oRectangle2.Y);
-                    DatePicker2.RightToLeftLayout = true;
-                    Story_DataGridView.Controls.Add(DatePicker2);
-                    DatePicker2.Leave += this.DatePickerChange2;
-
-                    DatePicker3 = new DateTimePicker();
-                    DatePicker3.ShowUpDown = false;
-                    DatePicker3.Format = DateTimePickerFormat.Short;
-                    DatePicker3.Visible = false;
-                    Rectangle oRectangle3 = Video_DataGridView.GetCellDisplayRectangle(3, 0, true);
-                    DatePicker3.Size = new Size(oRectangle3.Width, oRectangle3.Height);
-                    DatePicker3.Location = new Point(oRectangle3.X, oRectangle3.Y);
-                    DatePicker3.RightToLeftLayout = true;
-                    Video_DataGridView.Controls.Add(DatePicker3);
-                    DatePicker3.Leave += this.DatePickerChange3;
-
-                    DatePicker4 = new DateTimePicker();
-                    DatePicker4.ShowUpDown = false;
-                    DatePicker4.Format = DateTimePickerFormat.Short;
-                    DatePicker4.Visible = false;
-                    Rectangle oRectangle4 = Followup_DataGridView.GetCellDisplayRectangle(3, 0, true);
-                    DatePicker4.Size = new Size(oRectangle4.Width, oRectangle4.Height);
-                    DatePicker4.Location = new Point(oRectangle4.X, oRectangle4.Y);
-                    DatePicker4.RightToLeftLayout = true;
-                    Followup_DataGridView.Controls.Add(DatePicker4);
-                    DatePicker4.Leave += this.DatePickerChange4;
-
-
-
-                    //DatePicker1.Visible = false;
-                    //DatePicker5.Visible = false;
-
-                    if (ME_DataGridView.Rows[e.RowIndex].Cells["ME_Family_Visit_ID"].Value != null)
-                    {
-                        DialogResult dialogResult = MessageBox.Show("تأكيد التعديل", "Warning", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            DatePicker1.Visible = false;
-                            DatePicker5.Visible = false;
-                            if (ME_DataGridView.Rows[e.RowIndex].Cells["ME_Scedualed_Date"].Value == null || string.IsNullOrWhiteSpace(ME_DataGridView.Rows[e.RowIndex].Cells["ME_Scedualed_Date"].Value.ToString()))
-                            {
-                                MessageBox.Show("لا يمكن ترك التاريخ أو الوقت فارغاً ", "Error");
-                                return;
-                            }
-                            else
-                            {
-                                string UK_Date = "", UK_Date3 = "";
-                                int Family_Visit_ID = int.Parse(ME_DataGridView.Rows[e.RowIndex].Cells["ME_Family_Visit_ID"].Value.ToString());
-                                string Visit_Name = ME_DataGridView.Rows[e.RowIndex].Cells["ME_Name"].Value.ToString();
-                                int Visit_State = int.Parse(ME_DataGridView.Rows[e.RowIndex].Cells["ME_State"].Value.ToString());
-                                string ME_Scedualed_Date = ME_DataGridView.Rows[e.RowIndex].Cells["ME_Scedualed_Date"].Value == null ? "" : DateTime.Parse(ME_DataGridView.Rows[e.RowIndex].Cells["ME_Scedualed_Date"].Value.ToString()).ToString("yyyy-MM-dd");
-                                string ME_Date = ME_DataGridView.Rows[e.RowIndex].Cells["ME_Date"].Value == null ? "" : DateTime.Parse(ME_DataGridView.Rows[e.RowIndex].Cells["ME_Date"].Value.ToString()).ToString("yyyy-MM-dd");
-
-                                string reason = ME_DataGridView.Rows[e.RowIndex].Cells["ME_Reason"].Value == null ? "" : ME_DataGridView.Rows[e.RowIndex].Cells["ME_Reason"].Value.ToString();
-
-                                //v.Update_Visite_Schedualed_Date(Family_Visit_ID, Visit_Name, UK_Date, UK_Date3, this.Name);
-                                // سيتم استخدام هذا التابع مؤقتاً
-                                //v.Update_Temporary_ME_Visit_Schedualed_Date(Family_Visit_ID, Family_ID, Visit_Name, UK_Date, this.Name);
-
-                                //Added By Mai
-                                if (Visit_State == 2 || Visit_State == 4)
-                                {
-                                    if (ME_Date != null)
-                                    {
-                                        MessageBox.Show("الزيارة الملغاة لا يمكن إدخال تاريخ زيارة لها");
-                                        ME_Date = null;
-                                        v.Update_ME_Visit(Family_Visit_ID, Family_ID, Visit_Name, Visit_State, ME_Scedualed_Date, ME_Date, reason, this.Name);
-                                    }
-                                }
-                                else if (ME_Scedualed_Date != null)
-                                {
-                                    if (ME_Date == null)
-                                    {
-                                        MessageBox.Show("يجب إدخال تاريخ الزيارة أولاً");
-                                    }
-                                    else if (Convert.ToDateTime(ME_Date) < Convert.ToDateTime(ME_Scedualed_Date))
-                                    {
-                                        MessageBox.Show("لا يمكن أن يكون تاريخ الزيارة قبل تاريخ الجدولة");
-                                    }
-                                    //تمت
-                                    else
-                                    {
-                                        v.Update_ME_Visit(Family_Visit_ID, Family_ID, Visit_Name, 3, ME_Scedualed_Date, ME_Date, reason, this.Name);
-                                        secondtableLayoutPanel.Visible = true;
-                                    }
-                                }
-                                else
-                                {
-                                    v.Update_ME_Visit(Family_Visit_ID, Family_ID, Visit_Name, 1, ME_Scedualed_Date, ME_Date, reason, this.Name);
-                                }
-                                MessageBox.Show("تم تعديل الزيارة بنجاح", "Confirmation");
-                              
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (ME_DataGridView.Rows[e.RowIndex].Cells["ME_Scedualed_Date"].Value == null || string.IsNullOrWhiteSpace(ME_DataGridView.Rows[e.RowIndex].Cells["ME_Scedualed_Date"].Value.ToString()))
-                        {
-                            MessageBox.Show("لا يمكن ترك التاريخ أو الوقت فارغاً ", "Error");
-                            return;
-                        }
-                        else
-                        {
-                            string Visit_Name = ME_DataGridView.Rows[e.RowIndex].Cells["ME_Name"].Value.ToString();
-                            DateTime Date2 = DateTime.Parse(ME_DataGridView.Rows[e.RowIndex].Cells["ME_Scedualed_Date"].Value.ToString());
-                            string UK_Date = Date2.ToString("yyyy-MM-dd");
-                            string UK_Date2 = "";
-                            if (ME_DataGridView.Rows[e.RowIndex].Cells["ME_Date"].Value != null)
-                            {
-                                DateTime Date3 = DateTime.Parse(ME_DataGridView.Rows[e.RowIndex].Cells["ME_Date"].Value.ToString());
-                                UK_Date2 = Date3.ToString("yyyy-MM-dd");
-                            }
-                            v.Insert_Visit(Family_ID, "M&E", Visit_Name, "مجدولة", UK_Date, UK_Date2, this.Name);
-
-                            // سيتم استخدام هذا التابع مؤقتاً
-                            //v.Insert_Temporary_ME_Visit(Family_ID, "M&E", Visit_Name, "تمت", UK_Date, this.Name);
-                            MessageBox.Show("تم إدخال زيارة جديدة بنجاح", "Confirmation");
-                            
-                        }
-                    }
-                    DatePicker1.Visible = false;
-                    DatePicker5.Visible = false;
-                    Bind_Visits("ME");
+                    ME_DataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = null;
                 }
             }
-            catch (Exception ex)
+
+            if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_State")
             {
-                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+                ApplyVisitStateStyling(true);
             }
         }  
+
+        private void ApplyVisitStateStyling(bool clearInvalidVisitDates = false)
+        {
+            foreach (DataGridViewRow row in ME_DataGridView.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                DataGridViewCell dateCell = row.Cells["ME_Date"];
+                DataGridViewCell stateCell = row.Cells["ME_State"];
+                if (TryGetMEVisitState(row, out int state) &&
+                    (IsScheduledVisitState(state) || IsCanceledVisitState(state)))
+                {
+                    if (clearInvalidVisitDates)
+                        dateCell.Value = DBNull.Value;
+                    dateCell.ReadOnly = true;
+                    dateCell.Style.BackColor = System.Drawing.Color.LightGray;
+                    stateCell.Style.BackColor = IsCanceledVisitState(state) ? System.Drawing.Color.LightCoral : System.Drawing.Color.White;
+                }
+                else
+                {
+                    dateCell.ReadOnly = false;
+                    dateCell.Style.BackColor = System.Drawing.Color.White;
+                    stateCell.Style.BackColor = System.Drawing.Color.White;
+                }
+            }
+        }
+
         private void ME_DataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            if(ME_DataGridView.Rows.Count-1 == 0)
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Scedualed_Date")
             {
-                ME_DataGridView.Rows.Add();
-                ME_DataGridView.Rows[0].Cells["ME_Name"].Value = "M&E - 0";
-                //MessageBox.Show("الرجاء إدخال الزيارات السابقة التي لم تتم !!");
-
-                //if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Scedualed_Date")
-                //{
-                //    DatePicker1 = new DateTimePicker();
-                //    DatePicker1.ShowUpDown = false;
-                //    DatePicker1.Format = DateTimePickerFormat.Short;
-                //    DatePicker1.Visible = true;
-                //    Rectangle oRectangle1 = ME_DataGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
-                //    DatePicker1.Size = new Size(oRectangle1.Width, oRectangle1.Height);
-                //    DatePicker1.Location = new Point(oRectangle1.X, oRectangle1.Y);
-                //    DatePicker1.RightToLeftLayout = true;
-                //    ME_DataGridView.Controls.Add(DatePicker1);
-                //    DatePicker1.Leave += this.DatePickerChange1;
-                //}
-
-                //if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Date")
-                //{
-                //    DatePicker5 = new DateTimePicker();
-                //    DatePicker5.ShowUpDown = false;
-                //    DatePicker5.Format = DateTimePickerFormat.Short;
-                //    DatePicker5.Visible = true;
-                //    Rectangle oRectangle5 = ME_DataGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
-                //    DatePicker5.Size = new Size(oRectangle5.Width, oRectangle5.Height);
-                //    DatePicker5.Location = new Point(oRectangle5.X, oRectangle5.Y);
-                //    DatePicker5.RightToLeftLayout = true;
-                //    ME_DataGridView.Controls.Add(DatePicker5);
-                //    DatePicker5.Leave += this.DatePickerChange5;
-                //}
-                if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Scedualed_Date")
-                {
-                    //DatePicker1.Location = ME_DataGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
-                    //DatePicker1.Visible = true;
-                    if (ME_DataGridView.CurrentCell.Value != DBNull.Value && ME_DataGridView.CurrentCell.Value != null)
-                    {
-                        DateTime Date = DateTime.Parse(ME_DataGridView.CurrentCell.Value.ToString());
-                        DatePicker1.Value = DateTime.Parse(Date.ToShortDateString(), CultureInfo.CurrentCulture);
-                    }
-                    else { }
-                }
-                //Added By Mai
-                if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Date")
-                {
-                    DatePicker5.Location = ME_DataGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
-                    DatePicker5.Visible = true;
-                    if (ME_DataGridView.CurrentCell.Value != DBNull.Value && ME_DataGridView.CurrentCell.Value != null)
-                    {
-                        DateTime Date = DateTime.Parse(ME_DataGridView.CurrentCell.Value.ToString());
-                        DatePicker5.Value = DateTime.Parse(Date.ToShortDateString(), CultureInfo.CurrentCulture);
-
-                    }
-                    else
-                    {
-
-                    }
-                }
-
+                e.Cancel = true;
+                ShowDatePickerForColumn(e.RowIndex, e.ColumnIndex, DatePicker1);
             }
+
+            if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Date")
+            {
+                e.Cancel = true;
+                if (TryGetMEVisitState(ME_DataGridView.Rows[e.RowIndex], out int state) &&
+                    !IsScheduledVisitState(state) &&
+                    !IsCanceledVisitState(state))
+                    ShowDatePickerForColumn(e.RowIndex, e.ColumnIndex, DatePicker5);
+            }
+        }
+
+        private void ShowDatePickerForColumn(int rowIndex, int columnIndex, DateTimePicker picker)
+        {
+            BeginEdit_RowIndex = rowIndex; BeginEdit_ColumnIndex = columnIndex;
+            picker.Location = ME_DataGridView.GetCellDisplayRectangle(columnIndex, rowIndex, false).Location;
+            picker.Size = ME_DataGridView.GetCellDisplayRectangle(columnIndex, rowIndex, false).Size;
+            picker.Visible = true;
+            picker.BringToFront();
+            picker.Focus();
+
+            object cellValue = ME_DataGridView.Rows[rowIndex].Cells[columnIndex].Value;
+            if (cellValue != null && cellValue != DBNull.Value && DateTime.TryParse(cellValue.ToString(), out DateTime date))
+                picker.Value = date;
             else
-            {
-                if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Scedualed_Date")
-                {
-                    if (ME_DataGridView.Rows[e.RowIndex].Cells["ME_Family_Visit_ID"].Value == null)
-                    {
-                        int index = ME_DataGridView.Rows.Count - 2;
-                            string visitname = ME_DataGridView.Rows[index].Cells["ME_Name"].Value.ToString();
-                            int visitnumber = int.Parse(visitname[visitname.Length - 1].ToString());
-                            int newvisitnumber = visitnumber + 1;
-                            ME_DataGridView.Rows[e.RowIndex].Cells["ME_Name"].Value = "M&E - " + newvisitnumber;
-                    }
-                    BeginEdit_RowIndex = e.RowIndex; BeginEdit_ColumnIndex = e.ColumnIndex;
-                     
-                    if (ME_DataGridView.CurrentCell.Value != DBNull.Value && ME_DataGridView.CurrentCell.Value != null) 
-                    {
-                        DatePicker1.Location = ME_DataGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
-                        DatePicker1.Visible = true;
-                        DateTime Date = DateTime.Parse(ME_DataGridView.CurrentCell.Value.ToString());
-                        DatePicker1.Value = DateTime.Parse(Date.ToShortDateString(), CultureInfo.CurrentCulture);
-                    }
-                    else
-                    {
-
-                    }
-                }
-                //Added By Mai
-                if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Date")
-                {
-                    if (ME_DataGridView.Rows[e.RowIndex].Cells["ME_Family_Visit_ID"].Value == null)
-                     ME_DataGridView.Rows[e.RowIndex].Cells["ME_Name"].Value = "M&E - " + ME_DataGridView.Rows.Count.ToString();
-
-                    if (ME_DataGridView.CurrentCell.Value != DBNull.Value && ME_DataGridView.CurrentCell.Value != null)
-                    {
-                        BeginEdit_RowIndex = e.RowIndex; BeginEdit_ColumnIndex = e.ColumnIndex;
-                        DatePicker5.Location = ME_DataGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
-                        DatePicker5.Visible = true;
-                        DateTime Date = DateTime.Parse(ME_DataGridView.CurrentCell.Value.ToString());
-                        DatePicker5.Value = DateTime.Parse(Date.ToShortDateString(), CultureInfo.CurrentCulture);
-                    }
-                    else
-                    {
-
-                    }
-                }
-            }
-            
-            
-            //if (ME_DataGridView.Columns[e.ColumnIndex].Name == "ME_Reason")
-            //{
-            //    if (ME_DataGridView.Rows[e.RowIndex].Cells["ME_Family_Visit_ID"].Value == null)
-            //        ME_DataGridView.Rows[e.RowIndex].Cells["ME_Name"].Value = "M&E - " + ME_DataGridView.Rows.Count.ToString();
-            //}
+                picker.Value = DateTime.Now;
         }
         private void ME_DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
