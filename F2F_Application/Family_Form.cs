@@ -3612,6 +3612,31 @@ namespace F2F_Application
             }
         }
 
+        private void FamilyNumber_TextBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                FamilyNumber_TextBox_OriginalText = FamilyNumber_TextBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void FamilyNumber_TextBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (FamilyNumber_TextBox_OriginalText != FamilyNumber_TextBox.Text)
+                    General_Information_IsDirty = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
         private bool Check_family_Code()
         {
             bool Ok = false;

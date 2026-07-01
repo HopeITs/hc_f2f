@@ -7775,6 +7775,8 @@ namespace F2F_Application
             this.FamilyNumber_TextBox.TabIndex = 23;
             this.FamilyNumber_TextBox.TabStop = false;
             this.FamilyNumber_TextBox.UseSystemPasswordChar = false;
+            this.FamilyNumber_TextBox.Enter += new System.EventHandler(this.FamilyNumber_TextBox_Enter);
+            this.FamilyNumber_TextBox.Leave += new System.EventHandler(this.FamilyNumber_TextBox_Leave);
             // 
             // panel13
             // 

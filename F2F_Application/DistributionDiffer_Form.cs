@@ -531,12 +531,18 @@ namespace F2F_Application
                         }
 
                         // Add rows
+                        int excelRow = 2;
                         for (int i = 0; i < Differ_DataGridView.Rows.Count; i++)
                         {
+                            if (Differ_DataGridView.Rows[i].IsNewRow)
+                                continue;
+
                             for (int j = 0; j < Differ_DataGridView.Columns.Count; j++)
                             {
-                                worksheet.Cell(i + 2, j + 1).Value = Differ_DataGridView.Rows[i].Cells[j].Value.ToString();
+                                object cellValue = Differ_DataGridView.Rows[i].Cells[j].Value;
+                                worksheet.Cell(excelRow, j + 1).Value = cellValue == null || cellValue == DBNull.Value ? "" : cellValue.ToString();
                             }
+                            excelRow++;
                         }
 
                         workbook.SaveAs(filepath);
