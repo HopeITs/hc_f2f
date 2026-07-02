@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.materialContextMenuStrip1 = new MaterialSkinPlus.Controls.MaterialContextMenuStrip();
             this.refreshToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +59,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.09821F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.90179F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tableLayoutPanel1.ContextMenuStrip = this.materialContextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.DatePicker, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.Insert_button, 1, 3);
@@ -86,26 +86,26 @@
             this.refreshToolStripMenuItem1});
             this.materialContextMenuStrip1.MouseState = MaterialSkinPlus.MouseState.HOVER;
             this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStrip1.Size = new System.Drawing.Size(124, 28);
+            this.materialContextMenuStrip1.Size = new System.Drawing.Size(128, 28);
             // 
             // refreshToolStripMenuItem1
             // 
             this.refreshToolStripMenuItem1.Name = "refreshToolStripMenuItem1";
-            this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(123, 24);
+            this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(127, 24);
             this.refreshToolStripMenuItem1.Text = "Refresh";
             this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // DatePicker
             // 
             this.DatePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.DatePicker.CalendarFont = new System.Drawing.Font("Tajawal", 11F);
+            this.DatePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.DatePicker.CalendarForeColor = System.Drawing.Color.Black;
             this.DatePicker.CalendarMonthBackground = System.Drawing.Color.White;
             this.DatePicker.Font = new System.Drawing.Font("Palatino Linotype", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DatePicker.Location = new System.Drawing.Point(205, 20);
+            this.DatePicker.Location = new System.Drawing.Point(204, 18);
             this.DatePicker.Name = "DatePicker";
-            this.DatePicker.Size = new System.Drawing.Size(181, 30);
+            this.DatePicker.Size = new System.Drawing.Size(181, 32);
             this.DatePicker.TabIndex = 1;
             // 
             // Insert_button
@@ -117,9 +117,9 @@
             this.Insert_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Insert_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Insert_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Insert_button.Font = new System.Drawing.Font("Tajawal", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Insert_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Insert_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Insert_button.Location = new System.Drawing.Point(205, 113);
+            this.Insert_button.Location = new System.Drawing.Point(204, 111);
             this.Insert_button.Name = "Insert_button";
             this.Insert_button.Size = new System.Drawing.Size(105, 42);
             this.Insert_button.TabIndex = 500;
@@ -133,9 +133,9 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(153, 23);
+            this.label1.Location = new System.Drawing.Point(145, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 23);
+            this.label1.Size = new System.Drawing.Size(53, 24);
             this.label1.TabIndex = 501;
             this.label1.Text = "Date:";
             // 
@@ -143,9 +143,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(150, 73);
+            this.label2.Location = new System.Drawing.Point(140, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 23);
+            this.label2.Size = new System.Drawing.Size(58, 24);
             this.label2.TabIndex = 502;
             this.label2.Text = "Time:";
             // 
@@ -157,11 +157,11 @@
             this.TimePicker.CustomFormat = "hh:mm tt";
             this.TimePicker.Font = new System.Drawing.Font("Palatino Linotype", 11F);
             this.TimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.TimePicker.Location = new System.Drawing.Point(205, 70);
+            this.TimePicker.Location = new System.Drawing.Point(204, 67);
             this.TimePicker.Name = "TimePicker";
             this.TimePicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.TimePicker.ShowUpDown = true;
-            this.TimePicker.Size = new System.Drawing.Size(181, 30);
+            this.TimePicker.Size = new System.Drawing.Size(181, 32);
             this.TimePicker.TabIndex = 2;
             // 
             // Date_DataGridView
@@ -169,11 +169,11 @@
             this.Date_DataGridView.AllowUserToAddRows = false;
             this.Date_DataGridView.AllowUserToDeleteRows = false;
             this.Date_DataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.Date_DataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.Date_DataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Date_DataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -181,28 +181,28 @@
             this.Date_DataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.Date_DataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Date_DataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tajawal", 11.12727F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Date_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Date_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Date_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Date_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Delete,
             this.partner_distribution_date_id,
             this.Time,
             this.Date});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tajawal", 11.12727F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Date_DataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Date_DataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.Date_DataGridView.EnableHeadersVisualStyles = false;
             this.Date_DataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.Date_DataGridView.Location = new System.Drawing.Point(2, 226);
@@ -210,16 +210,16 @@
             this.Date_DataGridView.MultiSelect = false;
             this.Date_DataGridView.Name = "Date_DataGridView";
             this.Date_DataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tajawal", 11.12727F);
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Date_DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Date_DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Date_DataGridView.RowHeadersVisible = false;
             this.Date_DataGridView.RowHeadersWidth = 25;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Date_DataGridView.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Date_DataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.Date_DataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Date_DataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Date_DataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -240,12 +240,14 @@
             this.Delete.FillWeight = 50F;
             this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
             this.Delete.Name = "Delete";
-            this.Delete.Width = 59;
+            this.Delete.Width = 69;
             // 
             // partner_distribution_date_id
             // 
             this.partner_distribution_date_id.HeaderText = "id";
+            this.partner_distribution_date_id.MinimumWidth = 6;
             this.partner_distribution_date_id.Name = "partner_distribution_date_id";
             this.partner_distribution_date_id.Visible = false;
             // 
@@ -253,6 +255,7 @@
             // 
             this.Time.FillWeight = 98.94492F;
             this.Time.HeaderText = "الوقت";
+            this.Time.MinimumWidth = 6;
             this.Time.Name = "Time";
             this.Time.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
@@ -260,17 +263,18 @@
             // 
             this.Date.FillWeight = 98.94492F;
             this.Date.HeaderText = "التاريخ";
+            this.Date.MinimumWidth = 6;
             this.Date.Name = "Date";
             // 
             // Partner_Distribution_Date_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 600);
             this.ContextMenuStrip = this.materialContextMenuStrip1;
             this.Controls.Add(this.Date_DataGridView);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Font = new System.Drawing.Font("Tajawal", 11.12727F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.12727F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
