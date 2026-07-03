@@ -32,8 +32,8 @@ namespace F2F_Application
         public static string ConnectionString_Online = "";
         public static string ConnectionString_Offline = "";
 
-        public static string OnlineDataSource = "mysql.s807.sureserver.com";
-       // public static string OfflineDataSource = "PC-ADMIN";
+        public static string OnlineDataSource = "mysql.s1893.sureserver.com";
+        //public static string OfflineDataSource = "PC-ADMIN";
         public static string OfflineDataSource = "localhost";
 
         public static string ConnectionString;
