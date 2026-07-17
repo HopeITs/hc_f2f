@@ -67,7 +67,9 @@ namespace F2F_Application
                 Partner_DataGridView.Rows[i].Cells["Partner_ID"].Value = dt.Rows[i].Field<int>("ID");
                 Partner_DataGridView.Rows[i].Cells["Partner"].Value = dt.Rows[i].Field<string>("name");
                 Partner_DataGridView.Rows[i].Cells["Partner_EN"].Value = dt.Rows[i].Field<string>("name_en");
-                Partner_DataGridView.Rows[i].Cells["Group"].Value = dt.Rows[i].Field<int>("partnergroup_id");
+                // partnergroup_id can be NULL (LEFT JOIN); Field<int> throws on DBNull and aborts Load
+                if (dt.Rows[i]["partnergroup_id"] != DBNull.Value)
+                    Partner_DataGridView.Rows[i].Cells["Group"].Value = dt.Rows[i].Field<int>("partnergroup_id");
                 Partner_DataGridView.Rows[i].Cells["Logo"].Value = dt.Rows[i].Field<byte[]>("logo");
             }
 

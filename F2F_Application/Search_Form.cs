@@ -99,7 +99,8 @@ namespace F2F_Application
 
         private void Search_Form_Shown(object sender, EventArgs e)
         {
-            Search_DataGridView.SetFilterAndSortEnabled(Search_DataGridView.Columns["Logo"], false);
+            if (Search_DataGridView.Columns["Logo"] != null)
+                Search_DataGridView.SetFilterAndSortEnabled(Search_DataGridView.Columns["Logo"], false);
 
         }
 
@@ -107,13 +108,21 @@ namespace F2F_Application
         {
             bs.Filter = bs.Sort = Original_Sort_String = Original_Filter_String = "";
             Search_DataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            // Unfreeze and disconnect before swapping BindingSource data.
+            // Changing bs.DataSource while the grid is still bound (with Frozen columns)
+            // inserts new unfrozen columns before a still-frozen shared column (e.g. رمز العائلة)
+            // and throws: frozen columns must form a contiguous block.
+            Search_DataGridView.ColumnHeadersVisible = false;
+            foreach (DataGridViewColumn col in Search_DataGridView.Columns)
+                col.Frozen = false;
+            Search_DataGridView.DataSource = null;
+            Search_DataGridView.Columns.Clear();
+
             if (SearchFor == "Family")
             {
                 DataTable dt = s.Get_Families(FilterQuery, AdditionalColumnsTables, AdditionalColumnsTables_ArabicName);
                 bs.DataSource = dt;
-                Search_DataGridView.ColumnHeadersVisible = false;
-                Search_DataGridView.DataSource = null;
-                Search_DataGridView.Columns.Clear();
                 Search_DataGridView.DataSource = bs;
                 Search_DataGridView.ColumnHeadersVisible = true;
 
@@ -152,12 +161,11 @@ namespace F2F_Application
             {
                 DataTable dt = s.Get_Persons(FilterQuery, AdditionalColumnsTables, AdditionalColumnsTables_ArabicName);
                 bs.DataSource = dt;
-                Search_DataGridView.ColumnHeadersVisible = false;
-                Search_DataGridView.DataSource = null;
-                Search_DataGridView.Columns.Clear();
                 Search_DataGridView.DataSource = bs;
                 Search_DataGridView.ColumnHeadersVisible = true;
-                Search_DataGridView.SetFilterDateAndTimeEnabled(Search_DataGridView.Columns["تاريخ الميلاد"], true);
+                // Get_Persons aliases DOB as المواليد (not تاريخ الميلاد)
+                if (Search_DataGridView.Columns["المواليد"] != null)
+                    Search_DataGridView.SetFilterDateAndTimeEnabled(Search_DataGridView.Columns["المواليد"], true);
                 Search_DataGridView.Columns["Person ID"].Visible = false;
                 Search_DataGridView.Columns["Family ID"].Visible = false;
                 Search_DataGridView.Columns["Visit ID"].Visible = false;
@@ -185,9 +193,6 @@ namespace F2F_Application
             {
                 DataTable dt = s.Get_Partners();
                 bs.DataSource = dt;
-                Search_DataGridView.ColumnHeadersVisible = false;
-                Search_DataGridView.DataSource = null;
-                Search_DataGridView.Columns.Clear();
                 Search_DataGridView.DataSource = bs;
                 Search_DataGridView.ColumnHeadersVisible = true;
 
@@ -219,9 +224,6 @@ namespace F2F_Application
             {
                 DataTable dt = s.Get_Distribution();
                 bs.DataSource = dt;
-                Search_DataGridView.ColumnHeadersVisible = false;
-                Search_DataGridView.DataSource = null;
-                Search_DataGridView.Columns.Clear();
                 Search_DataGridView.DataSource = bs;
                 Search_DataGridView.ColumnHeadersVisible = true;
                 Search_DataGridView.Columns["Distribution ID"].Visible = false;
@@ -249,9 +251,6 @@ namespace F2F_Application
             }
             else
             {
-                Search_DataGridView.ColumnHeadersVisible = false;
-                Search_DataGridView.DataSource = null;
-                Search_DataGridView.Columns.Clear();
                 Search_DataGridView.ColumnHeadersVisible = true;
             }
             Search_DataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
