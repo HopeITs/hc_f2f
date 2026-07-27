@@ -1144,7 +1144,7 @@ namespace F2F_Application
             Program.buildConnection();
             List<PersonStateData> dataList = new List<PersonStateData>();
 
-            string query = " SELECT " + numbertype + "(DISTINCT person.id) AS member_count, COALESCE(personstate.name, 'N/A') AS state" +
+            string query = " SELECT " + numbertype + "(DISTINCT person.id) AS member_count, CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE COALESCE(personstate.name, 'N/A') END AS state" +
                            " FROM person " +
                            " LEFT JOIN person_family on person_family.person_id = person.id" +
                            " LEFT JOIN person_visitdetails on person_visitdetails.person_id = person.id" +

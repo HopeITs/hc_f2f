@@ -41,6 +41,7 @@ namespace F2F_Application.Classes
                 ",IFNULL(family.family_number, ' ') as 'رقم دفتر العائلة'" +
                 ",(select familymembersnumber.NumberOfAllMembers from familymembersnumber where familymembersnumber.family_id = family.id order by familymembersnumber.date DESC, familymembersnumber.id DESC limit 1) as 'عدد أفراد الأسرة'" +
                 ",(select familymembersnumber.NumberOfBeneficiaries from familymembersnumber where familymembersnumber.family_id = family.id order by familymembersnumber.date DESC, familymembersnumber.id DESC limit 1) as 'عدد المستفيدين'" +
+                "," + Family.NumberOfWorkersSql("family.id") + " as 'عدد العاملين'" +
 
                 ",IFNULL(family.landline, ' ') as 'الهاتف الأرضي'" +
                 ",IFNULL(family.mobile, ' ') as 'رقم الموبايل'" +
@@ -174,7 +175,14 @@ namespace F2F_Application.Classes
                     string tableName_ArabciName = AdditionalColumnsTables_ArabicName[i];
                     //SelectQuery += "," + "GROUP_CONCAT(DISTINCT(" + tableName + ".name)) as '" + tableName_ArabciName + "'";
                     
-                    SelectQuery += "," + "GROUP_CONCAT(DISTINCT(" + tableName + ".name)) as '" + tableName_ArabciName + "'";
+                    if (tableName == "personstate")
+                    {
+                        SelectQuery += ",GROUP_CONCAT(DISTINCT(CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END)) as '" + tableName_ArabciName + "'";
+                    }
+                    else
+                    {
+                        SelectQuery += "," + "GROUP_CONCAT(DISTINCT(" + tableName + ".name)) as '" + tableName_ArabciName + "'";
+                    }
                     
                     switch (tableName)
                     {
@@ -289,7 +297,7 @@ namespace F2F_Application.Classes
     , IFNULL(person_family.isReceiver,' ') as 'رب الأسرة'
     , IFNULL(relation.name,' ') as 'الصفة الأسرية'
 
-    , IFNULL(personstate.name, ' ') as  'حالة الفرد'
+    , IFNULL(CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END, ' ') as  'حالة الفرد'
     , IFNULL(person_state.personstate_year, ' ') as 'سنة الحالة'
     , IFNULL(stateaddress.name, ' ') as 'مكان الإقامة'
     , IFNULL(person_state.State_Note, ' ') as 'وصف المكان'
@@ -434,7 +442,14 @@ namespace F2F_Application.Classes
                 {
                     string tableName = AdditionalColumnsTables[i];
                     string tableName_ArabciName = AdditionalColumnsTables_ArabicName[i];
-                    SelectQuery += "," + "GROUP_CONCAT(DISTINCT(" + tableName + ".name)) as '" + tableName_ArabciName + "'";
+                    if (tableName == "personstate")
+                    {
+                        SelectQuery += ",GROUP_CONCAT(DISTINCT(CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END)) as '" + tableName_ArabciName + "'";
+                    }
+                    else
+                    {
+                        SelectQuery += "," + "GROUP_CONCAT(DISTINCT(" + tableName + ".name)) as '" + tableName_ArabciName + "'";
+                    }
 
                     switch (tableName)
                     {
@@ -1157,7 +1172,7 @@ namespace F2F_Application.Classes
         where person_maritalstatus.person_id = person.id 
         and current_state = 1 limit 1) as 'الحالة الاجتماعية'
 
-    , IFNULL(personstate.name,' ') as 'حالة الفرد'
+    , IFNULL(CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END,' ') as 'حالة الفرد'
     , IFNULL(person_state.personstate_year,' ') as 'سنة الحالة'
     , IFNULL(stateaddress.name,' ') as 'مكان الإقامة'
     , (case person_state.aidsource_29 WHEN 0 then 'لا' WHEN 29 then 'نعم' ELSE '' END) as 'هل يقدم مساعدة؟'
@@ -1438,7 +1453,7 @@ LEFT JOIN (
     IFNULL(person.DOB, ' ') as 'المواليد',
     IFNULL(sex.name, ' ') as 'الجنس',
     IFNULL(person.national_Number, ' ') as 'الرقم الوطني',
-    IFNULL(personstate.name, ' ') as 'حالة الفرد',
+    IFNULL(CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END, ' ') as 'حالة الفرد',
     IFNULL(person_state.personstate_year, ' ') as 'سنة الحالة',
     IFNULL(stateaddress.name, ' ') as 'مكان الإقامة'
 FROM 
@@ -1502,7 +1517,7 @@ WHERE
     IFNULL(person.DOB, ' ') as 'المواليد',
     IFNULL(sex.name, ' ') as 'الجنس',
     IFNULL(person.national_Number, ' ') as 'الرقم الوطني',
-    IFNULL(personstate.name, ' ') as 'حالة الفرد',
+    IFNULL(CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END, ' ') as 'حالة الفرد',
     IFNULL(person_state.personstate_year, ' ') as 'سنة الحالة',
     IFNULL(stateaddress.name, ' ') as 'مكان الإقامة' 
 FROM 
@@ -1587,7 +1602,7 @@ WHERE
                         ,IFNULL(sex.name, ' ') as 'الجنس'
                         ,IFNULL(person.national_Number, ' ') as 'الرقم الوطني'
 
-                        , IFNULL(personstate.name, ' ') as 'حالة الفرد'
+                        , IFNULL(CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END, ' ') as 'حالة الفرد'
                         , IFNULL(person_state.personstate_year, ' ') as 'سنة الحالة'
                         , IFNULL(stateaddress.name, ' ') as 'مكان الإقامة'
 
@@ -1693,7 +1708,7 @@ WHERE
     IFNULL(person.DOB, ' ') as 'المواليد',
     IFNULL(sex.name, ' ') as 'الجنس',
     IFNULL(person.national_Number, ' ') as 'الرقم الوطني',
-    IFNULL(personstate.name, ' ') as 'حالة الفرد',
+    IFNULL(CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END, ' ') as 'حالة الفرد',
     IFNULL(person_state.personstate_year, ' ') as 'سنة الحالة',
     IFNULL(stateaddress.name, ' ') as 'مكان الإقامة' 
     FROM `person_workexp`
@@ -1772,7 +1787,7 @@ WHERE
                         IFNULL(person.DOB, ' ') as 'المواليد',
                         IFNULL(sex.name, ' ') as 'الجنس',
                         IFNULL(person.national_Number, ' ') as 'الرقم الوطني',
-                        IFNULL(personstate.name, ' ') as 'حالة الفرد',
+                        IFNULL(CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END, ' ') as 'حالة الفرد',
                         IFNULL(person_state.personstate_year, ' ') as 'سنة الحالة',
                         IFNULL(stateaddress.name, ' ') as 'مكان الإقامة'
 
@@ -1854,7 +1869,7 @@ WHERE
                         IFNULL(person.DOB, ' ') as 'المواليد',
                         IFNULL(sex.name, ' ') as 'الجنس',
                         IFNULL(person.national_Number, ' ') as 'الرقم الوطني',
-                        IFNULL(personstate.name, ' ') as 'حالة الفرد',
+                        IFNULL(CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END, ' ') as 'حالة الفرد',
                         IFNULL(person_state.personstate_year, ' ') as 'سنة الحالة',
                         IFNULL(stateaddress.name, ' ') as 'مكان الإقامة' 
                         FROM person_mp_aid mp_aid 
@@ -1913,7 +1928,7 @@ WHERE
                             family.id as 'family_id',
                             family_visit.visit_name as 'الزيارة',
                             `visitstate`.`name` as 'حالة الزيارة',
-                            IFNULL(personstate.name, ' ') as 'حالة الفرد',
+                            IFNULL(CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END, ' ') as 'حالة الفرد',
                             IFNULL(person_state.personstate_year, ' ') as 'سنة الحالة',
                             IFNULL(stateaddress.name, ' ') as 'مكان الإقامة',
                             CASE 
@@ -1965,11 +1980,11 @@ WHERE
                             CONCAT(person.first_name, ' ', person.father_name, ' ', person.last_name) as 'الاسم الثلاثي',
                             person.id as 'person_id',
                             family.id as 'family_id',
-                            IFNULL(personstate.name, ' ') as 'حالة الفرد الحالية',
+                            IFNULL(CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END, ' ') as 'حالة الفرد الحالية',
                             IF(person_state.personstate_year = '0', '', person_state.personstate_year) as 'سنة الحالة الحالية',
                             IF(person_state.stateaddress_id = '0', '', stateaddress.name) as 'مكان الإقامة الحالية',
                             (
-                                SELECT GROUP_CONCAT(ss.name SEPARATOR ', ')
+                                SELECT GROUP_CONCAT(CASE WHEN ss.name = 'N/A' THEN 'رب الأسرة' ELSE ss.name END SEPARATOR ', ')
                                 FROM person_state ps
                                 LEFT JOIN personstate ss ON ss.id = ps.personstate_id
                                 WHERE ps.person_id = person_state.person_id

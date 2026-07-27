@@ -388,7 +388,7 @@ namespace F2F_Application.Classes
             sc.Parameters.AddWithValue("@Family_ID", Family_ID);
             sc.Parameters.AddWithValue("@Visit_ID", Visit_ID);
             query = "Select person.* " +
-                ", person_state.* , personstate.name as 'personstate' " +
+                ", person_state.* , CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END as 'personstate' " +
                 "  from person " +
                 "  left join person_state on person_state.person_id = person.id " +
                 "  left join personstate on personstate.id = person_state.personstate_id " +
@@ -442,7 +442,7 @@ namespace F2F_Application.Classes
             sc.Parameters.AddWithValue("@Person_ID", Person_ID);
 
             query = " SELECT CONCAT(person.first_Name , ' ' , person.last_name) as 'الاسم'" 
-                + ", personstate.name as 'الحالة'" 
+                + ", CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END as 'الحالة'"
                   
                 + ", person_state.personstate_year as 'سنة الحالة'" 
                 + ", (select stateaddress.name from stateaddress where stateaddress.id = person_state.stateaddress_id limit 1) as 'مكان الإقامة'"

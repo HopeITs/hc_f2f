@@ -4682,6 +4682,7 @@ namespace F2F_Application
             this.State_ComboBox.Size = new System.Drawing.Size(179, 42);
             this.State_ComboBox.TabIndex = 21;
             this.State_ComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.State_ComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.State_ComboBox_Format);
             this.State_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.State_ComboBox_SelectionChangeCommitted);
             // 
             // materialLabel20

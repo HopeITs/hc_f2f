@@ -8,6 +8,14 @@ namespace F2F_Application.Classes
 {
     class Family
     {
+        internal static string NumberOfWorkersSql(string familyIdExpression)
+        {
+            return "(SELECT COUNT(DISTINCT(person_workexp.person_id)) FROM person JOIN person_family JOIN person_state JOIN personstate JOIN person_workexp " +
+                "ON person.id = person_family.person_id AND person.id = person_state.person_id AND person_state.personstate_id = personstate.id AND person_workexp.person_id = person.id " +
+                "WHERE person_family.family_id = " + familyIdExpression + " AND person_state.current_state = '1' AND LOWER(personstate.type) = LOWER('Active') " +
+                "AND person_state.family_id = " + familyIdExpression + ")";
+        }
+
         string query, log_query;
         //MySqlCommand sc;
 
@@ -457,7 +465,7 @@ namespace F2F_Application.Classes
                 + ", maritalstatus.name as 'الحالة الإجتماعية'" 
                 + ", sex.name as 'الجنس'" 
                 + ", relation.name as 'العلاقة'" 
-                + ", personstate.name as 'حالة المستفيد'"
+                + ", CASE WHEN personstate.name = 'N/A' THEN 'رب الأسرة' ELSE personstate.name END as 'حالة المستفيد'"
                 + ", (case person_family.IsReceiver when 0 then 'لا' else 'نعم' END) as 'المستلم'"
                 + ", ( SELECT GROUP_CONCAT((disease.name)) " +
                                 " FROM person " +
@@ -495,7 +503,7 @@ namespace F2F_Application.Classes
 
                         query = " SELECT"
                 + " (SELECT COUNT(person_family.id) FROM person_family JOIN person_state JOIN personstate on person_family.person_id = person_state.person_id and person_state.personstate_id = personstate.id WHERE person_family.family_id = @Family_ID and person_state.current_state = '1' and LOWER(personstate.type) = LOWER('Active') and person_state.family_id = @Family_ID)  AS 'NumberOfBeneficiaries',"
-                + " (SELECT COUNT(DISTINCT(person_workexp.person_id))  FROM person JOIN person_family JOIN person_state JOIN personstate JOIN person_workexp ON person.id = person_family.person_id AND person.id = person_state.person_id AND person_state.personstate_id = personstate.id AND person_workexp.person_id = person.id WHERE person_family.family_id = @Family_ID AND person_state.current_state = '1' AND LOWER(personstate.type) = LOWER('Active') and person_state.family_id = @Family_ID) AS 'NumberOfWorkers',"
+                + " " + NumberOfWorkersSql("@Family_ID") + " AS 'NumberOfWorkers',"
                 + " (SELECT COUNT(person.id) FROM person JOIN person_family JOIN person_visitdetails JOIN person_state JOIN personstate ON person.id = person_family.person_id and person.id = person_visitdetails.person_id and person.id = person_state.person_id and person_state.personstate_id = personstate.id WHERE person_family.family_id = @Family_ID and person_visitdetails.isStudent = '1' and person_state.current_state = '1' and LOWER(personstate.type) = LOWER('Active') and person_state.family_id = @Family_ID) AS 'NumberOfStudents',"
                 + " (SELECT COUNT(person.id) FROM person JOIN person_family JOIN person_state JOIN personstate ON person.id = person_family.person_id and person.id = person_state.person_id and person_state.personstate_id = personstate.id WHERE person_family.family_id = @Family_ID and year(DATE(NOW())) - year(person.DOB) > '60' and person_state.current_state = '1' and LOWER(personstate.type) = LOWER('Active') and person_state.family_id = @Family_ID)  AS 'NumberOfOld',"
                 + " (SELECT COUNT(DISTINCT person.id) FROM person JOIN person_family JOIN person_state JOIN personstate JOIN person_disease ON person.id = person_family.person_id and person.id = person_disease.person_id and person.id = person_state.person_id and person_state.personstate_id = personstate.id WHERE person_family.family_id = @Family_ID and person_state.current_state = '1' and LOWER(personstate.type) = LOWER('Active') and person_state.family_id = @Family_ID) AS 'NumberOfPatient';";

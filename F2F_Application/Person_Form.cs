@@ -867,7 +867,7 @@ namespace F2F_Application
                     return false;
                 }
                 
-                if (NotReceiver_RadioButton.Checked && (string.IsNullOrEmpty(State_ComboBox.Text) || State_ComboBox.SelectedIndex <= 0))
+                if (NotReceiver_RadioButton.Checked && (string.IsNullOrEmpty(State_ComboBox.Text) || State_ComboBox.SelectedIndex < 0))
                 {
                     MessageBox.Show("الرجاء التأكد من تحديد الحالة في قسم معلومات الشخص ضمن العائلة", "Error");
                     return false;
@@ -1476,7 +1476,7 @@ namespace F2F_Application
                                         + aidnote_29 
                                         + "', 1 ,DATE(NOW()));";
 
-                    if (State_ID != 0 && State_IsDirty)
+                    if (State_IsDirty)
                     {
                         Receiver_Query += "INSERT INTO familymembersnumber (family_id, NumberOfBeneficiaries, NumberOfAllMembers, Note, date) VALUES "
                                            + " (@Family_ID, "
@@ -2479,6 +2479,12 @@ namespace F2F_Application
             {
                 if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
             }
+        }
+
+        private void State_ComboBox_Format(object sender, ListControlConvertEventArgs e)
+        {
+            if (string.Equals(e.Value?.ToString(), "N/A", StringComparison.Ordinal))
+                e.Value = "رب الأسرة";
         }
 
         private void State_Note_TextBox_Enter(object sender, EventArgs e)
